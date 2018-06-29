@@ -43,13 +43,13 @@ export default {
   z-index: 10
   +easeTransition
   &#mountain-left
-    left: 0
+    left: -2.5%
     @media screen and (max-width: 1440px)
-      left: -5%
+      left: -7.5%
   &#mountain-right
-    right: 0
+    right: -2.5%
     @media screen and (max-width: 1440px)
-      right: -5%
+      right: -7.5%
 
 #clouds
   #cloud1

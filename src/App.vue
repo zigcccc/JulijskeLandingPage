@@ -14,6 +14,9 @@ export default {
 </script>
 
 <style lang="sass">
+html,
+body
+  overflow-x: hidden
 #app
   font-family: $family-sans
   -webkit-font-smoothing: antialiased

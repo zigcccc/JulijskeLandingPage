@@ -1,17 +1,18 @@
 <template>
   <section id="hero" :style="{backgroundImage: `url(${bgimage})`}">
+    <navbar />
     <hero-background />
     <div class="container">
-      test text
     </div>
   </section>
 </template>
 
 <script>
 import HeroBackground from '@/components/HeroBackground'
+import Navbar from '@/components/Navbar'
 export default {
   name: 'Hero',
-  components: {HeroBackground},
+  components: {Navbar, HeroBackground},
   data(){
     return {
       bgimage: '/images/hero_bg.png'
@@ -31,6 +32,4 @@ export default {
     position: 0% 50%
   @media screen and (max-width: 1440px)
     height: calc(#{$hero-height} - 100px)
-  .container
-    background: pink
 </style>
