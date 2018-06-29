@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import latin_map from '@/utils/latinMap';
 
 import { destinations } from '@/structure.json';
 
@@ -13,8 +14,24 @@ export default new Vuex.Store({
 	actions: {},
 	getters: {
 		destinationsNames: state => {
-			return state.destinations.map(destination => destination.name);
+			return state.destinations.map(destination => {
+				let destinationID = destination.name
+					.toLowerCase()
+					.split(' ')
+					.join('-')
+					.latinise();
+				return {
+					name: destination.name,
+					id: destinationID
+				};
+			});
 		}
 	},
 	setter: {}
 });
+
+String.prototype.latinise = function() {
+	return this.replace(/[^A-Za-z0-9]/g, function(x) {
+		return latin_map[x] || x;
+	});
+};
