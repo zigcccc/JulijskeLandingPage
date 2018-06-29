@@ -11,7 +11,7 @@
       </div>
       <div class="menu-icon">
         Destinations
-        <img src="@/assets/Menu.svg" alt="Meni">
+        <img @click="toggleMenu" src="@/assets/Menu.svg" alt="Meni">
       </div>
     </div>
   </nav>
@@ -19,7 +19,17 @@
 
 <script>
 export default {
-  
+  name: 'Navbar',
+  data(){
+    return {
+      menuOpen: false
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.menuOpen === false ? this.menuOpen = true : this.menuOpen = false
+    }
+  }
 }
 </script>
 

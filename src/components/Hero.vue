@@ -1,7 +1,7 @@
 <template>
   <section id="hero" :style="{backgroundImage: `url(${bgimage})`}">
     <navbar />
-    <hero-background />
+    <hero-background :heroHeight="heroHeight" />
     <div class="container">
     </div>
   </section>
@@ -15,8 +15,17 @@ export default {
   components: {Navbar, HeroBackground},
   data(){
     return {
+      heroHeight: 0,
       bgimage: '/images/hero_bg.png'
     }
+  },
+  methods: {
+    getHeroHeight() {
+      return this.$el.clientHeight;
+    }
+  },
+  mounted(){
+    this.heroHeight = this.getHeroHeight();
   }
 }
 </script>
@@ -31,5 +40,5 @@ export default {
     size: cover
     position: 0% 50%
   @media screen and (max-width: 1440px)
-    height: calc(#{$hero-height} - 100px)
+    height: calc(#{$hero-height} - 75px)
 </style>

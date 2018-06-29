@@ -1,7 +1,7 @@
 <template>
   <div id="hero-background">
-    <img src="/images/mountain_left@2x.png" alt="Gorovje v Julijskih Alpah" id="mountain-left" class="hero-mountain">
-    <img src="/images/mountain_right@2x.png" alt="Gorovje v Julijskih Alpah" id="mountain-right" class="hero-mountain">
+    <img :style="mountainLeftStyle" src="/images/mountain_left@2x.png" alt="Gorovje v Julijskih Alpah" id="mountain-left" class="hero-mountain">
+    <img :style="mountainRightStyle" src="/images/mountain_right@2x.png" alt="Gorovje v Julijskih Alpah" id="mountain-right" class="hero-mountain">
     <div id="clouds">
       <div class="hero-clouds" id="cloud1">
         <img src="/images/Clouds_01.png" alt="Oblaki v Julijskih Alpah">
@@ -19,9 +19,30 @@
 <script>
 export default {
   name: 'HeroBackground',
+  props: {
+    heroHeight: {
+      type: Number,
+      required: true
+    }
+  },
+  data(){
+    return {
+      mountainLeftStyle: {
+        transform: 'perspective(500px) translate3d(0,0,0)'
+      },
+      mountainRightStyle: {
+        transform: 'perspective(500px) translate3d(0,0,0)'
+      }
+    }
+  },
   methods: {
     parallax(scrollTop) {
-      console.log(scrollTop)
+      if (scrollTop < this.heroHeight) {
+        let factor1 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 1, 2)
+        let factor2 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 1, 5)
+        this.mountainLeftStyle.transform = `scale(${1 / factor1})`
+        this.mountainRightStyle.transform = `scale(${1 / factor2})`
+      }
     }
   },
   created(){
@@ -39,14 +60,16 @@ export default {
 .hero-mountain
   height: 100%
   position: absolute
-  top: 0
+  bottom: 0
   z-index: 10
-  +easeTransition
+  //+simpleTransition
   &#mountain-left
+    transform-origin: left bottom
     left: -2.5%
     @media screen and (max-width: 1440px)
       left: -7.5%
   &#mountain-right
+    transform-origin: right bottom
     right: -2.5%
     @media screen and (max-width: 1440px)
       right: -7.5%
