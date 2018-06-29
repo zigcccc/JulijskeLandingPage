@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    
+    <hero />
+    <div id="spacer"></div>
   </div>
 </template>
 
 <script>
+import Hero from '@/components/Hero'
 export default {
   name: 'app',
-  components: {}
+  components: {Hero}
 }
 </script>
 
@@ -16,11 +18,10 @@ export default {
   font-family: $family-sans
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  text-align: center
   color: $black
-  margin-top: 60px
 
-  h1
-    font-weight: 900
-    font-size: 2.4em
+#spacer
+  min-height: 2000px
+  display: block
+  background: $black
 </style>
