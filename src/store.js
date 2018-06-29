@@ -1,12 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import { destinations } from '@/structure.json';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-	state: {},
+	state: {
+		destinations: destinations
+	},
 	mutations: {},
 	actions: {},
-	getters: {},
+	getters: {
+		destinationsNames: state => {
+			return state.destinations.map(destination => destination.name);
+		}
+	},
 	setter: {}
 });

@@ -1,0 +1,69 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "name": "Bled",
+      "video": "",
+      "description": "",
+      "images": [],
+      "url": "http://www.bled.si/en/",
+      "places_around": []
+    },
+    {
+      "id": 2,
+      "name": "Bohinj",
+      "video": "",
+      "description": "",
+      "images": [],
+      "url": "https://www.bohinj.si/en/",
+      "places_around": []
+    },
+    {
+      "id": 3,
+      "name": "Goriška Brda",
+      "video": "",
+      "description": "",
+      "images": [],
+      "url": "https://www.brda.si/eng/",
+      "places_around": []
+    },
+    {
+      "id": 4,
+      "name": "Soča Valley",
+      "video": "",
+      "description": "",
+      "images": [],
+      "url": "https://www.soca-valley.com/en/",
+      "places_around": [
+        "Kobarid",
+        "Tolmin",
+        "Bovec"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Kranjska Gora",
+      "video": "",
+      "description": "",
+      "images": [],
+      "url": "https://www.kranjska-gora.si/en",
+      "places_around": [
+        "Mojstrana",
+        "Gozd Martuljek"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Radovljica",
+      "video": "",
+      "description": "",
+      "images": [],
+      "url": "https://www.radolca.si/en",
+      "places_around": [
+        "Lesce",
+        "Žirovnica",
+        "Jesenice"
+      ]
+    }
+  ]
+}
