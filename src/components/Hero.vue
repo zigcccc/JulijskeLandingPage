@@ -1,6 +1,6 @@
 <template>
   <section id="hero" :style="{backgroundImage: `url(${bgimage})`}">
-    <navbar />
+    <navbar :heroHeight="heroHeight" />
     <hero-background :heroHeight="heroHeight" />
     <div class="container">
     </div>
@@ -16,7 +16,7 @@ export default {
   data(){
     return {
       heroHeight: 0,
-      bgimage: '/images/hero_bg.png'
+      bgimage: '/images/julian_alps_05.png'
     }
   },
   methods: {

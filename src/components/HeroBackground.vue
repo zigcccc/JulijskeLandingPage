@@ -1,16 +1,16 @@
 <template>
   <div id="hero-background">
-    <img :style="mountainLeftStyle" src="/images/mountain_left@2x.png" alt="Gorovje v Julijskih Alpah" id="mountain-left" class="hero-mountain">
-    <img :style="mountainRightStyle" src="/images/mountain_right@2x.png" alt="Gorovje v Julijskih Alpah" id="mountain-right" class="hero-mountain">
+    <img :style="middleGroundStyle" id="middle-ground" class="hero-mountain" src="@/assets/sredina.png" alt="Julian Alps">
+    <img :style="frontGroundStyle" id="front-ground" class="hero-mountain" src="@/assets/spredaj.png" alt="Julian Alps">
     <div id="clouds">
       <div class="hero-clouds" id="cloud1">
-        <img src="/images/Clouds_01.png" alt="Oblaki v Julijskih Alpah">
+        <img src="/images/Clouds_01.png" alt="Clouds in Julian Alps">
       </div>
       <div class="hero-clouds" id="cloud2">
-        <img src="/images/Clouds_02.png" alt="Oblaki v Julijskih Alpah">
+        <img src="/images/Clouds_02.png" alt="Clouds in Julian Alps">
       </div>
       <div class="hero-clouds" id="cloud3">
-        <img src="/images/Clouds_03.png" alt="Oblaki v Julijskih Alpah">
+        <img src="/images/Clouds_03.png" alt="Clouds in Julian Alps">
       </div>
     </div>
   </div>
@@ -27,21 +27,25 @@ export default {
   },
   data(){
     return {
-      mountainLeftStyle: {
-        transform: 'perspective(500px) translate3d(0,0,0)'
+      middleGroundStyle: {
+        perspective: '10px',
+        transform: 'translate3d(0,0,0)',
+        filter: 'blur(0) contrast(120%)'
       },
-      mountainRightStyle: {
-        transform: 'perspective(500px) translate3d(0,0,0)'
+      frontGroundStyle: {
+        perspective: '500px',
+        transform: 'translate3d(0,0,0)'
       }
     }
   },
   methods: {
     parallax(scrollTop) {
       if (scrollTop < this.heroHeight) {
-        let factor1 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 1, 2)
-        let factor2 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 1, 5)
-        this.mountainLeftStyle.transform = `scale(${1 / factor1})`
-        this.mountainRightStyle.transform = `scale(${1 / factor2})`
+        let factor1 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 0, 2)
+        let factor2 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 0, this.heroHeight / 4)
+        this.middleGroundStyle.transform = `translate3d(0, -${factor2}%, ${factor1}px) scale(${(factor1 / 10) + 1})`
+        this.middleGroundStyle.filter = `blur(${factor2}px) contrast(120%)`
+        this.frontGroundStyle.transform = `translate3d(0, ${factor2 * 2}%, 0) scale(${(factor1) + 1})`
       }
     }
   },
@@ -58,21 +62,18 @@ export default {
 
 <style lang="sass" scoped>
 .hero-mountain
-  height: 100%
+  height: auto
+  width: 100%
   position: absolute
   bottom: 0
   z-index: 10
-  //+simpleTransition
-  &#mountain-left
-    transform-origin: left bottom
-    left: -2.5%
-    @media screen and (max-width: 1440px)
-      left: -7.5%
-  &#mountain-right
-    transform-origin: right bottom
-    right: -2.5%
-    @media screen and (max-width: 1440px)
-      right: -7.5%
+  //+simpleTranstion
+  &#middle-ground
+    z-index: 5
+  &#front-ground
+    z-index: 20
+    filter: contrast(130%)
+    transform-origin: bottom center
 
 #clouds
   #cloud1
@@ -85,7 +86,7 @@ export default {
     transform: translate3d(5%, 30%, 0)
     //background: green
   .hero-clouds
-    z-index: 1
+    z-index: 10
     position: absolute
     bottom: 0
     display: flex

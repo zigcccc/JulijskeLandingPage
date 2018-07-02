@@ -1,6 +1,5 @@
 <template>
-  <nav>
-    <div class="container">
+  <nav :class="{'is-hidden' : isPastHero}">
       <div class="social-links">
         <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -13,38 +12,57 @@
         Destinations
         <img @click="toggleMenu" src="@/assets/Menu.svg" alt="Meni">
       </div>
-    </div>
   </nav>
 </template>
 
 <script>
 export default {
   name: 'Navbar',
+  props: {
+    heroHeight: {
+      type: Number,
+      required: true
+    }
+  },
   data(){
     return {
-      menuOpen: false
+      menuOpen: false,
+      isPastHero: false
     }
   },
   methods: {
     toggleMenu() {
       this.menuOpen === false ? this.menuOpen = true : this.menuOpen = false
+    },
+    scrollTop(offset) {
+      offset > (this.heroHeight - (this.heroHeight / 2)) ? this.isPastHero = true : this.isPastHero = false
     }
+  },
+  created(){
+    document.addEventListener('scroll', e => {
+      this.scrollTop(e.target.scrollingElement.scrollTop)
+    })
+  },
+  destroyed() {
+    document.removeEventListener('scroll', this.scrollTop)
   }
 }
 </script>
 
 <style lang="sass" scoped>
 nav
-  position: relative
-  z-index: 100
-  padding-top: 20px
-  .container
-    display: flex
-    justify-content: space-between
-    align-items: center
+  position: fixed
+  top: 0
+  width: 100%
+  //z-index: 100
+  padding: 20px 2em 0
+  display: flex
+  justify-content: space-between
+  align-items: center
+  &.is-hidden
+    position: relative
 
 .social-links
-  padding-left: 2em
   & > a
     font-size: 1.2em
     color: $white
