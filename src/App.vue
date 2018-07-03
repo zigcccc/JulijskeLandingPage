@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <hero />
+    
     <div id="spacer"></div>
   </div>
 </template>

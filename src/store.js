@@ -6,12 +6,22 @@ import { destinations } from '@/structure.json';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
 	state: {
+		heroHeight: 0,
 		destinations: destinations
 	},
-	mutations: {},
-	actions: {},
+	mutations: {
+		setHeroHeight(state, heroHeight) {
+			state.heroHeight = heroHeight;
+		}
+	},
+	actions: {
+		setHeroHeight({ commit }, payload) {
+			//console.log(payload);
+			commit('setHeroHeight', payload);
+		}
+	},
 	getters: {
 		destinationsNames: state => {
 			return state.destinations.map(destination => {
@@ -29,6 +39,8 @@ export default new Vuex.Store({
 	},
 	setter: {}
 });
+
+export default store;
 
 String.prototype.latinise = function() {
 	return this.replace(/[^A-Za-z0-9]/g, function(x) {
