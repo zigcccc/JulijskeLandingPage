@@ -9,7 +9,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
 	state: {
 		heroHeight: 0,
-		destinations: destinations
+		destinations: destinations,
+		activeDestination: destinations[0]
 	},
 	mutations: {
 		setHeroHeight(state, heroHeight) {
@@ -18,12 +19,11 @@ const store = new Vuex.Store({
 	},
 	actions: {
 		setHeroHeight({ commit }, payload) {
-			//console.log(payload);
 			commit('setHeroHeight', payload);
 		}
 	},
 	getters: {
-		destinationsNames: state => {
+		getDestinations: state => {
 			return state.destinations.map(destination => {
 				let destinationID = destination.name
 					.toLowerCase()
@@ -31,7 +31,7 @@ const store = new Vuex.Store({
 					.join('-')
 					.latinise();
 				return {
-					name: destination.name,
+					...destination,
 					id: destinationID
 				};
 			});

@@ -64,9 +64,9 @@ export default {
       if (scrollTop < this.heroHeight) {
         let factor1 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 0, 2)
         let factor2 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 0, this.heroHeight / 4)
-        this.middleGroundStyle.transform = `translate3d(0, 0, ${Math.floor(factor1)}px) scale(${(factor1 / 2) + 1})`
-        this.middleGroundStyle.filter = `blur(${Math.floor(factor2)}px) contrast(120%)`
-        this.frontGroundStyle.transform = `translate3d(0, ${factor2 * 2}%, 0) scale(${(factor1) + 1})`
+        this.middleGroundStyle.transform = `translate3d(0, 0, -${Math.floor(factor1)}px) scale(${(factor1 / 2) + 1})`
+        this.middleGroundStyle.filter = `blur(${factor2.toFixed(2) * 2}px) contrast(120%)`
+        this.frontGroundStyle.transform = `translate3d(0, ${factor2 * 4}%, 0) scale(${(factor1) + 1})`
         this.cloudsStyle1.transform = `translate3d(0,${Math.floor(scrollTop / 3)}px, 0)`
         this.cloudsStyle2.transform = `translate3d(0,${Math.floor(scrollTop / 5)}px, 0)`
         this.cloudsStyle3.transform = `translate3d(0,${Math.floor(scrollTop / 4)}px, 0)`
@@ -93,7 +93,6 @@ export default {
   position: absolute
   bottom: 0
   z-index: 10
-  //+simpleTranstion
   &#middle-ground
     z-index: 5
     transform-origin: bottom center

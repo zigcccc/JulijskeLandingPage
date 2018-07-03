@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <hero />
-    
-    <div id="spacer"></div>
+    <destination-map />
+    <destinations />
   </div>
 </template>
 
 <script>
 import Hero from '@/components/Hero'
+import DestinationMap from '@/components/DestinationMap'
+import Destinations from '@/components/Destinations'
+
 export default {
   name: 'app',
-  components: {Hero}
+  components: {Hero, DestinationMap, Destinations}
 }
 </script>
 
@@ -23,9 +26,4 @@ body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   color: $black
-
-#spacer
-  min-height: 2000px
-  display: block
-  background: $black
 </style>

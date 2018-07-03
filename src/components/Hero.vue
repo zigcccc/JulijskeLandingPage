@@ -43,18 +43,21 @@ export default {
     },
     scrollPastHero() {
       window.scrollTo({
-        top: this.heroHeight - 100,
+        top: this.heroHeight,
         behavior: 'smooth'
       })
     },
     parallax(scrollTop) {
       if (scrollTop < this.heroHeight) {
-        let factor1 = window.map(scrollTop, 0, this.heroHeight, 0, 25).toFixed(2);
-        this.titleStyle.transform = `translate3d(0,${factor1}%,0)`
+        let factor1 = window.map(scrollTop, 0, this.heroHeight, 0, 200).toFixed(2);
+        this.titleStyle.transform = `translate3d(0,${factor1}px,0)`
       }
     }
   },
   created(){
+    window.addEventListener('resize', () => {
+      this.$store.dispatch('setHeroHeight', this.getHeroHeight());
+    })
     document.addEventListener('scroll', e => {
       this.parallax(e.target.scrollingElement.scrollTop)
     })
@@ -78,12 +81,14 @@ export default {
     size: cover
     position: 0% 50%
   @media screen and (max-width: 1440px)
-    height: calc(#{$hero-height} - 75px)
+    //height: calc(#{$hero-height} - 75px)
 
 .hero-columns
-  margin-top: 25vh
+  margin-top: 20vh
   position: relative
   z-index: 10
+  @media screen and (max-width: 1440px)
+    margin-top: 30vh
 
   .hero-title
     display: flex

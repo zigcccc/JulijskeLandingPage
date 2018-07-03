@@ -4,36 +4,40 @@
       "id": 1,
       "name": "Bled",
       "video": "",
-      "description": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
       "images": [],
       "url": "http://www.bled.si/en/",
+      "mapUrl": "https://www.google.si/maps/place/4260+Bled/@46.365412,14.0609277,13z/data=!3m1!4b1!4m5!3m4!1s0x477a8e1dd7139961:0x400f81c823fec50!8m2!3d46.3683266!4d14.1145798",
       "places_around": []
     },
     {
       "id": 2,
       "name": "Bohinj",
       "video": "",
-      "description": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
       "images": [],
       "url": "https://www.bohinj.si/en/",
+      "mapUrl": "https://www.google.si/maps/place/Municipality+of+Bohinj/@46.3017053,13.6727928,10z/data=!3m1!4b1!4m5!3m4!1s0x477a8d690162778d:0x400f81c823fec60!8m2!3d46.3005652!4d13.9427195",
       "places_around": []
     },
     {
       "id": 3,
       "name": "Goriška Brda",
       "video": "",
-      "description": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
       "images": [],
       "url": "https://www.brda.si/eng/",
+      "mapUrl": "https://www.google.si/maps/place/Municipality+of+Brda/@46.0161849,13.4842289,12z/data=!3m1!4b1!4m5!3m4!1s0x477bab32db63550b:0x400f81c823fec90!8m2!3d45.9975652!4d13.5270474",
       "places_around": []
     },
     {
       "id": 4,
       "name": "Soča Valley",
       "video": "",
-      "description": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
       "images": [],
       "url": "https://www.soca-valley.com/en/",
+      "mapUrl": "https://www.google.com/maps/@46.2534545,13.6315018,11.72z",
       "places_around": [
         "Kobarid",
         "Tolmin",
@@ -44,25 +48,55 @@
       "id": 5,
       "name": "Kranjska Gora",
       "video": "",
-      "description": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
       "images": [],
       "url": "https://www.kranjska-gora.si/en",
+      "mapUrl": "https://www.google.si/maps/place/4280+Kranjska+Gora/@46.4604035,13.700742,12z/data=!3m1!4b1!4m5!3m4!1s0x477a7ce5980f8af5:0xdc10e282bbdf9dde!8m2!3d46.4845293!4d13.7857145",
       "places_around": [
         "Mojstrana",
         "Gozd Martuljek"
       ]
     },
     {
-      "id": 5,
+      "id": 6,
+      "name": "Gorje",
+      "video": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      "images": [],
+      "url": "https://www.gorje.si/",
+      "mapUrl": "https://www.google.si/maps/place/Gorje,+4247+Zgornje+Gorje/@46.4081285,13.9517518,11.94z/data=!4m5!3m4!1s0x477a8e54af2ba1eb:0x400f81c823ff870!8m2!3d46.3802458!4d14.0685339",
+      "places_around": []
+    },
+    {
+      "id": 7,
+      "name": "Jesenice",
+      "video": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      "images": [],
+      "url": "http://www.jesenice.si/",
+      "mapUrl": "https://www.google.si/maps/place/4270+Jesenice/@46.4358788,14.0354262,14.33z/data=!4m5!3m4!1s0x477a9ab1c13c74bd:0x966c9bfc901b914d!8m2!3d46.4367047!4d14.0526057",
+      "places_around": []
+    },
+    {
+      "id": 8,
+      "name": "Žirovnica",
+      "video": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+      "images": [],
+      "url": "https://zirovnica.si/",
+      "mapUrl": "https://www.google.si/maps/place/Municipality+of+%C5%BDirovnica/@46.3997311,14.148326,13z/data=!4m5!3m4!1s0x477a99dbd9feeed7:0x1e18375f7a4a4ff6!8m2!3d46.3954403!4d14.1539632",
+      "places_around": []
+    },
+    {
+      "id": 9,
       "name": "Radovljica",
       "video": "",
-      "description": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
       "images": [],
       "url": "https://www.radolca.si/en",
+      "mapUrl": "https://www.google.si/maps/place/4240+Radovljica/@46.3430203,14.1673241,14.6z/data=!4m5!3m4!1s0x477a961255edcb7b:0xb198beb76df8bcc6!8m2!3d46.3437361!4d14.1740042",
       "places_around": [
-        "Lesce",
-        "Žirovnica",
-        "Jesenice"
+        "Lesce"
       ]
     }
   ]
