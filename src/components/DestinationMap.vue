@@ -1,6 +1,6 @@
 <template>
   <aside :style="{top: `${heroHeight}px`}" :class="[{fixed : isPastHero}, activeDestination.id]" id="map">
-    <h3>Location of the destination.</h3>
+    <h3>Location of {{ $store.state.activeDestination.name }}.</h3>
     <div class="map-container"></div>
     <div class="map-cta-container">
       <a :href="destinationMapUrl" target="_blank">See location <span><i class="fas fa-chevron-right"></i></span></a>
@@ -53,6 +53,7 @@ h3
   font-weight: 900
   color: $black
   text-shadow: 0 5px 10px rgba(0,0,0,.2)
+  +bounceTransition
 
 .map-cta-container
   display: flex

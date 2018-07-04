@@ -18,6 +18,7 @@ export default {
     return {
       isInViewport: false,
       sectionOffset: 0,
+      sectionPadding: window.innerHeight / 3,
       sectionBackground: {
         backgroundImage: `
           linear-gradient(
@@ -37,7 +38,7 @@ export default {
   },
   methods: {
     checkViewport(scrollTop) {
-      let inFocus = scrollTop + 120 > this.sectionOffset && scrollTop + 120 < this.sectionOffset + this.$el.clientHeight;
+      let inFocus = scrollTop + this.sectionPadding > this.sectionOffset && scrollTop + this.sectionPadding < this.sectionOffset + this.$el.clientHeight;
       if (inFocus && this.destination !== this.$store.state.activeDestination) {
         this.$store.dispatch('setActiveDestination', this.destination)
       }

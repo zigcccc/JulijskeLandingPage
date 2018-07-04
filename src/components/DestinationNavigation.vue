@@ -19,13 +19,18 @@
 <script>
 export default {
   name: 'DestinationNavigation',
+  data() {
+    return {
+      sectionPadding: window.innerHeight / 7
+    }
+  },
   methods: {
     goToPrev() {
       let section = document.querySelector(`#${this.prevAndNext.prev.id}`);
       let offset = section.offsetTop;
       let height = section.clientHeight;
       window.scrollTo({
-        top: (offset + height) - 240,
+        top: (offset + height) - this.sectionPadding,
         behavior: 'smooth'
       })
     },
@@ -34,21 +39,31 @@ export default {
       let offset = section.offsetTop;
       let height = section.clientHeight;
       window.scrollTo({
-        top: (offset + height) - 240,
+        top: (offset + height) - this.sectionPadding,
         behavior: 'smooth'
       })
     },
     arrowKeys(event, key) {
       if (key === 40) {
         event.preventDefault();
-        if (this.$store.state.activeDestination.index !== this.destinations.length - 1) {
+        if (this.$store.state.activeDestination.index !== this.destinations.length - 1 && this.$store.state.isPastHero) {
           this.goToNext()
+        } else if (!this.$store.state.isPastHero) {
+          window.scrollTo({
+            top: this.$store.state.heroHeight,
+            behavior: 'smooth'
+          })
         }
       }
       if (key === 38) {
         event.preventDefault();
         if (this.$store.state.activeDestination.index !== 0) {
           this.goToPrev()
+        } else {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          })
         }
       }
     }
@@ -91,6 +106,7 @@ export default {
     min-width: 100px
     display: flex
     font-weight: 900
+    text-shadow: 0 5px 10px rgba(0,0,0,.5)
     +bounceTransition
     &:first-of-type
       justify-content: flex-start
