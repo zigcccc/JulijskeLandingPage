@@ -1,7 +1,7 @@
 {
   "destinations": [
     {
-      "id": 1,
+      "index": 0,
       "name": "Bled",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
@@ -11,7 +11,7 @@
       "places_around": []
     },
     {
-      "id": 2,
+      "index": 1,
       "name": "Bohinj",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
@@ -21,7 +21,7 @@
       "places_around": []
     },
     {
-      "id": 3,
+      "index": 2,
       "name": "Goriška Brda",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
@@ -31,7 +31,7 @@
       "places_around": []
     },
     {
-      "id": 4,
+      "index": 3,
       "name": "Soča Valley",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "id": 5,
+      "index": 4,
       "name": "Kranjska Gora",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "id": 6,
+      "index": 5,
       "name": "Gorje",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
@@ -68,7 +68,7 @@
       "places_around": []
     },
     {
-      "id": 7,
+      "index": 6,
       "name": "Jesenice",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
@@ -78,7 +78,7 @@
       "places_around": []
     },
     {
-      "id": 8,
+      "index": 7,
       "name": "Žirovnica",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
@@ -88,7 +88,7 @@
       "places_around": []
     },
     {
-      "id": 9,
+      "index": 8,
       "name": "Radovljica",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",

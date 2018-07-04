@@ -1,5 +1,6 @@
 <template>
   <main id="destinations">
+    <destination-navigation />
     <single-destination
       v-for="destination in destinations"
       :key="destination.id"
@@ -9,11 +10,12 @@
 </template>
 
 <script>
+import DestinationNavigation from '@/components/DestinationNavigation'
 import SingleDestination from '@/components/SingleDestination'
 
 export default {
   name: 'Destinations',
-  components: { SingleDestination },
+  components: { DestinationNavigation, SingleDestination },
   computed: {
     destinations() {
       return this.$store.getters.getDestinations

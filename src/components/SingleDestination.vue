@@ -11,6 +11,8 @@ export default {
   name: 'SingleDestination',
   data(){
     return {
+      isInViewport: false,
+      sectionOffset: 0,
       sectionBackground: {
         backgroundImage: `
           linear-gradient(
@@ -27,6 +29,26 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    checkViewport(scrollTop) {
+      let inFocus = scrollTop + 120 > this.sectionOffset && scrollTop + 120 < this.sectionOffset + this.$el.clientHeight;
+      console.log(this.destination.name + ' is in focus? ', inFocus);
+      if (inFocus && this.destination !== this.$store.state.activeDestination) {
+        this.$store.dispatch('setActiveDestination', this.destination)
+      }
+    }
+  },
+  created() {
+    document.addEventListener('scroll', e => {
+      this.checkViewport(e.target.scrollingElement.scrollTop)
+    })
+  },
+  mounted() {
+    this.sectionOffset = this.$el.offsetTop + this.$store.state.heroHeight
+  },
+  destroyed() {
+    document.removeEventListener('scroll', this.checkViewport)
   }
 }
 </script>

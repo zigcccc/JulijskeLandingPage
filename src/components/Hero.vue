@@ -43,7 +43,7 @@ export default {
     },
     scrollPastHero() {
       window.scrollTo({
-        top: this.heroHeight,
+        top: this.heroHeight + 1,
         behavior: 'smooth'
       })
     },
@@ -51,7 +51,16 @@ export default {
       if (scrollTop < this.heroHeight) {
         let factor1 = window.map(scrollTop, 0, this.heroHeight, 0, 200).toFixed(2);
         this.titleStyle.transform = `translate3d(0,${factor1}px,0)`
+        if (this.$store.state.isPastHero === true) {
+          this.$store.dispatch('pastHero', false);
+        }
       }
+
+      if (scrollTop > this.heroHeight) {
+        if (this.$store.state.isPastHero === false)
+        this.$store.dispatch('pastHero', true);
+      }
+      
     }
   },
   created(){
