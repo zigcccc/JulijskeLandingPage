@@ -5,7 +5,14 @@
       "name": "Bled",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      "images": [],
+      "images": [
+        "/bled/bled_01.jpg",
+        "/bled/bled_02.jpg",
+        "/bled/bled_03.jpg",
+        "/bled/bled_04.jpg",
+        "/bled/bled_05.jpg",
+        "/bled/bled_06.jpg"
+      ],
       "url": "http://www.bled.si/en/",
       "mapUrl": "https://www.google.si/maps/place/4260+Bled/@46.365412,14.0609277,13z/data=!3m1!4b1!4m5!3m4!1s0x477a8e1dd7139961:0x400f81c823fec50!8m2!3d46.3683266!4d14.1145798",
       "places_around": []

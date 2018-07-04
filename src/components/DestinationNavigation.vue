@@ -93,6 +93,7 @@ export default {
 <style lang="sass" scoped>
 #destination-nav
   position: absolute
+  z-index: 10
   top: 10px
   left: 0
   display: flex

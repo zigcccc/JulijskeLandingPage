@@ -7,13 +7,21 @@
         <a :href="destination.url" target="_blank">discover {{ destination.name }}</a>
         <span><i class="fas fa-arrow-right"></i></span>
       </div>
-    </div>
+      <div class="destination-images-container">
+        <destination-images :images="destination.images" :destination="destination.name" />
+        <!-- <destination-clouds /> -->
+      </div>
+    </div><!-- END destination-container -->
   </div>
 </template>
 
 <script>
+import DestinationImages from '@/components/DestinationImages'
+import DestinationClouds from '@/components/DestinationClouds'
+
 export default {
   name: 'SingleDestination',
+  components: {DestinationImages, DestinationClouds},
   data(){
     return {
       isInViewport: false,
@@ -22,8 +30,8 @@ export default {
       sectionBackground: {
         backgroundImage: `
           linear-gradient(
-            rgba(0,0,0,.5),
-            rgba(0,0,0,.5)
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.65)
           ),
           url('/images/destinations/${this.destination.id}.png')
         `
@@ -67,6 +75,7 @@ export default {
 .single-destination
   height: 1075px
   max-height: 100vh
+  overflow: hidden
   background:
     size: cover
     repeat: no-repeat
@@ -75,7 +84,7 @@ export default {
 .destination-container
   width: calc(75% + 2em)
   margin-left: auto
-  padding: 30px 1em 0
+  padding: 30px 0 0 1em
 
 .destination-name
   font-weight: 900
@@ -134,5 +143,9 @@ export default {
       transform: translate3d(0, -5px, 0)
       & + span
         transform: translateY(-3px) translateX(-10%)
+
+.destination-images-container
+  padding-top: 100px
+  //overflow: hidden
 </style>
 
