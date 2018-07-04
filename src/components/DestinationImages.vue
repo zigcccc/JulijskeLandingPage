@@ -40,7 +40,7 @@ export default {
   computed: {
     containerStyle() {
       return {
-        transform: `translateX(-${25 * this.activeImage}%)`
+        transform: `translateX(-${225 * this.activeImage}px)`
       }
     }
   },
