@@ -10,3 +10,11 @@
 
 =easeTransition($time: 300ms)
   transition: all $time cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+=fadeInOnActive()
+  opacity: 0
+  transform: translate3d(0, 100%, 0)
+  +bounceTransition(600ms)
+  &.active
+    opacity: 1
+    transform: translate3d(0,0,0)
