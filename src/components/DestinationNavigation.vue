@@ -1,14 +1,18 @@
 <template>
   <div id="destination-nav" :class="{fixed : isPastHero}">
-    <div v-if="prevAndNext.prev" @click="goToPrev" id="prev-dest">
-      {{ prevAndNext.prev.name }}
-      <span><i class="fas fa-long-arrow-alt-right"></i></span>
-    </div>
-    <!-- <div v-else class="spacer"></div> -->
     <div v-if="prevAndNext.next" @click="goToNext" id="next-dest">
       <span><i class="fas fa-long-arrow-alt-left"></i></span>
       {{ prevAndNext.next.name }}
     </div>
+    <div v-else class="spacer"></div>
+    <div id="destination-counter">
+      {{ $store.state.activeDestination.index + 1 }} / {{ destinations.length }}
+    </div>
+    <div v-if="prevAndNext.prev" @click="goToPrev" id="prev-dest">
+      {{ prevAndNext.prev.name }}
+      <span><i class="fas fa-long-arrow-alt-right"></i></span>
+    </div>
+    <div v-else class="spacer"></div>
   </div>
 </template>
 
@@ -33,6 +37,20 @@ export default {
         top: (offset + height) - 240,
         behavior: 'smooth'
       })
+    },
+    arrowKeys(event, key) {
+      if (key === 40) {
+        event.preventDefault();
+        if (this.$store.state.activeDestination.index !== this.destinations.length - 1) {
+          this.goToNext()
+        }
+      }
+      if (key === 38) {
+        event.preventDefault();
+        if (this.$store.state.activeDestination.index !== 0) {
+          this.goToPrev()
+        }
+      }
     }
   },
   computed: {
@@ -45,6 +63,14 @@ export default {
     prevAndNext() {
       return this.$store.getters.prevAndNext
     }
+  },
+  created() {
+    document.addEventListener('keydown', e => {
+      this.arrowKeys(e, e.keyCode)
+    })
+  },
+  destroyed() {
+    document.removeEventListener('keydown', this.arrowKeys)
   }
 }
 </script>
@@ -52,41 +78,46 @@ export default {
 <style lang="sass" scoped>
 #destination-nav
   position: absolute
-  top: 0
+  top: 10px
+  left: 0
   display: flex
-  flex-direction: column
-  height: 100vh
-  justify-content: flex-start
-  //background: pink
-  width: 50px
-  padding: 0 0
+  flex-direction: row
+  width: 50vh
+  justify-content: space-between
+  transform-origin: top center
+  transform: rotate(-90deg) translateY(-20vh) translateX(-55%)
   +bounceTransition
   & > div
-    margin: 100px 0
-    transform: rotate(-90deg)
-    padding: 
-    white-space: nowrap
+    min-width: 100px
     display: flex
-    height: auto
     font-weight: 900
     +bounceTransition
+    &:first-of-type
+      justify-content: flex-start
     &:last-of-type
       &:hover
         & > span
-          transform: translateX(-10px)
+          transform: translateX(10px)
       & > span
-        margin: 1px .75em
+        margin: 2px .75em
     & > span
-      margin: 3px .75em
+      margin: 1px .75em
       display: block
       +bounceTransition
     &:hover
       cursor: pointer
       & > span
-        transform: translateX(10px)
+        transform: translateX(-10px)
 
   &.fixed
     position: fixed
     top: 0
 
+#destination-counter
+  display: flex
+  justify-content: center
+
+.spacer
+  display: block
+  min-height: 20vh
 </style>
