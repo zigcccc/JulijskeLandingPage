@@ -3,6 +3,7 @@
     <hero />
     <destination-map />
     <destinations />
+    <triglav-national-park />
   </div>
 </template>
 
@@ -10,10 +11,11 @@
 import Hero from '@/components/Hero'
 import DestinationMap from '@/components/DestinationMap'
 import Destinations from '@/components/Destinations'
+import TriglavNationalPark from '@/components/TriglavNationalPark'
 
 export default {
   name: 'app',
-  components: {Hero, DestinationMap, Destinations}
+  components: {Hero, DestinationMap, Destinations, TriglavNationalPark}
 }
 </script>
 
