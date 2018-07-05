@@ -22,7 +22,15 @@
       "name": "Bohinj",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      "images": [],
+      "images": [
+        "/bohinj/bohinj_01.jpg",
+        "/bohinj/bohinj_06.jpg",
+        "/bohinj/bohinj_07.jpg",
+        "/bohinj/bohinj_02.jpg",
+        "/bohinj/bohinj_03.jpg",
+        "/bohinj/bohinj_04.jpg",
+        "/bohinj/bohinj_05.jpg"
+      ],
       "url": "https://www.bohinj.si/en/",
       "mapUrl": "https://www.google.si/maps/place/Municipality+of+Bohinj/@46.3017053,13.6727928,10z/data=!3m1!4b1!4m5!3m4!1s0x477a8d690162778d:0x400f81c823fec60!8m2!3d46.3005652!4d13.9427195",
       "places_around": []
@@ -32,7 +40,14 @@
       "name": "Goriška Brda",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      "images": [],
+      "images": [
+        "/goriska-brda/brda_01.jpg",
+        "/goriska-brda/brda_04.jpg",
+        "/goriska-brda/brda_02.jpg",
+        "/goriska-brda/brda_03.jpg",
+        "/goriska-brda/brda_05.jpg",
+        "/goriska-brda/brda_06.jpg"
+      ],
       "url": "https://www.brda.si/eng/",
       "mapUrl": "https://www.google.si/maps/place/Municipality+of+Brda/@46.0161849,13.4842289,12z/data=!3m1!4b1!4m5!3m4!1s0x477bab32db63550b:0x400f81c823fec90!8m2!3d45.9975652!4d13.5270474",
       "places_around": []
@@ -41,8 +56,17 @@
       "index": 3,
       "name": "Soča Valley",
       "video": "",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      "images": [],
+      "description": "Escape to an active break in the picturesque world of the Julian Alps and the emerald Soča River! Here, you will be enthused about variety of water activities and adventures, which make Soča Valley one of the most popular outdoor destinations in Europe.",
+      "images": [
+        "/soca-valley/soca_01.jpg",
+        "/soca-valley/soca_07.jpg",
+        "/soca-valley/soca_02.jpg",
+        "/soca-valley/soca_03.jpg",
+        "/soca-valley/soca_04.jpg",
+        "/soca-valley/soca_05.jpg",
+        "/soca-valley/soca_06.jpg",
+        "/soca-valley/soca_08.jpg"
+      ],
       "url": "https://www.soca-valley.com/en/",
       "mapUrl": "https://www.google.com/maps/@46.2534545,13.6315018,11.72z",
       "places_around": [
@@ -56,7 +80,14 @@
       "name": "Kranjska Gora",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      "images": [],
+      "images": [
+        "/kranjska-gora/kranjskagora_01.jpg",
+        "/kranjska-gora/kranjskagora_04.jpg",
+        "/kranjska-gora/kranjskagora_05.jpg",
+        "/kranjska-gora/kranjskagora_03.jpg",
+        "/kranjska-gora/kranjskagora_02.jpg",
+        "/kranjska-gora/kranjskagora_06.jpg"
+      ],
       "url": "https://www.kranjska-gora.si/en",
       "mapUrl": "https://www.google.si/maps/place/4280+Kranjska+Gora/@46.4604035,13.700742,12z/data=!3m1!4b1!4m5!3m4!1s0x477a7ce5980f8af5:0xdc10e282bbdf9dde!8m2!3d46.4845293!4d13.7857145",
       "places_around": [
@@ -69,7 +100,13 @@
       "name": "Gorje",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      "images": [],
+      "images": [
+        "/gorje/gorje_02.jpg",
+        "/gorje/gorje_01.jpg",
+        "/gorje/gorje_03.jpg",
+        "/gorje/gorje_04.jpg",
+        "/gorje/gorje_05.jpg"
+      ],
       "url": "https://www.gorje.si/",
       "mapUrl": "https://www.google.si/maps/place/Gorje,+4247+Zgornje+Gorje/@46.4081285,13.9517518,11.94z/data=!4m5!3m4!1s0x477a8e54af2ba1eb:0x400f81c823ff870!8m2!3d46.3802458!4d14.0685339",
       "places_around": []
@@ -79,7 +116,14 @@
       "name": "Jesenice",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      "images": [],
+      "images": [
+        "/jesenice/jesenice_01.jpg",
+        "/jesenice/jesenice_04.jpg",
+        "/jesenice/jesenice_03.jpg",
+        "/jesenice/jesenice_02.jpg",
+        "/jesenice/jesenice_05.jpg",
+        "/jesenice/jesenice_06.jpg"
+      ],
       "url": "http://www.jesenice.si/",
       "mapUrl": "https://www.google.si/maps/place/4270+Jesenice/@46.4358788,14.0354262,14.33z/data=!4m5!3m4!1s0x477a9ab1c13c74bd:0x966c9bfc901b914d!8m2!3d46.4367047!4d14.0526057",
       "places_around": []
@@ -89,7 +133,14 @@
       "name": "Žirovnica",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      "images": [],
+      "images": [
+        "/zirovnica/zirovnica_01.jpg",
+        "/zirovnica/zirovnica_02.jpg",
+        "/zirovnica/zirovnica_03.jpg",
+        "/zirovnica/zirovnica_04.jpg",
+        "/zirovnica/zirovnica_05.jpg",
+        "/zirovnica/zirovnica_06.jpg"
+      ],
       "url": "https://zirovnica.si/",
       "mapUrl": "https://www.google.si/maps/place/Municipality+of+%C5%BDirovnica/@46.3997311,14.148326,13z/data=!4m5!3m4!1s0x477a99dbd9feeed7:0x1e18375f7a4a4ff6!8m2!3d46.3954403!4d14.1539632",
       "places_around": []
@@ -99,7 +150,14 @@
       "name": "Radovljica",
       "video": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-      "images": [],
+      "images": [
+        "/radovljica/radovljica_01.jpg",
+        "/radovljica/radovljica_02.jpg",
+        "/radovljica/radovljica_03.jpg",
+        "/radovljica/radovljica_04.jpg",
+        "/radovljica/radovljica_05.jpg",
+        "/radovljica/radovljica_06.jpg"
+      ],
       "url": "https://www.radolca.si/en",
       "mapUrl": "https://www.google.si/maps/place/4240+Radovljica/@46.3430203,14.1673241,14.6z/data=!4m5!3m4!1s0x477a961255edcb7b:0xb198beb76df8bcc6!8m2!3d46.3437361!4d14.1740042",
       "places_around": [

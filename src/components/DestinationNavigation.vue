@@ -93,7 +93,7 @@ export default {
 <style lang="sass" scoped>
 #destination-nav
   position: absolute
-  z-index: 10
+  z-index: 15
   top: 10px
   left: 0
   display: flex
@@ -102,7 +102,7 @@ export default {
   justify-content: space-between
   transform-origin: top center
   transform: rotate(-90deg) translateY(-20vh) translateX(-55%)
-  +bounceTransition
+  +easeTransition
   & > div
     min-width: 100px
     display: flex

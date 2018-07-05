@@ -7,9 +7,9 @@
         <a :href="destination.url" target="_blank">discover {{ destination.name }}</a>
         <span><i class="fas fa-arrow-right"></i></span>
       </div>
-      <div class="destination-images-container">
+      <div class="destination-images-container" :class="{active : isActiveDestination}">
         <destination-images :images="destination.images" :destination="destination.name" />
-        <!-- <destination-clouds /> -->
+        <destination-clouds v-if="destination.images.length > 0" :destination="destination.name" :sectionOffset="sectionOffset" />
       </div>
     </div><!-- END destination-container -->
   </div>
@@ -73,9 +73,11 @@ export default {
 
 <style lang="sass" scoped>
 .single-destination
-  height: 1075px
-  max-height: 100vh
+  //height: 1075px
+  min-height: 100vh
+  padding-bottom: 100px
   overflow: hidden
+  position: relative
   background:
     size: cover
     repeat: no-repeat
@@ -106,7 +108,7 @@ export default {
   margin-top: 2em
   text-align: justify
   max-width: 620px
-  font-weight: 300
+  font-weight: 400
   line-height: 1.618
   font-family: $family-sans
   +fadeInOnActive
@@ -114,10 +116,12 @@ export default {
 .destination-cta-container
   width: 100%
   padding: 0 25px
-  margin-top: 50px
+  margin-top: 75px
   display: flex
   justify-content: flex-start
   align-items: center
+  position: relative
+  z-index: 10
   +fadeInOnActive
   & > span
     position: relative
@@ -145,7 +149,13 @@ export default {
         transform: translateY(-3px) translateX(-10%)
 
 .destination-images-container
-  padding-top: 100px
+  padding-top: 75px
+  transform: translateX(100%)
+  opacity: 0
+  +easeTransition(750ms)
+  &.active
+    opacity: 1
+    transform: translateX(0)
   //overflow: hidden
 </style>
 
