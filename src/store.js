@@ -10,6 +10,7 @@ const store = new Vuex.Store({
 	state: {
 		heroHeight: 0,
 		isPastHero: false,
+		menuOpen: false,
 		destinations: destinations,
 		activeDestination: destinations[0]
 	},
@@ -22,6 +23,9 @@ const store = new Vuex.Store({
 		},
 		pastHero(state, cond) {
 			state.isPastHero = cond;
+		},
+		toggleMenu(state) {
+			state.menuOpen = !state.menuOpen;
 		}
 	},
 	actions: {
@@ -33,6 +37,9 @@ const store = new Vuex.Store({
 		},
 		pastHero({ commit }, payload) {
 			commit('pastHero', payload);
+		},
+		toggleMenu({ commit }) {
+			commit('toggleMenu');
 		}
 	},
 	getters: {

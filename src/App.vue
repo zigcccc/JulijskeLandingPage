@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <main-menu />
     <hero />
     <destination-map />
     <destinations />
@@ -8,6 +9,7 @@
 </template>
 
 <script>
+import MainMenu from '@/components/MainMenu'
 import Hero from '@/components/Hero'
 import DestinationMap from '@/components/DestinationMap'
 import Destinations from '@/components/Destinations'
@@ -15,7 +17,7 @@ import TriglavNationalPark from '@/components/TriglavNationalPark'
 
 export default {
   name: 'app',
-  components: {Hero, DestinationMap, Destinations, TriglavNationalPark}
+  components: {MainMenu, Hero, DestinationMap, Destinations, TriglavNationalPark}
 }
 </script>
 

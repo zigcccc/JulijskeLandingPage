@@ -38,13 +38,17 @@ export default {
   },
   data(){
     return {
-      menuOpen: false,
       isPastHero: false
+    }
+  },
+  computed: {
+    menuOpen() {
+      return this.$store.state.menuOpen;
     }
   },
   methods: {
     toggleMenu() {
-      this.menuOpen === false ? this.menuOpen = true : this.menuOpen = false
+      this.$store.dispatch('toggleMenu');
     },
     scrollTop(offset) {
       offset > (this.heroHeight - (this.heroHeight / 2)) ? this.isPastHero = true : this.isPastHero = false
