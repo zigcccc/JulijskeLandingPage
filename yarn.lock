@@ -2059,6 +2059,12 @@ cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
     parse-json "^2.2.0"
     require-from-string "^1.1.0"
 
+count-js@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/count-js/-/count-js-1.1.0.tgz#e9f81d41c1caf771b84358e58cb7e185eaa70c87"
+  dependencies:
+    distribute-js "~2.0.0"
+
 create-ecdh@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.3.tgz#c9111b6f33045c4697f144787f9254cdc77c45ff"
@@ -2404,6 +2410,10 @@ dir-glob@^2.0.0:
   dependencies:
     arrify "^1.0.1"
     path-type "^3.0.0"
+
+distribute-js@~2.0.0:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/distribute-js/-/distribute-js-2.0.3.tgz#ea3c2142fc001d03d565a48173c4c8cb0eb3c0b0"
 
 dns-equal@^1.0.0:
   version "1.0.0"
