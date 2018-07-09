@@ -16,7 +16,6 @@
 
 <script>
 import * as Chart from 'chart.js'
-import * as count from 'count-js'
 export default {
   name: 'DestinationMap',
   data() {
