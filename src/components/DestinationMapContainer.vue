@@ -191,8 +191,10 @@ h3
     +bounceTransition
 
 #map-container
-  margin: 40px 0 20px
+  margin: 20px 0
   overflow: hidden
+  position: relative
+  z-index: 6
 
 #nadmorska-visina
   position: absolute
@@ -220,17 +222,27 @@ h3
 .map-cta-container
   display: flex
   justify-content: center
+  position: absolute
+  bottom: 235px
+  width: 100%
+  z-index: 10
   & > a
-    padding: 1em
+    padding: .75em 1em
     display: flex
+    font-size: 14px
     align-items: center
     text-transform: uppercase
     font-weight: 900
     color: $primary
-    text-shadow: 0 5px 10px rgba(0,0,0,.2)
+    background: $white
+    box-shadow: $shadow-1
+    border-radius: 200px
+    +bounceTransition
+    //text-shadow: 0 5px 10px rgba(0,0,0,.2)
     &:hover
+      box-shadow: $shadow-3
       & > span
-        transform: translateX(1em)
+        transform: translateX(.5em)
     & > span
       margin-left: 1em
       margin-top: 1px

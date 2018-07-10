@@ -37,14 +37,7 @@ export default {
   max-height: 75vh 
   width: 1050px
   overflow: hidden
-  .destination-map-places
-    width: 25vw
-    position: absolute
-    right: 0
-    .destination-map-place
-      font-weight: 900
-      text-transform: uppercase
-      &.active
-        color: $primary
+  position: relative
+  z-index: 5
 
 </style>

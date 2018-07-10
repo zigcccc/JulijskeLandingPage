@@ -353,7 +353,7 @@ export default {
 
 <style lang="sass" scoped>
 svg
-  +easeTransition(600ms)
+  +easeTransition(500ms)
   g
     transform: translateY(7%)
 .st0
