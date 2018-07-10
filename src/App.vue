@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <div v-if="isLoading" id="loader"></div>
     <main-menu />
     <hero />
-    <destination-map />
+    <destination-map-container />
     <destinations />
     <triglav-national-park />
   </div>
@@ -11,13 +12,23 @@
 <script>
 import MainMenu from '@/components/MainMenu'
 import Hero from '@/components/Hero'
-import DestinationMap from '@/components/DestinationMap'
+import DestinationMapContainer from '@/components/DestinationMapContainer'
 import Destinations from '@/components/Destinations'
 import TriglavNationalPark from '@/components/TriglavNationalPark'
 
 export default {
   name: 'app',
-  components: {MainMenu, Hero, DestinationMap, Destinations, TriglavNationalPark}
+  components: {MainMenu, Hero, DestinationMapContainer, Destinations, TriglavNationalPark},
+  computed: {
+    isLoading() {
+      return this.$store.getters.doneLoading
+    }
+  },
+  mounted() {
+		this.$nextTick(() => {
+			this.$store.commit('setAppLoading', false);
+		});
+  }
 }
 </script>
 
@@ -25,6 +36,14 @@ export default {
 html,
 body
   overflow-x: hidden
+#loader
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  background: $black
+  z-index: 999999
 #app
   font-family: $family-sans
   -webkit-font-smoothing: antialiased

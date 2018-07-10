@@ -21,7 +21,7 @@ export default {
   name: 'DestinationNavigation',
   data() {
     return {
-      sectionPadding: window.innerHeight / 7
+      sectionPadding: window.innerHeight / 4
     }
   },
   methods: {
@@ -46,18 +46,18 @@ export default {
     arrowKeys(event, key) {
       if (key === 40) {
         event.preventDefault();
-        if (this.$store.state.activeDestination.index !== this.destinations.length - 1 && this.$store.state.isPastHero) {
+        if (this.$store.getters.getActiveDestination.index !== this.destinations.length - 1 && this.$store.state.isPastHero) {
           this.goToNext()
         } else if (!this.$store.state.isPastHero) {
           window.scrollTo({
-            top: this.$store.state.heroHeight,
+            top: this.$store.state.heroHeight + 1,
             behavior: 'smooth'
           })
         }
       }
       if (key === 38) {
         event.preventDefault();
-        if (this.$store.state.activeDestination.index !== 0) {
+        if (this.$store.getters.getActiveDestination.index !== 0) {
           this.goToPrev()
         } else {
           window.scrollTo({

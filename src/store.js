@@ -8,6 +8,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state: {
+		appLoading: true,
 		heroHeight: 0,
 		isPastHero: false,
 		menuOpen: false,
@@ -26,6 +27,9 @@ const store = new Vuex.Store({
 		},
 		toggleMenu(state) {
 			state.menuOpen = !state.menuOpen;
+		},
+		setAppLoading(state, payload) {
+			state.appLoading = payload;
 		}
 	},
 	actions: {
@@ -40,9 +44,18 @@ const store = new Vuex.Store({
 		},
 		toggleMenu({ commit }) {
 			commit('toggleMenu');
+		},
+		setAppLoading({ commit }, payload) {
+			commit('setAppLoading', payload);
 		}
 	},
 	getters: {
+		doneLoading: state => {
+			return state.appLoading;
+		},
+		getActiveDestination: state => {
+			return state.activeDestination;
+		},
 		getDestinations: state => {
 			return state.destinations.map(destination => {
 				let destinationID = destination.name
