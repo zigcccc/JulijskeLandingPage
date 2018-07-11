@@ -1,21 +1,56 @@
 <template>
   <div id="triglav-national-park">
-    <h2>Triglav National Park</h2>
-    <span id="nadmorska-visina">2864m</span>
+    <div class="container is-fluid">
+      <h2>Triglav National Park</h2>
+    </div>
+    <span id="nadmorska-visina" v-if="isVisible">
+      <i-count-up 
+        :startVal="startVal"
+        :endVal="endVal"
+        :decimals="decimals"
+        :duration="duration"
+        :options="options"
+      />m
+    </span>
   </div>
 </template>
 
 <script>
+import ICountUp from 'vue-countup-v2';
 export default {
   name: 'TriglavNationalPark',
+  components: {ICountUp},
+  data() {
+    return {
+      startVal: 491,
+      endVal: 2864,
+      duration: 3.5,
+      decimals: 0,
+      options: {
+        useEasing: true,
+        separator: '',
+      }
+    }
+  },
   methods: {
     handleScroll(scroll) {
-      if (scroll > this.$el.offsetTop && !this.$store.getters.isPastDestinations) {
+      if (scroll > this.$el.offsetTop - (window.innerHeight / 10)  && !this.$store.getters.isPastDestinations) {
         this.$store.dispatch('pastDestinations', true);
       }
-      if (scroll < this.$el.offsetTop && this.$store.getters.isPastDestinations) {
+      if (scroll < this.$el.offsetTop - (window.innerHeight / 10) && this.$store.getters.isPastDestinations) {
         this.$store.dispatch('pastDestinations', false)
       }
+    },
+    onStart(instance, CountUp) {
+      console.log('Started...')
+    }
+    // onReady(instance, CountUp) {
+    //   instance.update(this.startVal + 100);
+    // }
+  },
+  computed: {
+    isVisible() {
+      return this.$store.getters.isPastDestinations;
     }
   },
   mounted() {
@@ -50,4 +85,5 @@ export default {
   position: absolute
   bottom: 20px
   right: 20px
+  line-height: 1
 </style>
