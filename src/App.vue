@@ -6,6 +6,7 @@
     <destination-map-container />
     <destinations />
     <triglav-national-park />
+    <site-footer />
   </div>
 </template>
 
@@ -15,10 +16,11 @@ import Hero from '@/components/Hero'
 import DestinationMapContainer from '@/components/DestinationMapContainer'
 import Destinations from '@/components/Destinations'
 import TriglavNationalPark from '@/components/TriglavNationalPark'
+import SiteFooter from '@/components/SiteFooter'
 
 export default {
   name: 'app',
-  components: {MainMenu, Hero, DestinationMapContainer, Destinations, TriglavNationalPark},
+  components: {MainMenu, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, SiteFooter},
   computed: {
     isLoading() {
       return this.$store.getters.doneLoading
@@ -36,6 +38,7 @@ export default {
 html,
 body
   overflow-x: hidden
+  background: $black
 #loader
   position: fixed
   top: 0

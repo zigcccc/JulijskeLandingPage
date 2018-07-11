@@ -1,18 +1,14 @@
 <template>
   <nav :class="{'is-hidden' : isPastHero}">
       <div class="left-side">
-        <div class="social-links">
-          <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-        </div>
+        <social-links :style="{marginRight: '2em'}" />
         <a href="#" class="influencers">
           <img src="@/assets/ikonaKamera.svg" alt="Influencers in Julian Alps">
           For influencers
         </a>
       </div>
       <div class="logo-container">
-        JulianAlps<span>.</span>
+        <Logo />
       </div>
       <div class="right-side">
         <a @click.prevent="scrollToTNP" class="tnp">
@@ -28,8 +24,11 @@
 </template>
 
 <script>
+import SocialLinks from '@/components/SocialLinks'
+import Logo from '@/components/Logo'
 export default {
   name: 'Navbar',
+  components: {SocialLinks, Logo},
   props: {
     heroHeight: {
       type: Number,
@@ -102,25 +101,8 @@ nav
       display: flex
       margin-top: 4px
       +bounceTransition(400ms)
-  .social-links
-    margin-right: 2em
-    & > a
-      font-size: 1.2em
-      color: $white
-      padding: 0 15px
-      text-shadow: 0 3px 6px rgba(0,0,0,.2)
-      & > i
-        +bounceTransition(400ms)
-      &:hover
-        & > i
-          transform: scale(1.25)
-          color: $primary
 
 .logo-container
-  font-size: 2em
-  color: $white
-  text-shadow: 0 5px 10px rgba(0,0,0,.2)
-  font-weight: 900
   position: relative
   &::before,
   &::after
@@ -138,9 +120,6 @@ nav
   &::after
     right: -75%
     transform: translate3d(50%, -50%, 0)
-
-  & > span
-    color: $black
 
 .right-side
   display: flex

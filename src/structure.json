@@ -15,7 +15,13 @@
       ],
       "url": "http://www.bled.si/en/",
       "mapUrl": "https://www.google.si/maps/place/4260+Bled/@46.365412,14.0609277,13z/data=!3m1!4b1!4m5!3m4!1s0x477a8e1dd7139961:0x400f81c823fec50!8m2!3d46.3683266!4d14.1145798",
-      "sea_level": 475
+      "sea_level": 475,
+      "phone": {
+        "full": "+38645780205",
+        "display": "(04) 5780 205"
+      },
+      "email": "info@visitbled.si"
+      
     },
     {
       "index": 1,
@@ -33,7 +39,12 @@
       ],
       "url": "https://www.bohinj.si/en/",
       "mapUrl": "https://www.google.si/maps/place/Municipality+of+Bohinj/@46.3017053,13.6727928,10z/data=!3m1!4b1!4m5!3m4!1s0x477a8d690162778d:0x400f81c823fec60!8m2!3d46.3005652!4d13.9427195",
-      "sea_level": 526
+      "sea_level": 526,
+      "phone": {
+        "full": "+38645747590",
+        "display": "(0)4 57 47 590"
+      },
+      "email": "info@bohinj.si"
     },
     {
       "index": 2,
@@ -50,7 +61,12 @@
       ],
       "url": "https://www.brda.si/eng/",
       "mapUrl": "https://www.google.si/maps/place/Municipality+of+Brda/@46.0161849,13.4842289,12z/data=!3m1!4b1!4m5!3m4!1s0x477bab32db63550b:0x400f81c823fec90!8m2!3d45.9975652!4d13.5270474",
-      "sea_level": 259
+      "sea_level": 259,
+      "phone": {
+        "full": "+386045780205",
+        "display": "(04) 5780 205"
+      },
+      "email": "tic@brda.si"
     },
     {
       "index": 3,
@@ -69,7 +85,12 @@
       ],
       "url": "https://www.soca-valley.com/en/",
       "mapUrl": "https://www.google.com/maps/@46.2534545,13.6315018,11.72z",
-      "sea_level": 296
+      "sea_level": 296,
+      "phone": {
+        "full": "+38653029647",
+        "display": "(05) 30 29 647"
+      },
+      "email": "info@dolina-soce.si"
     },
     {
       "index": 4,
@@ -88,7 +109,12 @@
       ],
       "url": "https://www.kranjska-gora.si/en",
       "mapUrl": "https://www.google.si/maps/place/4280+Kranjska+Gora/@46.4604035,13.700742,12z/data=!3m1!4b1!4m5!3m4!1s0x477a7ce5980f8af5:0xdc10e282bbdf9dde!8m2!3d46.4845293!4d13.7857145",
-      "sea_level": 806
+      "sea_level": 806,
+      "phone": {
+        "full": "+38645809440",
+        "display": "(04) 580 94 40"
+      },
+      "email": "info@kranjska-gora.eu"
     },
     {
       "index": 5,
@@ -104,7 +130,12 @@
       ],
       "url": "https://www.gorje.si/",
       "mapUrl": "https://www.google.si/maps/place/Gorje,+4247+Zgornje+Gorje/@46.4081285,13.9517518,11.94z/data=!4m5!3m4!1s0x477a8e54af2ba1eb:0x400f81c823ff870!8m2!3d46.3802458!4d14.0685339",
-      "sea_level": 603
+      "sea_level": 603,
+      "phone": {
+        "full": "+38645751800",
+        "display": "(04) 575 18 00"
+      },
+      "email": "obcina.gorje@gorje.si"
     },
     {
       "index": 6,
@@ -122,7 +153,12 @@
       ],
       "url": "http://www.jesenice.si/",
       "mapUrl": "https://www.google.si/maps/place/4270+Jesenice/@46.4358788,14.0354262,14.33z/data=!4m5!3m4!1s0x477a9ab1c13c74bd:0x966c9bfc901b914d!8m2!3d46.4367047!4d14.0526057",
-      "sea_level": 585
+      "sea_level": 585,
+      "phone": {
+        "full": "+38645869200",
+        "display": "(04) 5869 200"
+      },
+      "email": "obcina.jesenice@jesenice.si"
     },
     {
       "index": 7,
@@ -137,9 +173,14 @@
         "/zirovnica/zirovnica_05.jpg",
         "/zirovnica/zirovnica_06.jpg"
       ],
-      "url": "https://zirovnica.si/",
+      "url": "https://www.zirovnica.si/",
       "mapUrl": "https://www.google.si/maps/place/Municipality+of+%C5%BDirovnica/@46.3997311,14.148326,13z/data=!4m5!3m4!1s0x477a99dbd9feeed7:0x1e18375f7a4a4ff6!8m2!3d46.3954403!4d14.1539632",
-      "sea_level": 558
+      "sea_level": 558,
+      "phone": {
+        "full": "+38645809100",
+        "display": "(04) 580 91 00 "
+      },
+      "email": "obcina@zirovnica.si"
     },
     {
       "index": 8,
@@ -156,7 +197,12 @@
       ],
       "url": "https://www.radolca.si/en",
       "mapUrl": "https://www.google.si/maps/place/4240+Radovljica/@46.3430203,14.1673241,14.6z/data=!4m5!3m4!1s0x477a961255edcb7b:0xb198beb76df8bcc6!8m2!3d46.3437361!4d14.1740042",
-      "sea_level": 491
+      "sea_level": 491,
+      "phone": {
+        "full": "+38645315112",
+        "display": "(04) 531 51 12"
+      },
+      "email": "info@radolca.si"
     }
   ]
 }

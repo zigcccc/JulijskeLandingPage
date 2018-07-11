@@ -314,7 +314,7 @@ export default {
           case 'goriska-brda':
             return 'transform: scale(1) translate3d(220px, -350px, 0)';
           case 'soca-valley':
-            return 'transform: scale(1.1) translate3d(300px, -200px, 0)';
+            return 'transform: scale(1.1) translate3d(300px, -180px, 0)';
           case 'kranjska-gora':
             return 'transform: scale(1.15) translate3d(-25px, 50px, 0)';
           case 'gorje':
@@ -329,7 +329,7 @@ export default {
             return 'transform: scale(1) translateY(0)';
         }
       } else {
-        return 'transform: scale(.4) translate3d(-65px, -300px, 0)';
+        return 'transform: scale(.4) translate3d(-60px, -300px, 0)';
       }
     }
   },

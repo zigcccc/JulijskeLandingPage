@@ -33,8 +33,8 @@ export default {
 
 <style lang="sass" scoped>
 #destination-map
-  height: 600px
-  max-height: 75vh 
+  height: calc(100vh - 350px)
+  //max-height: 75vh 
   width: 1050px
   overflow: hidden
   position: relative

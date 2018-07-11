@@ -11,6 +11,7 @@ const store = new Vuex.Store({
 		appLoading: true,
 		heroHeight: 0,
 		isPastHero: false,
+		pastDestinations: false,
 		menuOpen: false,
 		destinations: destinations,
 		activeDestination: destinations[0]
@@ -30,6 +31,9 @@ const store = new Vuex.Store({
 		},
 		setAppLoading(state, payload) {
 			state.appLoading = payload;
+		},
+		pastDestinations(state, payload) {
+			state.pastDestinations = payload;
 		}
 	},
 	actions: {
@@ -47,6 +51,9 @@ const store = new Vuex.Store({
 		},
 		setAppLoading({ commit }, payload) {
 			commit('setAppLoading', payload);
+		},
+		pastDestinations({ commit }, payload) {
+			commit('pastDestinations', payload);
 		}
 	},
 	getters: {
@@ -55,6 +62,9 @@ const store = new Vuex.Store({
 		},
 		getActiveDestination: state => {
 			return state.activeDestination;
+		},
+		isPastDestinations: state => {
+			return state.pastDestinations;
 		},
 		getDestinations: state => {
 			return state.destinations.map(destination => {
@@ -86,6 +96,16 @@ const store = new Vuex.Store({
 				}
 			});
 			return output;
+		},
+		getDestinationsContactInfo: state => {
+			return state.destinations.map(destination => {
+				return {
+					name: destination.name,
+					web: destination.url,
+					phone: destination.phone,
+					email: destination.email
+				};
+			});
 		}
 	},
 	setter: {}
