@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      activeImage: 1,
+      activeImage: 0,
       imageWidth: 255
     }
   },
@@ -47,6 +47,12 @@ export default {
       return {
         transform: `translateX(-${this.imageWidth * this.activeImage}px)`
       }
+    },
+    activeDestination() {
+      return this.$store.getters.getActiveDestination;
+    },
+    pastDestinations() {
+      return this.$store.getters.isPastDestinations;
     }
   },
   methods: {
@@ -64,7 +70,7 @@ export default {
       }
     },
     handleArrowKeys(key) {
-      if (this.destination === this.$store.state.activeDestination.name) {
+      if (this.destination === this.$store.state.activeDestination.name || this.$store.getters.isPastDestinations) {
         if (key === 37) {
           this.toPrevImage();
         }
@@ -72,6 +78,19 @@ export default {
           this.toNextImage();
         }
       }
+    }
+  },
+  watch: {
+    pastDestinations(cond) {
+      if (cond) {
+        this.changeImage(0);
+      }
+      else {
+        this.changeImage(1);
+      }
+    },
+    activeDestination() {
+      this.changeImage(1);
     }
   },
   created() {

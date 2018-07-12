@@ -113,7 +113,7 @@ footer
     max-width: 90%
     height: 3px
     border-radius: 20px
-    background: $primaryDimmed
+    background: $primary
     display: block
     margin: .25em auto 2em
   & > span

@@ -47,14 +47,19 @@ export default {
   methods: {
     checkViewport(scrollTop) {
       let inFocus = scrollTop + this.sectionPadding > this.sectionOffset && scrollTop + this.sectionPadding < this.sectionOffset + this.$el.clientHeight;
-      if (inFocus && this.destination !== this.$store.state.activeDestination) {
+      if (inFocus && this.destination !== this.$store.getters.getActiveDestination) {
         this.$store.dispatch('setActiveDestination', this.destination)
       }
     }
   },
   computed: {
     isActiveDestination() {
-      return this.destination.name === this.$store.state.activeDestination.name
+      if (this.$store.getters.getActiveDestination.name && !this.$store.getters.isPastDestinations) {
+        return this.destination.name === this.$store.getters.getActiveDestination.name
+      }
+      else {
+        return false
+      }
     }
   },
   created() {
