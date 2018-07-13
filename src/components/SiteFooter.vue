@@ -65,12 +65,16 @@ footer
   padding: 1em 0
   color: $white
   overflow: hidden
+  @media screen and (max-width: 768px)
+    position: relative
 
 .footer-header
   display: flex
   justify-content: space-between
   align-items: center
   margin-top: 1em
+  @media screen and (max-width: 768px)
+    padding: 0 1em
   .left
     &:hover
       cursor: pointer
@@ -89,6 +93,11 @@ footer
   .destination-details
     min-width: calc(20% - 1em)
     margin: 0 .5em 2em
+    @media screen and (max-width: 768px)
+      min-width: calc(25% - 1em)
+    @media screen and (max-width: 414px)
+      min-width: calc(50% - 1em)
+      padding-left: 1.5em
     h5
       font-size: 1.2em
       font-weight: 900
@@ -107,6 +116,8 @@ footer
   text-align: center
   position: relative
   z-index: 10
+  @media screen and (max-width: 414px)
+    font-size: 12px
   &::before
     content: ''
     width: 450px
@@ -130,6 +141,8 @@ footer
   bottom: 0
   &#mountain1
     left: 0
+    @media screen and (max-width: 768px)
+      display: none
     & > img
       transform: scale(1.25) translate3d(10%, 45px, 0)
       opacity: 1

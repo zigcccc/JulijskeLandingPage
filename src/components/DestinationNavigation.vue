@@ -1,5 +1,5 @@
 <template>
-  <div id="destination-nav" :class="{fixed : isPastHero}">
+  <div id="destination-nav" :class="{fixed : isPastHero, hidden : isPastDestinations}">
     <div v-if="prevAndNext.next" @click="goToNext" id="next-dest">
       <span><i class="fas fa-long-arrow-alt-left"></i></span>
       {{ prevAndNext.next.name }}
@@ -19,11 +19,6 @@
 <script>
 export default {
   name: 'DestinationNavigation',
-  data() {
-    return {
-      sectionPadding: window.innerHeight / 4
-    }
-  },
   methods: {
     goToPrev() {
       let section = document.querySelector(`#${this.prevAndNext.prev.id}`);
@@ -77,6 +72,19 @@ export default {
     },
     prevAndNext() {
       return this.$store.getters.prevAndNext
+    },
+    isPastDestinations() {
+      return this.$store.getters.isPastDestinations
+    },
+    sectionPadding(){
+      const height = window.innerHeight;
+      if (height > 800) {
+        return height / 4;
+      } else if (height < 800 && height >= 720) {
+        return height / 3;
+      } else if (height < 720 && height >= 500) {
+        return height / 2;
+      }
     }
   },
   created() {
@@ -103,6 +111,13 @@ export default {
   transform-origin: top center
   transform: rotate(-90deg) translateY(-20vh) translateX(-55%)
   +easeTransition
+  opacity: 1
+  visibility: visible
+  @media screen and (max-width: 414px)
+    display: none
+  @media screen and (max-height: 770px)
+    width: 65vh
+    transform: rotate(-90deg) translateY(-30vh) translateX(-55%)
   & > div
     min-width: 100px
     display: flex
@@ -129,6 +144,10 @@ export default {
   &.fixed
     position: fixed
     top: 0
+  
+  &.hidden
+    opacity: 0
+    visibility: hidden
 
 #destination-counter
   display: flex

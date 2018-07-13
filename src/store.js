@@ -11,6 +11,7 @@ const store = new Vuex.Store({
 		appLoading: true,
 		heroHeight: 0,
 		isPastHero: false,
+		windowWidth: 0,
 		pastDestinations: false,
 		menuOpen: false,
 		destinations: destinations,
@@ -34,6 +35,9 @@ const store = new Vuex.Store({
 		},
 		pastDestinations(state, payload) {
 			state.pastDestinations = payload;
+		},
+		setWindowWidth(state, payload) {
+			state.windowWidth = payload;
 		}
 	},
 	actions: {
@@ -54,6 +58,9 @@ const store = new Vuex.Store({
 		},
 		pastDestinations({ commit }, payload) {
 			commit('pastDestinations', payload);
+		},
+		setWindowWidth({ commit }, payload) {
+			commit('setWindowWidth', payload);
 		}
 	},
 	getters: {
@@ -106,6 +113,9 @@ const store = new Vuex.Store({
 					email: destination.email
 				};
 			});
+		},
+		getWindowWidth: state => {
+			return state.windowWidth;
 		}
 	},
 	setter: {}

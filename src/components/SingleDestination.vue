@@ -9,7 +9,7 @@
       </div>
       <div class="destination-images-container" :class="{active : isActiveDestination}">
         <destination-images :images="destination.images" :destination="destination.name" />
-        <destination-clouds v-if="destination.images.length > 0" :destination="destination.name" :sectionOffset="sectionOffset" />
+        <destination-clouds v-if="destination.images.length > 0" :destination="destination.name" :sectionOffset="sectionOffset" :animation="false" :parallax="true" />
       </div>
     </div><!-- END destination-container -->
   </div>
@@ -78,7 +78,6 @@ export default {
 
 <style lang="sass" scoped>
 .single-destination
-  //height: 1075px
   min-height: 100vh
   padding-bottom: 100px
   overflow: hidden
@@ -87,17 +86,27 @@ export default {
     size: cover
     repeat: no-repeat
     attachment: fixed
+  @media screen and (max-width: 414px)
+    background-size: cover
+    background-attachment: scroll !important
 
 .destination-container
   width: calc(75% + 2em)
   margin-left: auto
   padding: 30px 0 0 1em
+  @media screen and (max-width: 768px)
+    width: calc(100% - 3em)
+  @media screen and (max-width: 414px)
+    width: 100%
+    padding: 30px 1em 0
 
 .destination-name
   font-weight: 900
   font-size: 4.5em
   text-shadow: 0 5px 10px rgba(0,0,0,.2)
   +fadeInOnActive
+  @media screen and (max-width: 414px)
+    font-size: 3em
   &::after
     content: ''
     width: 100px
@@ -107,6 +116,9 @@ export default {
     background: $primary
     display: block
     margin-top: 10px
+    @media screen and (max-width: 414px)
+      width: 75px
+      margin-left: 3px
 
 .destination-description
   margin-left: 25px
@@ -117,6 +129,9 @@ export default {
   line-height: 1.618
   font-family: $family-sans
   +fadeInOnActive
+  @media screen and (max-width: 414px)
+    max-width: 100%
+    margin: 1.5em 3px 0
 
 .destination-cta-container
   width: 100%
@@ -128,6 +143,11 @@ export default {
   position: relative
   z-index: 10
   +fadeInOnActive
+  @media screen and (max-width: 768px)
+    justify-content: center
+    margin-top: 50px
+  @media screen and (max-width: 414px)
+    margin-top: 40px
   & > span
     position: relative
     z-index: 2
@@ -158,6 +178,12 @@ export default {
   transform: translateX(100%)
   opacity: 0
   +easeTransition(750ms)
+  @media screen and (max-width: 768px)
+    padding-top: 50px
+    margin-left: 20px
+  @media screen and (max-width: 414px)
+    margin-left: 0
+    margin-top: 20px
   &.active
     opacity: 1
     transform: translateX(0)

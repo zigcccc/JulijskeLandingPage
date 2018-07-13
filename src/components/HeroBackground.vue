@@ -34,12 +34,10 @@ export default {
   data(){
     return {
       middleGroundStyle: {
-        perspective: '10px',
         transform: 'translate3d(0,0,0)',
         filter: 'blur(0) contrast(120%)'
       },
       frontGroundStyle: {
-        perspective: '500px',
         transform: 'translate3d(0,0,0)'
       },
       cloudsStyle1: {
@@ -62,11 +60,11 @@ export default {
   methods: {
     parallax(scrollTop) {
       if (scrollTop < this.heroHeight) {
-        let factor1 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 0, 2)
-        let factor2 = window.map(scrollTop, 0, document.querySelector('body').clientHeight, 0, this.heroHeight / 4)
-        this.middleGroundStyle.transform = `translate3d(0, 0, -${Math.floor(factor1)}px) scale(${(factor1 / 2) + 1})`
-        this.middleGroundStyle.filter = `blur(${factor2.toFixed(2) * 2}px) contrast(120%)`
-        this.frontGroundStyle.transform = `translate3d(0, ${factor2 * 4}%, 0) scale(${(factor1) + 1})`
+        let factor1 = (scrollTop / 50)
+        let factor2 = (scrollTop / 5)
+        this.middleGroundStyle.transform = `translate3d(0, ${Math.floor(factor1*10)}px, 0) scale(${(factor1 / 20) + 1})`
+        this.middleGroundStyle.filter = `blur(${factor2.toFixed(2)}px) contrast(120%)`
+        this.frontGroundStyle.transform = `translate3d(0, ${factor1 * 25}%, 0) scale(${(factor1 / 10) + 1})`
         this.cloudsStyle1.transform = `translate3d(0,${Math.floor(scrollTop / 3)}px, 0)`
         this.cloudsStyle2.transform = `translate3d(0,${Math.floor(scrollTop / 5)}px, 0)`
         this.cloudsStyle3.transform = `translate3d(0,${Math.floor(scrollTop / 4)}px, 0)`
@@ -96,10 +94,20 @@ export default {
   &#middle-ground
     z-index: 5
     transform-origin: bottom center
+    @media screen and (max-width: 414px)
+      width: auto
+      max-width: none
+      height: 365px
+      left: -50%
   &#front-ground
     z-index: 20
     filter: contrast(130%)
     transform-origin: bottom center
+    @media screen and (max-width: 414px)
+      width: auto
+      max-width: none
+      height: 365px
+      left: -50%
 
 #clouds
   #cloud1
@@ -112,12 +120,16 @@ export default {
     left: -75%
     bottom: 10%
     animation: clouds-anim-3 ease-in-out 35s infinite
+    @media screen and (max-width: 768px)
+      bottom: 0
 
   #cloud3
     width: 150%
     left: -25%
     bottom: 8%
     animation: clouds-anim-2 ease-in-out 25s infinite
+    @media screen and (max-width: 768px)
+      bottom: 0
     
   #cloud4
     z-index: 50

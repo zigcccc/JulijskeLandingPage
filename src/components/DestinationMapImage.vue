@@ -1,5 +1,5 @@
 <template>
-<svg :class="{'is-zoomed-in' : zoom}" :style="svgStyle" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1100 900" style="enable-background:new 0 0 1048.3 744;" xml:space="preserve">
+<svg :class="{'is-zoomed-out' : !zoom}" :style="svgStyle" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1100 900" style="enable-background:new 0 0 1048.3 744;" xml:space="preserve">
   <filter id="dropshadow" height="130%">
     <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
     <feOffset dx="0" dy="5" result="offsetblur"/>
@@ -298,12 +298,17 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      sectionPadding: window.innerHeight / 4
-    }
-  },
   computed: {
+    sectionPadding(){
+      const height = window.innerHeight;
+      if (height > 800) {
+        return height / 4;
+      } else if (height < 800 && height >= 720) {
+        return height / 3;
+      } else if (height < 720 && height >= 500) {
+        return height / 2;
+      }
+    },
     svgStyle() {
       if (this.zoom) {
         switch(this.activeDestination.id) {
@@ -328,8 +333,6 @@ export default {
           default:
             return 'transform: scale(1) translateY(0)';
         }
-      } else {
-        return 'transform: scale(.4) translate3d(-60px, -300px, 0)';
       }
     }
   },
@@ -353,9 +356,17 @@ export default {
 
 <style lang="sass" scoped>
 svg
+  &.is-zoomed-out
+    transform: scale(.4) translate3d(-60px, -300px, 0) !important
+    @media screen and (max-height: 800px)
+      transform: scale(.4) translate3d(-60px, -500px, 0) !important
+    @media screen and (max-height: 719px)
+      transform: scale(.35) translate3d(-60px, -700px, 0) !important
   +easeTransition(500ms)
   g
     transform: translateY(7%)
+    @media screen and (max-height: 750px)
+      transform: translateY(0%)
 .st0
   fill: none
   stroke: $black

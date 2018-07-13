@@ -13,7 +13,7 @@
       </div>
     </div><!-- END .container -->
     <div class="hero-cta-container">
-      <a @click.prevent="scrollPastHero">explore <span><i class="fas fa-chevron-down"></i></span></a>
+      <a @click="scrollPastHero">explore <span><i class="fas fa-chevron-down"></i></span></a>
     </div>
   </section>
 </template>
@@ -26,7 +26,7 @@ export default {
   components: {Navbar, HeroBackground},
   data(){
     return {
-      bgimage: '/images/julian_alps_05.png',
+      bgimage: '/images/julian_alps_05.jpg',
       titleStyle: {
         transform: 'translate3d(0,0,0)'
       }
@@ -42,14 +42,16 @@ export default {
       return this.$el.clientHeight;
     },
     scrollPastHero() {
-      window.scrollTo({
-        top: this.heroHeight + 1,
-        behavior: 'smooth'
-      })
+      setTimeout(() => {
+        window.scrollTo({
+          top: this.heroHeight + 1,
+          behavior: 'smooth'
+        })
+      },1)
     },
     parallax(scrollTop) {
       if (scrollTop < this.heroHeight) {
-        let factor1 = window.map(scrollTop, 0, this.heroHeight, 0, 200).toFixed(2);
+        let factor1 = -(scrollTop / 4);
         this.titleStyle.transform = `translate3d(0,${factor1}px,0)`
         if (this.$store.state.isPastHero === true) {
           this.$store.dispatch('pastHero', false);
@@ -93,16 +95,23 @@ export default {
     //height: calc(#{$hero-height} - 75px)
 
 .hero-columns
-  margin-top: 20vh
+  margin-top: 30vh
   position: relative
   z-index: 10
   @media screen and (max-width: 1440px)
     margin-top: 30vh
+  @media screen and (max-width: 768px)
+    margin-top: 35vh
+  @media screen and (max-width: 414px)
+    margin-top: 20vh
 
   .hero-title
     display: flex
     justify-content: flex-end
     padding-right: 10vw
+    @media screen and (max-width: 768px)
+      padding-right: 0
+      justify-content: center
     h1
       font-size: 9.25em
       line-height: 1
@@ -111,15 +120,33 @@ export default {
       margin-top: -10%
       text-shadow: 0 5px 10px rgba(0,0,0,.2)
       text-align: right
+      @media screen and (max-width: 768px)
+        display: flex
+        font-size: 7em
+      @media screen and (max-width: 414px)
+        font-size: 6em
+        display: block
+        text-align: center
       & > span
         display: block
         color: $primary
+        @media screen and (max-width: 768px)
+          &::after
+            content: '.'
+            display: inline-block
+            color: $white
 
   .hero-intro
     font-size: 1.4em
     color: $white
     font-weight: 600
     margin-top: .75em
+    @media screen and (max-width: 768px)
+      font-size: 1.2em
+      text-align: center
+      max-width: 75%
+      display: block
+      margin: 0 auto
     & > p
       text-shadow: 0 3px 6px rgba(0,0,0,.5)
 

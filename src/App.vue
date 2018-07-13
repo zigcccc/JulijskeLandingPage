@@ -18,6 +18,8 @@ import Destinations from '@/components/Destinations'
 import TriglavNationalPark from '@/components/TriglavNationalPark'
 import SiteFooter from '@/components/SiteFooter'
 
+import SmoothScroll from 'smoothscroll-polyfill'
+
 export default {
   name: 'app',
   components: {MainMenu, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, SiteFooter},
@@ -26,9 +28,13 @@ export default {
       return this.$store.getters.doneLoading
     }
   },
+  created() {
+    SmoothScroll.polyfill();
+  },
   mounted() {
 		this.$nextTick(() => {
-			this.$store.commit('setAppLoading', false);
+      this.$store.commit('setAppLoading', false);
+      this.$store.commit('setWindowWidth', window.innerWidth);
 		});
   }
 }

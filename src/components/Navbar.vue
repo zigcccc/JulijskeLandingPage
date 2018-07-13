@@ -11,12 +11,16 @@
         <Logo />
       </div>
       <div class="right-side">
+        <a href="#" class="influencers tablet">
+          <img src="@/assets/ikonaKamera.svg" alt="Influencers in Julian Alps">
+          For influencers
+        </a>
         <a @click.prevent="scrollToTNP" class="tnp">
           Triglav National Park
           <img src="@/assets/ikonaGora.svg" alt="Triglav National Park">
         </a>
         <div @click="toggleMenu" class="menu-icon">
-          Destinations
+          {{ menuText }}
           <img src="@/assets/Menu.svg" alt="Meni">
         </div>
       </div>
@@ -43,6 +47,9 @@ export default {
   computed: {
     menuOpen() {
       return this.$store.state.menuOpen;
+    },
+    menuText() {
+      return this.$store.getters.getWindowWidth > 414 ? 'Destinations' : 'Menu'
     }
   },
   methods: {
@@ -80,27 +87,40 @@ nav
   display: flex
   justify-content: space-between
   align-items: center
+  @media screen and (max-width: 414px)
+    padding: 1em 1em 0
   &.is-hidden
     position: relative
 .left-side
   min-width: 33%
   display: flex
   align-items: center
-  .influencers
-    display: flex
-    align-items: center
-    color: $white
-    font-weight: 300
-    font-size: 14px
-    &:hover
-      cursor: pointer
-      & > img
-        transform: scale(1.25)
-    & > img
-      height: 45px
+  @media screen and (max-width: 1024px)
+    display: none
+
+.influencers
+  display: flex
+  align-items: center
+  color: $white
+  font-weight: 300
+  font-size: 14px
+  &.tablet
+    display: none
+    @media screen and (max-width: 1024px)
       display: flex
-      margin-top: 4px
-      +bounceTransition(400ms)
+      flex-direction: row-reverse
+      margin-right: 1.5em
+    @media screen and (max-width: 414px)
+      display: none
+  &:hover
+    cursor: pointer
+    & > img
+      transform: scale(1.25)
+  & > img
+    height: 45px
+    display: flex
+    margin-top: 4px
+    +bounceTransition(400ms)
 
 .logo-container
   position: relative
@@ -114,12 +134,26 @@ nav
     display: block
     position: absolute
     top: 50%
+    @media screen and (max-width: 1360px)
+      max-width: 150px
+    @media screen and (max-width: 1300px)
+      max-width: 100px
+    @media screen and (max-width: 1024px)
+      display: none
   &::before
     left: -75%
     transform: translate3d(-50%, -50%, 0)
+    @media screen and (max-width: 1300px)
+      left: -50%
+    @media screen and (max-width: 1300px)
+      left: -25%
   &::after
     right: -75%
     transform: translate3d(50%, -50%, 0)
+    @media screen and (max-width: 1300px)
+      right: -50%
+    @media screen and (max-width: 1300px)
+      right: -25%
 
 .right-side
   display: flex
@@ -133,6 +167,8 @@ nav
     display: flex
     align-items: center
     margin-left: 2em
+    position: relative
+    z-index: 10
     &:hover
       cursor: pointer
       & > img
@@ -146,6 +182,8 @@ nav
     align-items: center
     color: $white
     font-weight: 300
+    @media screen and (max-width: 414px)
+      display: none
     &:hover
       & > img
         cursor: pointer

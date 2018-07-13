@@ -24,6 +24,7 @@
       </div>
       <div class="images-container" :class="{active : mountainsVisible}">
         <destination-images :images="images" destination="Triglav National Park"  />
+        <destination-clouds destination="tnp" :animation="true" :parallax="false" class="tnp-images-clouds" />
       </div>
     </div>
     <div :class="{visible : mountainsVisible}" id="mountain1" class="tnp-mountain">
@@ -38,9 +39,10 @@
 <script>
 import ICountUp from 'vue-countup-v2';
 import DestinationImages from '@/components/DestinationImages';
+import DestinationClouds from '@/components/DestinationClouds';
 export default {
   name: 'TriglavNationalPark',
-  components: {ICountUp, DestinationImages},
+  components: {ICountUp, DestinationImages, DestinationClouds},
   data() {
     return {
       footerHeight: 455,
@@ -59,7 +61,7 @@ export default {
     handleScroll(scroll) {
       const padding = this.sectionHeight - this.footerHeight;
       // Handle store dispatch
-      if (scroll > this.$el.offsetTop - padding  && !this.$store.getters.isPastDestinations) {
+      if (scroll >= this.$el.offsetTop - padding  && !this.$store.getters.isPastDestinations) {
         this.$store.dispatch('pastDestinations', true);
       }
       if (scroll < this.$el.offsetTop - padding && this.$store.getters.isPastDestinations) {
@@ -114,7 +116,10 @@ export default {
     image: url('/images/patterns/topography.png')
     repeat: repeat
     size: 400px 400px
+    attachment: fixed
   margin-bottom: $footer-height
+  @media screen and (max-width: 768px)
+    margin-bottom: 0
 
   h2
     font-weight: 900
@@ -123,6 +128,11 @@ export default {
     text-align: left
     padding-top: .5em
     +fadeInOnActive
+    @media screen and (max-width: 768px)
+      font-size: 3em
+      text-align: center
+    @media screen and (max-width: 414px)
+      font-size: 2em
     &::after
       content: ''
       width: 100px
@@ -133,6 +143,8 @@ export default {
       display: block
       margin-top: 10px
       box-shadow: $shadow-1
+      @media screen and (max-width: 768px)
+        margin: 10px auto 0
 
   p
     //max-width: 750px
@@ -141,6 +153,11 @@ export default {
     margin-top: 2em
     line-height: 1.618
     +fadeInOnActive
+    @media screen and (max-width: 768px)
+      width: 75%
+      margin: 1.5em auto 0
+    @media screen and (max-width: 414px)
+      width: 90%
 
   .tnp-cta-container
     width: 100%
@@ -152,6 +169,8 @@ export default {
     position: relative
     z-index: 10
     +fadeInOnActive
+    @media screen and (max-width: 768px)
+      justify-content: center
     & > a
       position: relative
       z-index: 3
@@ -171,6 +190,8 @@ export default {
   align-items: flex-start
   justify-content: center
   margin-top: 9em
+  @media screen and (max-width: 768px)
+    margin-top: 2em
 
 #nadmorska-visina
   font-size: 7.5em
@@ -182,8 +203,15 @@ export default {
   margin-left: auto
   display: block
   +fadeInOnActive
+  @media screen and (max-width: 768px)
+    margin-right: auto
+  @media screen and (max-width: 414px)
+    font-size: 4em
+    margin-left: auto
+    margin-right: auto
   & > span
     text-align: right
+
   & > small
     font-size: 1.125rem
     text-shadow: none
@@ -202,12 +230,16 @@ export default {
   left: 0
   right: 0
   max-height: 1100px
+  @media screen and (max-height: 900px)
+    max-height: 85vh
   +easeTransition(1000ms)
   &#mountain1
     transition-delay: 250ms
     transform: scaleX(-1) translate3d(0, 100%, 0)
     &.visible
       transform: translate3d(0,10%,0) scaleX(-1)
+      @media screen and (max-width: 768px)
+        transform: translate3d(0,0%,0) scaleX(-1)
   &#mountain2
     //display: none
     transition-delay: 0ms
@@ -215,6 +247,11 @@ export default {
     z-index: 5
     &.visible
       transform: translate3d(2.5%,20%,0) scale(1.05)
+      @media screen and (max-width: 768px)
+        transform: translate3d(2.5%,-25%,0) scale(1.05)
+        opacity: .75
+      @media screen and (max-width: 414px)
+        transform: translate3d(2.5%, -10%, 0) scale(1.05)
 
 .images-container
   margin-left: 45%
@@ -223,6 +260,11 @@ export default {
   +bounceTransition(750ms)
   position: relative
   z-index: 10
+  @media screen and (max-width: 768px)
+    margin-left: 2em
+    margin-bottom: 2em
+  @media screen and (max-width: 768px)
+    margin-top: 75px
   &.active
     opacity: 1
     transform: translate3d(0,0,0)

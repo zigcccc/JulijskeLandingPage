@@ -38,14 +38,13 @@ export default {
   },
   data() {
     return {
-      activeImage: 0,
-      imageWidth: 255
+      activeImage: 0
     }
   },
   computed: {
     containerStyle() {
       return {
-        transform: `translateX(-${this.imageWidth * this.activeImage}px)`
+        transform: `translateX(-${(this.imageWidth + 16 ) * this.activeImage}px)`
       }
     },
     activeDestination() {
@@ -53,6 +52,9 @@ export default {
     },
     pastDestinations() {
       return this.$store.getters.isPastDestinations;
+    },
+    imageWidth() {
+      return this.$store.getters.getWindowWidth > 414 ? 225 : 150;
     }
   },
   methods: {
@@ -86,11 +88,19 @@ export default {
         this.changeImage(0);
       }
       else {
-        this.changeImage(1);
+        if (this.$store.getters.getWindowWidth > 768) {
+          this.changeImage(1);
+        } else {
+          this.changeImage(0)
+        }
       }
     },
     activeDestination() {
-      this.changeImage(1);
+      if (this.$store.getters.getWindowWidth > 768) {
+        this.changeImage(1); 
+      } else {
+        this.changeImage(0);
+      }
     }
   },
   created() {
@@ -114,6 +124,8 @@ export default {
   position: relative
   min-height: #{$destination-image-active-height + 20}
   +easeTransition(500ms)
+  @media screen and (max-width: 414px)
+    min-height: #{$destination-image-mobile-active-height + 20}
   .image-container
     height: $destination-image-base-height
     min-width: #{$destination-image-base-height * 1.5}
@@ -124,16 +136,22 @@ export default {
     transform-origin: center center
     border-radius: 5px
     overflow: hidden
+    @media screen and (max-width: 414px)
+      height: $destination-image-mobile-base-height
+      min-width: #{$destination-image-mobile-base-height * 1.5}
     &.active
       height: $destination-image-active-height
       min-width: #{$destination-image-active-height * 1.5} 
+      @media screen and (max-width: 414px)
+        height: $destination-image-mobile-active-height
+        min-width: #{$destination-image-mobile-active-height * 1.5}
     & > img
       object-fit: cover
 
 .destination-images-controls
   position: absolute
-  top: 5px
-  right: 20px
+  top: -45px
+  left: 0px
   display: flex
   align-items: center
   font-size: 1.25em

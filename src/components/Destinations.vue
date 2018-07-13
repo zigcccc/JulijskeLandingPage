@@ -27,7 +27,6 @@ export default {
 <style lang="sass" scoped>
 #destinations
   width: 75vw
-  min-height: 2000px
   box-shadow: 5px 0 10px 0 rgba(0,0,0,0.4)
   position: relative
   z-index: 10000
