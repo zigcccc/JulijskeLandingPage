@@ -64,7 +64,7 @@ export default {
         let factor2 = (scrollTop / 5)
         this.middleGroundStyle.transform = `translate3d(0, ${Math.floor(factor1*10)}px, 0) scale(${(factor1 / 20) + 1})`
         this.middleGroundStyle.filter = `blur(${factor2.toFixed(2)}px) contrast(120%)`
-        this.frontGroundStyle.transform = `translate3d(0, ${factor1 * 25}%, 0) scale(${(factor1 / 10) + 1})`
+        this.frontGroundStyle.transform = `translate3d(0, ${factor1 * 25}%, 0) scale(${(factor1 / 7.5) + 1})`
         this.cloudsStyle1.transform = `translate3d(0,${Math.floor(scrollTop / 3)}px, 0)`
         this.cloudsStyle2.transform = `translate3d(0,${Math.floor(scrollTop / 5)}px, 0)`
         this.cloudsStyle3.transform = `translate3d(0,${Math.floor(scrollTop / 4)}px, 0)`

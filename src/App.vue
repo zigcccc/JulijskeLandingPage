@@ -1,28 +1,17 @@
 <template>
   <div id="app">
     <div v-if="isLoading" id="loader"></div>
-    <main-menu />
-    <hero />
-    <destination-map-container />
-    <destinations />
-    <triglav-national-park />
-    <site-footer />
+    <Home />
   </div>
 </template>
 
 <script>
-import MainMenu from '@/components/MainMenu'
-import Hero from '@/components/Hero'
-import DestinationMapContainer from '@/components/DestinationMapContainer'
-import Destinations from '@/components/Destinations'
-import TriglavNationalPark from '@/components/TriglavNationalPark'
-import SiteFooter from '@/components/SiteFooter'
-
 import SmoothScroll from 'smoothscroll-polyfill'
+import Home from '@/pages/Home'
 
 export default {
   name: 'app',
-  components: {MainMenu, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, SiteFooter},
+  components: {Home},
   computed: {
     isLoading() {
       return this.$store.getters.doneLoading
