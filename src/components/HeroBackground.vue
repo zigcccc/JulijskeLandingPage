@@ -1,7 +1,7 @@
 <template>
   <div id="hero-background">
-    <img :style="middleGroundStyle" id="middle-ground" class="hero-mountain" src="@/assets/sredina.png" alt="Julian Alps">
-    <img :style="frontGroundStyle" id="front-ground" class="hero-mountain" src="@/assets/spredaj.png" alt="Julian Alps">
+    <img :class="{loaded : siteLoaded}" :style="middleGroundStyle" id="middle-ground" class="hero-mountain" src="@/assets/sredina.png" alt="Julian Alps">
+    <img :class="{loaded : siteLoaded}" :style="frontGroundStyle" id="front-ground" class="hero-mountain" src="@/assets/spredaj.png" alt="Julian Alps">
     <div id="clouds">
       <div class="hero-clouds" id="cloud1">
         <img :style="cloudsStyle1" src="/images/Clouds_01.png" alt="Clouds in Julian Alps">
@@ -28,6 +28,10 @@ export default {
   props: {
     heroHeight: {
       type: Number,
+      required: true
+    },
+    siteLoaded: {
+      type: Boolean,
       required: true
     }
   },
@@ -89,11 +93,14 @@ export default {
   height: auto
   width: 100%
   position: absolute
-  bottom: 0
+  bottom: -20%
   z-index: 10
+  &.loaded
+    bottom: 0
   &#middle-ground
     z-index: 5
     transform-origin: bottom center
+    transition: 800ms ease-in-out bottom 750ms
     @media screen and (max-width: 414px)
       width: auto
       max-width: none
@@ -103,6 +110,7 @@ export default {
     z-index: 20
     filter: contrast(130%)
     transform-origin: bottom center
+    transition: 700ms ease-in-out bottom 750ms
     @media screen and (max-width: 414px)
       width: auto
       max-width: none

@@ -32,7 +32,7 @@ export default {
     },
     allImages() {
       return document.querySelectorAll('img').length
-    }  
+    }
   },
   methods: {
     imageProgress(instance, image) {

@@ -1,7 +1,7 @@
 <template>
   <section id="hero" :style="{backgroundImage: `url(${bgimage})`}">
     <navbar :heroHeight="heroHeight" />
-    <hero-background :heroHeight="heroHeight" />
+    <hero-background :heroHeight="heroHeight" :siteLoaded="loaded" />
     <div class="container">
       <div class="columns hero-columns">
         <div class="column hero-title">
@@ -40,6 +40,9 @@ export default {
     },
     language() {
       return this.$store.getters.getLanguage;
+    },
+    loaded() {
+      return this.$store.getters.doneLoading;
     }
   },
   methods: {

@@ -1,5 +1,5 @@
 <template>
-  <div id="home" :class="{done : !loading}">
+  <div id="home">
     <main-menu />
     <hero />
     <destination-map-container />
@@ -19,23 +19,6 @@ import SiteFooter from '@/components/SiteFooter'
 
 export default {
   name: 'Home',
-  components: {MainMenu, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, SiteFooter},
-  computed: {
-    loading() {
-      return !this.$store.getters.doneLoading;
-    }
-  }
+  components: {MainMenu, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, SiteFooter}
 }
 </script>
-
-<style lang="sass" scoped>
-#home
-  transform: translate3d(0, 5%, 0)
-  opacity: 0
-  +easeTransition(750ms)
-  transition-delay: 700ms
-  &.done
-    transform: translate3d(0,0,0)
-    opacity: 1
-</style>
-
