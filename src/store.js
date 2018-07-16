@@ -77,7 +77,7 @@ const store = new Vuex.Store({
 	},
 	getters: {
 		doneLoading: state => {
-			return state.appLoading;
+			return !state.appLoading;
 		},
 		getActiveDestination: state => {
 			return state.activeDestination;
