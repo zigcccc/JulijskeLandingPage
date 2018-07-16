@@ -5,15 +5,17 @@
     <div class="container">
       <div class="columns hero-columns">
         <div class="column hero-title">
-          <h1 :style="titleStyle">Julian<span>Alps</span></h1>
+          <h1 v-if="language === 'sl'" :style="titleStyle">Julijske<span>Alpe</span></h1>
+          <h1 v-else :style="titleStyle">Julian<span>Alps</span></h1>
         </div>
         <div class="column hero-intro">
-          <p :style="titleStyle" class="intro-paragraph">Explore the beauty of the pure and intact nature, surrounding this gorgeous destination.</p>
+          <p v-if="language === 'sl'" :style="titleStyle" class="intro-paragraph">Raziščite lepote neokrnjene narave, ki obdaja to čudovito in slikovito pokrajino.</p>
+          <p v-else :style="titleStyle" class="intro-paragraph">Explore the beauty of the pure and intact nature, surrounding this gorgeous destination.</p>
         </div>
       </div>
     </div><!-- END .container -->
     <div class="hero-cta-container">
-      <a @click="scrollPastHero">explore <span><i class="fas fa-chevron-down"></i></span></a>
+      <a @click="scrollPastHero">{{ language === 'sl' ? 'razišči' : 'explore' }} <span><i class="fas fa-chevron-down"></i></span></a>
     </div>
   </section>
 </template>
@@ -35,6 +37,9 @@ export default {
   computed: {
     heroHeight() {
       return this.$store.state.heroHeight;
+    },
+    language() {
+      return this.$store.getters.getLanguage;
     }
   },
   methods: {

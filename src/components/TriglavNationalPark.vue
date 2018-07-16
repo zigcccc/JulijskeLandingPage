@@ -3,10 +3,11 @@
     <div class="container is-fluid">
       <div class="columns">
         <div class="column is-three-fifths">
-          <h2 :class="{active : isVisible}">Triglav National Park</h2>
+          <h2 :class="{active : isVisible}">{{ language === 'sl' ? 'Triglavski Narodni Park' : 'Triglav National Park' }}</h2>
           <p :class="{active : isVisible}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
           <div class="tnp-cta-container" :class="{active : isVisible}">
-            <a href="https://www.tnp.si/en/learn/" target="_blank">discover triglav national park</a>
+            <a v-if="language === 'en'" href="https://www.tnp.si/en/learn/" target="_blank">discover triglav national park</a>
+            <a v-if="language === 'sl'" href="https://www.tnp.si/sl/spoznajte/" target="_blank">odkrijte triglavski narodni park</a>
           </div>
         </div>
         <div class="column is-special">
@@ -23,7 +24,7 @@
         </div>
       </div>
       <div class="images-container" :class="{active : mountainsVisible}">
-        <destination-images :images="images" destination="Triglav National Park"  />
+        <destination-images :images="images" destination="Triglav National Park" controlsAlign="left"  />
         <destination-clouds destination="tnp" :animation="true" :parallax="false" class="tnp-images-clouds" />
       </div>
     </div>
@@ -92,6 +93,9 @@ export default {
       if(this.$el) {
         return this.$el.clientHeight
       }
+    },
+    language() {
+      return this.$store.getters.getLanguage;
     }
   },
   mounted() {

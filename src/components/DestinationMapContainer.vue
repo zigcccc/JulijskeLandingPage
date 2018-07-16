@@ -1,6 +1,7 @@
 <template>
   <aside :style="{top: `${heroHeight}px`}" :class="[{fixed : isPastHero}, activeDestination.id]" id="map">
-    <h3>Location of {{ $store.state.activeDestination.name }}.</h3>
+    <h3 v-if="language === 'sl'">Lokacija destinacije {{ $store.state.activeDestination.name[language] }}.</h3>
+    <h3 v-else>Location of {{ $store.state.activeDestination.name[language] }}.</h3>
     <div class="zoom-control-container">
       <a @click.prevent="handleZoom"><span><i class="fas" :class="zoomControlIcon"></i></span></a>
     </div>
@@ -8,7 +9,7 @@
       <destination-map :activeDestination="activeDestination" :zoom="zoomIn" />
     </div>
     <div class="map-cta-container">
-      <a :href="destinationMapUrl" target="_blank">See location <span><i class="fas fa-chevron-right"></i></span></a>
+      <a :href="destinationMapUrl" target="_blank">{{ language === 'sl' ? 'Poglej lokacijo' : 'See location' }} <span><i class="fas fa-chevron-right"></i></span></a>
     </div>
     <div id="nadmorska-visina">
       <div id="sea-level-chart-container">
@@ -100,6 +101,9 @@ export default {
     },
     zoomControlIcon() {
       return !this.zoomIn ? 'fa-search-plus' : 'fa-search-minus';
+    },
+    language() {
+      return this.$store.getters.getLanguage;
     }
   },
   methods: {

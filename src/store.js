@@ -8,6 +8,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state: {
+		language: 'sl',
 		appLoading: true,
 		heroHeight: 0,
 		isPastHero: false,
@@ -38,6 +39,14 @@ const store = new Vuex.Store({
 		},
 		setWindowWidth(state, payload) {
 			state.windowWidth = payload;
+		},
+		changeLanguage(state, payload) {
+			if (payload === 'sl' || payload === 'en') {
+				state.language = payload;
+				localStorage.setItem('lang', payload);
+			} else {
+				state.language = 'en';
+			}
 		}
 	},
 	actions: {
@@ -61,6 +70,9 @@ const store = new Vuex.Store({
 		},
 		setWindowWidth({ commit }, payload) {
 			commit('setWindowWidth', payload);
+		},
+		changeLanguage({ commit }, payload) {
+			commit('changeLanguage', payload);
 		}
 	},
 	getters: {
@@ -75,7 +87,7 @@ const store = new Vuex.Store({
 		},
 		getDestinations: state => {
 			return state.destinations.map(destination => {
-				let destinationID = destination.name
+				let destinationID = destination.name['en']
 					.toLowerCase()
 					.split(' ')
 					.join('-')
@@ -116,6 +128,9 @@ const store = new Vuex.Store({
 		},
 		getWindowWidth: state => {
 			return state.windowWidth;
+		},
+		getLanguage: state => {
+			return state.language;
 		}
 	},
 	setter: {}

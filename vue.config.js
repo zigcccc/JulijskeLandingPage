@@ -1,5 +1,4 @@
 module.exports = {
-	// baseUrl: '/julijske-alpe/',
 	configureWebpack: {
 		module: {
 			rules: [

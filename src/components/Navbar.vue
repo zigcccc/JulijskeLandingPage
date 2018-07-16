@@ -4,7 +4,7 @@
         <social-links :style="{marginRight: '2em'}" />
         <a href="#" class="influencers">
           <img src="@/assets/ikonaKamera.svg" alt="Influencers in Julian Alps">
-          For influencers
+          {{ language === 'en' ? 'For influencers' : 'Za "influencerje"' }}
         </a>
       </div>
       <div class="logo-container">
@@ -13,10 +13,10 @@
       <div class="right-side">
         <a href="#" class="influencers tablet">
           <img src="@/assets/ikonaKamera.svg" alt="Influencers in Julian Alps">
-          For influencers
+          {{ language === 'en' ? 'For influencers' : 'Za influencerje' }}
         </a>
         <a @click.prevent="scrollToTNP" class="tnp">
-          Triglav National Park
+          {{ language === 'en' ? 'Triglav National Park' : 'Triglavski narodni park' }}
           <img src="@/assets/ikonaGora.svg" alt="Triglav National Park">
         </a>
         <div @click="toggleMenu" class="menu-icon">
@@ -49,7 +49,14 @@ export default {
       return this.$store.state.menuOpen;
     },
     menuText() {
-      return this.$store.getters.getWindowWidth > 414 ? 'Destinations' : 'Menu'
+      if (this.language === 'en') {
+        return this.$store.getters.getWindowWidth > 414 ? 'Destinations' : 'Menu'
+      } else {
+        return this.$store.getters.getWindowWidth > 414 ? 'Destinacije' : 'Meni'
+      }
+    },
+    language() {
+      return this.$store.getters.getLanguage;
     }
   },
   methods: {
@@ -114,6 +121,7 @@ nav
       display: none
   &:hover
     cursor: pointer
+    color: $white
     & > img
       transform: scale(1.25)
   & > img

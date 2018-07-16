@@ -1,15 +1,15 @@
 <template>
   <div class="single-destination" :id="destination.id" :style="sectionBackground">
     <div class="destination-container">
-      <h2 class="destination-name" :class="{active : isActiveDestination}">{{ destination.name }}</h2>
-      <p class="destination-description" :class="{active : isActiveDestination}">{{ destination.description }}</p>
+      <h2 class="destination-name" :class="{active : isActiveDestination}">{{ destination.name[language] }}</h2>
+      <p class="destination-description" :class="{active : isActiveDestination}">{{ destination.description[language] }}</p>
       <div class="destination-cta-container" :class="{active : isActiveDestination}">
-        <a :href="destination.url" target="_blank">discover {{ destination.name }}</a>
+        <a :href="destination.url" target="_blank">{{language === 'sl' ? 'odkrijte' : 'discover' }} {{ destination.name[language] }}</a>
         <span><i class="fas fa-arrow-right"></i></span>
       </div>
       <div class="destination-images-container" :class="{active : isActiveDestination}">
-        <destination-images :images="destination.images" :destination="destination.name" />
-        <destination-clouds v-if="destination.images.length > 0" :destination="destination.name" :sectionOffset="sectionOffset" :animation="false" :parallax="true" />
+        <destination-images :images="destination.images" :destination="destination.id" controlsAlign="right" />
+        <destination-clouds v-if="destination.images.length > 0" :destination="destination.id" :sectionOffset="sectionOffset" :animation="false" :parallax="true" />
       </div>
     </div><!-- END destination-container -->
   </div>
@@ -60,6 +60,9 @@ export default {
       else {
         return false
       }
+    },
+    language() {
+      return this.$store.getters.getLanguage;
     }
   },
   created() {

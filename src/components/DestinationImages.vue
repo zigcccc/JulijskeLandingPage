@@ -1,9 +1,9 @@
 <template>
   <div v-if="images.length > 0" class="destination-images">
-    <div class="destination-images-controls">
+    <div class="destination-images-controls" :class="{'align-left' : controlsAlign === 'left', 'align-right' : controlsAlign === 'right'}">
       <span @click="toPrevImage" id="prev-image" :class="{disabled : activeImage === 0}"><i class="fas fa-chevron-left"></i></span>
       <div class="images-controls-data">
-        {{ activeImage + 1 }} <em>of</em> {{ images.length }}
+        {{ activeImage + 1 }} <em>{{ language === 'sl' ? 'od' : 'of' }}</em> {{ images.length }}
       </div>
       <span @click="toNextImage" id="next-image" :class="{disabled : activeImage === images.length - 1}"><i class="fas fa-chevron-right"></i></span>
     </div>
@@ -34,6 +34,11 @@ export default {
     destination: {
       type: String,
       required: true
+    },
+    controlsAlign: {
+      type: String,
+      required: false,
+      default: 'right'
     }
   },
   data() {
@@ -55,6 +60,9 @@ export default {
     },
     imageWidth() {
       return this.$store.getters.getWindowWidth > 414 ? 225 : 150;
+    },
+    language() {
+      return this.$store.getters.getLanguage;
     }
   },
   methods: {
@@ -72,7 +80,7 @@ export default {
       }
     },
     handleArrowKeys(key) {
-      if (this.destination === this.$store.state.activeDestination.name || this.$store.getters.isPastDestinations) {
+      if (this.destination === this.$store.getters.getActiveDestination.id || this.$store.getters.isPastDestinations) {
         if (key === 37) {
           this.toPrevImage();
         }
@@ -151,11 +159,17 @@ export default {
 .destination-images-controls
   position: absolute
   top: -45px
-  left: 0px
   display: flex
   align-items: center
   font-size: 1.25em
   z-index: 10
+  &.align-left
+    left: 0
+  &.align-right
+    right: 20px
+    @media screen and (max-width: 414px)
+      right: unset
+      left: 10px
   & > .images-controls-data
     margin: 0 1em
     font-weight: 900
@@ -172,6 +186,8 @@ export default {
       &.disabled
         transform: scale(1)
         cursor: default
+        text-shadow: none
     &.disabled
       opacity: .5
+      text-shadow: none
 </style>

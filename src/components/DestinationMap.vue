@@ -19,10 +19,13 @@ export default {
     }
   },
   computed: {
+    language() {
+      return this.$store.getters.getLanguage;
+    },
     destinationNames() {
       return Array.from(this.$store.getters.getDestinations).map(destination => {
         return {
-          name: destination.name,
+          name: destination.name[this.language],
           id: destination.id
         }
       })

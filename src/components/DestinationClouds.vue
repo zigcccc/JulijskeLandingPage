@@ -45,7 +45,7 @@ export default {
   methods: {
     cloudParallax(scrollTop) {
       if(this.parallax) {
-        if (this.destination === this.$store.state.activeDestination.name) {
+        if (this.destination === this.$store.state.activeDestination.id) {
           let factor1 = -((scrollTop - this.sectionOffset) / 6).toFixed(2) + 50;
           let factor2 = -((scrollTop - this.sectionOffset) / 12).toFixed(2) + 50;
 

@@ -22,9 +22,14 @@ export default {
   },
   mounted() {
 		this.$nextTick(() => {
-      this.$store.commit('setAppLoading', false);
-      this.$store.commit('setWindowWidth', window.innerWidth);
-		});
+      this.$store.dispatch('setAppLoading', false);
+      this.$store.dispatch('setWindowWidth', window.innerWidth);
+    });
+    if(localStorage.getItem('lang')) {
+      this.$store.dispatch('changeLanguage', localStorage.getItem('lang'));
+    } else {
+      this.$store.dispatch('changeLanguage', window.navigator.language);
+    }
   }
 }
 </script>

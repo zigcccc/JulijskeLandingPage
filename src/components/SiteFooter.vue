@@ -6,12 +6,13 @@
           <Logo accentColor="green" />
         </div>
         <div class="right">
+          <language-switcher :toggleMenu="false" location="footer" />
           <social-links />
         </div>
       </div><!-- END footer-header -->
       <div class="footer-content">
-        <div class="destination-details" v-for="destination in destinationsContactInfo" :key="destination.name">
-          <h5>{{ destination.name }}</h5>
+        <div class="destination-details" v-for="destination in destinationsContactInfo" :key="destination.name[language]">
+          <h5>{{ destination.name[language] }}</h5>
           <a :href="destination.web" target="_blank">www{{ destination.web.split('www')[1] }}</a><br>
           <a :href="`tel:${destination.phone.full}`">{{ destination.phone.display }}</a><br>
           <a :href="`mailto:${destination.email}`">{{ destination.email }}</a><br>
@@ -33,15 +34,20 @@
 <script>
 import SocialLinks from '@/components/SocialLinks'
 import Logo from '@/components/Logo'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+
 export default {
   name: 'SiteFooter',
-  components: {SocialLinks, Logo},
+  components: {SocialLinks, Logo, LanguageSwitcher},
   computed: {
     visible() {
       return this.$store.getters.isPastDestinations
     },
     destinationsContactInfo() {
       return this.$store.getters.getDestinationsContactInfo
+    },
+    language(){
+      return this.$store.getters.getLanguage;
     }
   },
   methods: {
@@ -78,6 +84,13 @@ footer
   .left
     &:hover
       cursor: pointer
+  .right
+    display: flex
+    align-items: center
+    .language-switcher
+      margin-right: 1em
+      poisiton: relative
+      z-index: 1000
 
 .footer-content
   color: $white

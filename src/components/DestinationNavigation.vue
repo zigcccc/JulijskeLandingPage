@@ -2,14 +2,14 @@
   <div id="destination-nav" :class="{fixed : isPastHero, hidden : isPastDestinations}">
     <div v-if="prevAndNext.next" @click="goToNext" id="next-dest">
       <span><i class="fas fa-long-arrow-alt-left"></i></span>
-      {{ prevAndNext.next.name }}
+      {{ prevAndNext.next.name[language] }}
     </div>
     <div v-else class="spacer"></div>
     <div id="destination-counter">
       {{ $store.state.activeDestination.index + 1 }} / {{ destinations.length }}
     </div>
     <div v-if="prevAndNext.prev" @click="goToPrev" id="prev-dest">
-      {{ prevAndNext.prev.name }}
+      {{ prevAndNext.prev.name[language] }}
       <span><i class="fas fa-long-arrow-alt-right"></i></span>
     </div>
     <div v-else class="spacer"></div>
@@ -85,6 +85,9 @@ export default {
       } else if (height < 720 && height >= 500) {
         return height / 2;
       }
+    },
+    language() {
+      return this.$store.getters.getLanguage;
     }
   },
   created() {
