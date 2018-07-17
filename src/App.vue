@@ -102,12 +102,17 @@ body
     bottom: 0
     right: 0
     transform: translate(0, 0)
+    @media screen and (max-width: 768px)
+      bottom: 10px
     &.done
       opacity: 0
       visibility: hidden
   .logo
     +easeTransition(500ms)
     transition-delay: 500ms
+    @media screen and (max-width: 768px)
+      text-align: center
+      margin-bottom: 1em
     &.done
       opacity: 0
       visibility: hidden
@@ -118,6 +123,12 @@ body
     width: 100%
     height: 100%
     position: relative
+    @media screen and (max-width: 768px)
+      max-width: unset
+      width: 90%
+      margin: 0 auto
+      max-height: unset
+      height: auto
 #app
   font-family: $family-sans
   -webkit-font-smoothing: antialiased

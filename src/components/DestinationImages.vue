@@ -43,7 +43,7 @@ export default {
   },
   data() {
     return {
-      activeImage: 0
+      activeImage: 1
     }
   },
   computed: {
