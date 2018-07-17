@@ -97,7 +97,15 @@ export default {
       return this.activeDestination.sea_level;
     },
     chartData() {
-      return [0, this.nadmorskaVisina, 0]
+      if (this.prevAndNext.prev && this.prevAndNext.next) {
+        return [this.prevAndNext.prev.sea_level, this.nadmorskaVisina, this.prevAndNext.next.sea_level];
+      } else if(this.prevAndNext.prev && !this.prevAndNext.next) {
+        return [this.prevAndNext.prev.sea_level, this.nadmorskaVisina, 0];
+      } else if (!this.prevAndNext.prev && this.prevAndNext.next) {
+        return [1000, this.nadmorskaVisina, this.prevAndNext.next.sea_level];
+      } else {
+        return [0, this.nadmorskaVisina, 0];
+      }
     },
     zoomControlIcon() {
       return !this.zoomIn ? 'fa-search-plus' : 'fa-search-minus';

@@ -100,7 +100,7 @@ export default {
   &#middle-ground
     z-index: 5
     transform-origin: bottom center
-    transition: 800ms ease-in-out bottom 750ms
+    transition: 800ms ease-in-out bottom 950ms
     @media screen and (max-width: 414px)
       width: auto
       max-width: none
@@ -110,7 +110,7 @@ export default {
     z-index: 20
     filter: contrast(130%)
     transform-origin: bottom center
-    transition: 700ms ease-in-out bottom 750ms
+    transition: 700ms ease-in-out bottom 950ms
     @media screen and (max-width: 414px)
       width: auto
       max-width: none

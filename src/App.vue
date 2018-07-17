@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <div id="loader" :class="{done : allLoaded}">
-      <span :class="{done : allLoaded}">{{ Math.floor(loadedPercent) }}%</span>
-      <div :class="{done : allLoaded}" class="line" :style="{minWidth: `${loadedPercent}%`}"></div>
+      <div class="loading-map-container">
+        <span class="percentage" :class="{done : allLoaded}">{{ Math.floor(loadedPercent) }}%</span>
+        <logo :class="{done : allLoaded}" accentColor="green" />
+        <loading-map :percent="parseFloat(loadedPercent)" />
+      </div>
+      <!-- <div :class="{done : allLoaded}" class="line" :style="{minWidth: `${loadedPercent}%`}"></div> -->
     </div>
     <Home v-images-loaded:on.progress="imageProgress" />
   </div>
@@ -11,11 +15,13 @@
 <script>
 import SmoothScroll from 'smoothscroll-polyfill'
 import imagesLoaded from 'vue-images-loaded'
+import LoadingMap from '@/components/LoadingMap'
+import Logo from '@/components/Logo'
 import Home from '@/pages/Home'
 
 export default {
   name: 'app',
-  components: {Home},
+  components: {Home, LoadingMap, Logo},
   directives: {
     imagesLoaded
   },
@@ -81,27 +87,37 @@ body
   flex-direction: column
   color: $white
   +easeTransition(500ms)
-  transition-delay: 750ms
+  transition-delay: 900ms
   opacity: 1
   &.done
     opacity: 0
     visibility: hidden
-  span
+  span.percentage
     font-weight: 900
-    margin-bottom: 1em
+    font-size: 3em
+    line-height: 1
     +easeTransition(500ms)
+    transition-delay: 500ms
+    position: absolute
+    bottom: 0
+    right: 0
+    transform: translate(0, 0)
     &.done
       opacity: 0
       visibility: hidden
-      margin-bottom: 0
-  .line
-    min-height: 8px
-    background: $white
-    transition: 500ms ease-in-out transform, 250ms ease-in-out min-height 500ms
+  .logo
+    +easeTransition(500ms)
+    transition-delay: 500ms
     &.done
-      transform: rotate(90deg)
-      min-height: 0
-    //+simpleTransition(100ms)
+      opacity: 0
+      visibility: hidden
+
+  .loading-map-container
+    max-width: 25vw
+    max-height: 25vh
+    width: 100%
+    height: 100%
+    position: relative
 #app
   font-family: $family-sans
   -webkit-font-smoothing: antialiased
