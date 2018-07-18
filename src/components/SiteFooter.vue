@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="footer-legal-info">
-        &copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span>Website production: <a href="https://forward.si" target="_blank">Forward - agencija za digitalni marketing</a>
+        &copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span>{{ language === 'sl' ? 'Izdelava spletne strani' : 'Website production' }}: <a href="https://forward.si" target="_blank">Forward - agencija za digitalni marketing</a>
       </div>
     </div>
     <div id="mountain1" class="footer-mountain">

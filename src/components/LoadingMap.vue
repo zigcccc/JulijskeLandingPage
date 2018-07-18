@@ -71,6 +71,8 @@ export default {
     stroke-miterlimit: 10
     transition: fill 500ms ease-in-out 250ms, stroke-dasharray 400ms ease-in-out, transform 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86) 750ms
     transform-origin: center center
+    @media screen and (max-width: 768px)
+      stroke-width: 18
     &.done
       fill: $white
       transform: scale(0)

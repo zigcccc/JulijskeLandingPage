@@ -28,6 +28,7 @@
         <destination-clouds destination="tnp" :animation="true" :parallax="false" class="tnp-images-clouds" />
       </div>
     </div>
+    <!-- Bottom mountains -->
     <div :class="{visible : mountainsVisible}" id="mountain1" class="tnp-mountain">
       <img src="@/assets/tnp_cutted_bg_01.png" alt="Triglav national park sightseeing">
     </div>
@@ -41,9 +42,11 @@
 import ICountUp from 'vue-countup-v2';
 import DestinationImages from '@/components/DestinationImages';
 import DestinationClouds from '@/components/DestinationClouds';
+import InfluencersForm from '@/components/InfluencersForm';
+
 export default {
   name: 'TriglavNationalPark',
-  components: {ICountUp, DestinationImages, DestinationClouds},
+  components: {ICountUp, DestinationImages, DestinationClouds, InfluencersForm},
   data() {
     return {
       footerHeight: 455,
@@ -52,6 +55,8 @@ export default {
       duration: 3.5,
       decimals: 0,
       mountainsVisible: false,
+      factor: 1.77,
+      iframeWidth: 0,
       options: {
         useEasing: true,
         separator: '',
@@ -96,9 +101,13 @@ export default {
     },
     language() {
       return this.$store.getters.getLanguage;
+    },
+    iframeHeight() {
+      return Math.floor(this.iframeWidth / this.factor) 
     }
   },
   mounted() {
+    //this.iframeWidth = document.querySelector('.iframe-container iframe').clientWidth;
     document.addEventListener('scroll', e => {
       this.handleScroll(e.target.scrollingElement.scrollTop);
     })
@@ -112,6 +121,7 @@ export default {
 <style lang="sass" scoped>
 #triglav-national-park
   min-height: 100vh
+  padding-bottom: 100px
   position: relative
   overflow: hidden
   z-index: 10005
@@ -151,7 +161,7 @@ export default {
         margin: 10px auto 0
 
   p
-    //max-width: 750px
+    max-width: 750px
     width: 90%
     margin-left: 25px
     margin-top: 2em
@@ -197,6 +207,77 @@ export default {
   @media screen and (max-width: 768px)
     margin-top: 2em
 
+.iframe-container
+  overflow: hidden
+  border-radius: 5px
+  box-shadow: $shadow-4
+  position: relative
+  z-index: 20
+  max-width: 90%
+  margin: 3em auto
+  +fadeInOnActive
+
+.clouds-container
+  position: relative
+  margin-top: 15vh
+  z-index: 10
+  +fadeInOnActive
+
+.influencer-content
+  position: relative
+  margin: 1em auto 0
+  .column
+    position: relative
+  .image-container
+    position: absolute
+    +getSquare(400px)
+    right: -5%
+    bottom: -45%
+    transform: translate3d(0, 100%, 0)
+    opacity: 0
+    +easeTransition(500ms)
+    &.active
+      transform: translate3d(0,0,0)
+      opacity: 1
+
+  h3
+    font-weight: 900
+    font-size: 2em
+    margin-top: 120px
+    +fadeInOnActive
+    &::after
+      content: ''
+      display: block
+      width: 50px
+      height: 3px
+      background: $primary
+      margin-top: 15px
+  p
+    width: 75%
+    margin: 15px 0
+    text-align: justify
+    +fadeInOnActive
+
+  .cta-container
+    display: flex
+    justify-content: flex-start
+    margin: 2em 0
+    position: relative
+    z-index: 15
+    +fadeInOnActive
+    & > a
+      background: $primary
+      padding: .75em 1em
+      text-transform: uppercase
+      color: $white
+      font-weight: 900
+      border-radius: 200px
+      box-shadow: $shadow-2
+      +bounceTransition
+      &:hover
+        box-shadow: $shadow-4
+        transform: translate3d(0, -3px, 0)
+
 #nadmorska-visina
   font-size: 7.5em
   font-weight: 900
@@ -241,7 +322,7 @@ export default {
     transition-delay: 250ms
     transform: scaleX(-1) translate3d(0, 100%, 0)
     &.visible
-      transform: translate3d(0,10%,0) scaleX(-1)
+      transform: translate3d(0,5%,0) scaleX(-1)
       @media screen and (max-width: 768px)
         transform: translate3d(0,0%,0) scaleX(-1)
   &#mountain2
@@ -250,7 +331,7 @@ export default {
     transform: translate3d(2.5%, 100%, 0) scale(1.05);
     z-index: 5
     &.visible
-      transform: translate3d(2.5%,20%,0) scale(1.05)
+      transform: translate3d(2.5%,30%,0) scale(1.05)
       @media screen and (max-width: 768px)
         transform: translate3d(2.5%,-25%,0) scale(1.05)
         opacity: .75
