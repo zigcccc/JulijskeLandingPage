@@ -1,7 +1,8 @@
 <template>
   <div id="hero-background">
-    <img :class="{loaded : siteLoaded}" :style="middleGroundStyle" id="middle-ground" class="hero-mountain" src="@/assets/sredina.png" alt="Julian Alps">
-    <img :class="{loaded : siteLoaded}" :style="frontGroundStyle" id="front-ground" class="hero-mountain" src="@/assets/spredaj.png" alt="Julian Alps">
+    <img :class="{loaded : siteLoaded}" :style="middleGroundStyle" id="middle-ground" class="hero-mountain" src="@/assets/cutted_background/middleGround.png" alt="Julian Alps">
+    <img :class="{loaded : siteLoaded}" :style="frontGroundStyle" id="front-ground" class="hero-mountain" src="@/assets/cutted_background/frontGround.png" alt="Julian Alps">
+    <img :class="{loaded : siteLoaded}" :style="frontHikerStyle" id="front-hiker" class="hero-mountain" src="@/assets/cutted_background/frontHiker.png" alt="Julian Alps">
     <div id="clouds">
       <div class="hero-clouds" id="cloud1">
         <img :style="cloudsStyle1" src="/images/Clouds_01.png" alt="Clouds in Julian Alps">
@@ -44,6 +45,9 @@ export default {
       frontGroundStyle: {
         transform: 'translate3d(0,0,0)'
       },
+      frontHikerStyle: {
+        transform: 'translate3d(0,0,0)'
+      },
       cloudsStyle1: {
         transform: 'translate3d(0,0,0)'
       },
@@ -65,10 +69,11 @@ export default {
     parallax(scrollTop) {
       if (scrollTop < this.heroHeight) {
         let factor1 = (scrollTop / 50)
-        let factor2 = (scrollTop / 5)
-        this.middleGroundStyle.transform = `translate3d(0, ${Math.floor(factor1*10)}px, 0) scale(${(factor1 / 20) + 1})`
+        let factor2 = (scrollTop / 10)
+        this.middleGroundStyle.transform = `translate3d(0, ${factor1 * 20}%, 0) scale(${(factor1 / 20) + 1})`
         this.middleGroundStyle.filter = `blur(${factor2.toFixed(2)}px) contrast(120%)`
-        this.frontGroundStyle.transform = `translate3d(0, ${factor1 * 25}%, 0) scale(${(factor1 / 7.5) + 1})`
+        this.frontGroundStyle.transform = `translate3d(0, ${factor1 * 20}%, 0) scale(${(factor1 / 7.5) + 1})`
+        this.frontHikerStyle.transform = `translate3d(0, ${factor1 * 10}%, 0) scale(${(factor1 / 20) + 1})`
         this.cloudsStyle1.transform = `translate3d(0,${Math.floor(scrollTop / 3)}px, 0)`
         this.cloudsStyle2.transform = `translate3d(0,${Math.floor(scrollTop / 5)}px, 0)`
         this.cloudsStyle3.transform = `translate3d(0,${Math.floor(scrollTop / 4)}px, 0)`
@@ -93,12 +98,17 @@ export default {
   height: auto
   width: 100%
   position: absolute
-  bottom: -20%
+  bottom: -100%
   z-index: 10
   &.loaded
-    bottom: 0
+    &#middle-ground
+      bottom: -45%
+    &#front-ground
+      bottom: -25%
+    &#front-hiker
+      bottom: 0
   &#middle-ground
-    z-index: 5
+    z-index: 15
     transform-origin: bottom center
     transition: 1000ms ease-in-out bottom 1150ms
     @media screen and (max-width: 414px)
@@ -116,17 +126,31 @@ export default {
       max-width: none
       height: 365px
       left: -50%
+  &#front-hiker
+    z-index: 100
+    filter: contrast(110%)
+    transform-origin: bottom center
+    transition: 1000ms ease-in-out bottom 1150ms
+    max-height: 320px
+    width: auto
+    right: 0
+    @media screen and (max-width: 414px)
+      width: auto
+      max-width: none
+      height: 365px
+      left: -50%
 
 #clouds
   #cloud1
     width: 250%
     left: -5%
+    bottom: 45%
     animation: clouds-anim-4 ease-in-out 20s infinite
 
   #cloud2
     width: 200%
     left: -75%
-    bottom: 10%
+    bottom: 25%
     animation: clouds-anim-3 ease-in-out 35s infinite
     @media screen and (max-width: 768px)
       bottom: 0
@@ -134,7 +158,7 @@ export default {
   #cloud3
     width: 150%
     left: -25%
-    bottom: 8%
+    bottom: 18%
     animation: clouds-anim-2 ease-in-out 25s infinite
     @media screen and (max-width: 768px)
       bottom: 0
@@ -142,14 +166,14 @@ export default {
   #cloud4
     z-index: 50
     width: 100%
-    left: -20%
-    bottom: -7%
+    right: -10%
+    bottom: 7%
     animation: clouds-anim-1 ease-in-out 20s infinite
   #cloud5
     z-index: 50
     width: 50%
-    right: 5%
-    bottom: -15%
+    right: 25%
+    bottom: -5%
     animation: clouds-anim-3 ease-in-out 30s infinite
     animation-delay: 200ms
 

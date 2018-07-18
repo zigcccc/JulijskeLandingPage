@@ -3,12 +3,12 @@
     <navbar :heroHeight="heroHeight" />
     <hero-background :heroHeight="heroHeight" :siteLoaded="loaded" />
     <div class="container">
-      <div class="columns hero-columns">
-        <div class="column hero-title">
+      <div class="hero-columns">
+        <div class="hero-title">
           <h1 v-if="language === 'sl'" :style="titleStyle">Julijske<span>Alpe</span></h1>
           <h1 v-else :style="titleStyle">Julian<span>Alps</span></h1>
         </div>
-        <div class="column hero-intro">
+        <div class="hero-intro">
           <p v-if="language === 'sl'" :style="titleStyle" class="intro-paragraph">Raziščite lepote neokrnjene narave, ki obdaja to čudovito in slikovito pokrajino.</p>
           <p v-else :style="titleStyle" class="intro-paragraph">Explore the beauty of the pure and intact nature, surrounding this gorgeous destination.</p>
         </div>
@@ -28,7 +28,7 @@ export default {
   components: {Navbar, HeroBackground},
   data(){
     return {
-      bgimage: '/images/julian_alps_05.jpg',
+      bgimage: '/images/background_02.jpg',
       titleStyle: {
         transform: 'translate3d(0,0,0)'
       }
@@ -98,12 +98,12 @@ export default {
   background:
     repeat: no-repeat
     size: cover
-    position: 0% 50%
+    position: 0% 0%
   @media screen and (max-width: 1440px)
     //height: calc(#{$hero-height} - 75px)
 
 .hero-columns
-  margin-top: 30vh
+  margin-top: 40vh
   position: relative
   z-index: 10
   @media screen and (max-width: 1440px)
@@ -115,8 +115,8 @@ export default {
 
   .hero-title
     display: flex
-    justify-content: flex-end
-    padding-right: 10vw
+    justify-content: center
+    padding-right: 0
     @media screen and (max-width: 768px)
       padding-right: 0
       justify-content: center
@@ -124,7 +124,7 @@ export default {
       font-size: 9.25em
       line-height: 1
       font-weight: 900
-      color: $white
+      color: $black
       margin-top: -10%
       text-shadow: 0 5px 10px rgba(0,0,0,.2)
       text-align: right
@@ -136,7 +136,7 @@ export default {
         display: block
         text-align: center
       & > span
-        display: block
+        //display: block
         color: $primary
         @media screen and (max-width: 768px)
           &::after
@@ -146,9 +146,12 @@ export default {
 
   .hero-intro
     font-size: 1.4em
-    color: $white
+    color: $black
     font-weight: 600
     margin-top: .75em
+    text-align: center
+    max-width: 700px
+    margin: .75em auto 0
     @media screen and (max-width: 768px)
       font-size: 1.2em
       text-align: center
@@ -156,7 +159,7 @@ export default {
       display: block
       margin: 0 auto
     & > p
-      text-shadow: 0 3px 6px rgba(0,0,0,.5)
+      text-shadow: 0 3px 6px rgba(0,0,0,.2)
 
 .hero-cta-container
   position: absolute

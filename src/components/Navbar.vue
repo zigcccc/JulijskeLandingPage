@@ -1,27 +1,27 @@
 <template>
   <nav :class="{'is-hidden' : isPastHero}">
       <div class="left-side">
-        <social-links :style="{marginRight: '2em'}" />
+        <social-links :style="{marginRight: '2em'}" location="navbar" />
         <a href="#" class="influencers">
-          <img src="@/assets/ikonaKamera.svg" alt="Influencers in Julian Alps">
+          <img src="@/assets/ikonaKameraInverted.svg" alt="Influencers in Julian Alps">
           {{ language === 'en' ? 'For influencers' : 'Za "influencerje"' }}
         </a>
       </div>
       <div class="logo-container">
-        <Logo />
+        <Logo mainColor="black" accentColor="green" />
       </div>
       <div class="right-side">
         <a href="#" class="influencers tablet">
-          <img src="@/assets/ikonaKamera.svg" alt="Influencers in Julian Alps">
+          <img src="@/assets/ikonaKameraInverted.svg" alt="Influencers in Julian Alps">
           {{ language === 'en' ? 'For influencers' : 'Za influencerje' }}
         </a>
         <a @click.prevent="scrollToTNP" class="tnp">
           {{ language === 'en' ? 'Triglav National Park' : 'Triglavski narodni park' }}
-          <img src="@/assets/ikonaGora.svg" alt="Triglav National Park">
+          <img src="@/assets/ikonaGoraInverted.svg" alt="Triglav National Park">
         </a>
         <div @click="toggleMenu" class="menu-icon">
           {{ menuText }}
-          <img src="@/assets/Menu.svg" alt="Meni">
+          <img src="@/assets/MenuInverted.svg" alt="Meni">
         </div>
       </div>
   </nav>
@@ -108,7 +108,7 @@ nav
 .influencers
   display: flex
   align-items: center
-  color: $white
+  color: $black
   font-weight: 300
   font-size: 14px
   &.tablet
@@ -121,7 +121,7 @@ nav
       display: none
   &:hover
     cursor: pointer
-    color: $white
+    color: $black
     & > img
       transform: scale(1.25)
   & > img
@@ -168,7 +168,7 @@ nav
   align-items: center
   justify-content: flex-end
   font-weight: 300
-  color: $white
+  color: $black
   font-size: 14px
   min-width: 33%
   .menu-icon
@@ -188,7 +188,7 @@ nav
   .tnp
     display: flex
     align-items: center
-    color: $white
+    color: $black
     font-weight: 300
     @media screen and (max-width: 414px)
       display: none
