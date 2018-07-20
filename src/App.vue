@@ -111,7 +111,7 @@ body
     bottom: 0
     visibility: hidden
     opacity: 0
-    +bounceTransition(300ms)
+    +easeTransition(500ms)
   &.popup-active
     &::after
       background: transparentize($black, .1)

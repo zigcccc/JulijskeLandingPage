@@ -64,7 +64,7 @@
   $email->setFrom("web@test.com", "Webmaster Julian Alps");
   $email->setSubject("Influencer form submission");
   $email->addTo("zkrasovec@gmail.com", "Ziga Krasovec");
-  $email->addTo("info@forward.si", "Info Forward");
+  //$email->addTo("info@forward.si", "Info Forward");
   $email->addContent(
     "text/html", $emailContent
   );

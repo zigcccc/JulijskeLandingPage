@@ -13,6 +13,12 @@ const store = new Vuex.Store({
 		influencersPopupVisible: false,
 		heroHeight: 0,
 		isPastHero: false,
+		formLoading: false,
+		formErrors: {
+			hasErrors: false,
+			errorMsg: ''
+		},
+		formSubmitted: false,
 		windowWidth: 0,
 		pastDestinations: false,
 		menuOpen: false,
@@ -51,6 +57,24 @@ const store = new Vuex.Store({
 		},
 		toggleInfluencersPopup(state) {
 			state.influencersPopupVisible = !state.influencersPopupVisible;
+		},
+		changeFormLoadingStatus(state, payload) {
+			state.formLoading = payload;
+		},
+		attachFormErrors(state, { status, msg }) {
+			state.formErrors = {
+				hasErrors: status,
+				errorMsg: msg
+			};
+		},
+		clearFormErrors(state) {
+			state.formErrors = {
+				hasErrors: false,
+				errorMsg: ''
+			};
+		},
+		formSubmitted(state) {
+			state.formSubmitted = true;
 		}
 	},
 	actions: {
@@ -80,6 +104,18 @@ const store = new Vuex.Store({
 		},
 		toggleInfluencersPopup({ commit }) {
 			commit('toggleInfluencersPopup');
+		},
+		changeFormLoadingStatus({ commit }, payload) {
+			commit('changeFormLoadingStatus', payload);
+		},
+		attachFormErrors({ commit }, payload) {
+			commit('attachFormErrors', payload);
+		},
+		clearFormErrors({ commit }) {
+			commit('clearFormErrors');
+		},
+		formSubmitted({ commit }) {
+			commit('formSubmitted');
 		}
 	},
 	getters: {
@@ -141,6 +177,13 @@ const store = new Vuex.Store({
 		},
 		influencersPopupState: state => {
 			return state.influencersPopupVisible;
+		},
+		getFormStatus: state => {
+			return {
+				errors: state.formErrors,
+				loading: state.formLoading,
+				submitted: state.formSubmitted
+			};
 		}
 	},
 	setter: {}
