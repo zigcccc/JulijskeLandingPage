@@ -19,3 +19,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+# Sendgrid configuration
+/public/api/submit-influencer-form/config.php
+/dist/api/submit-influencer-form/config.php

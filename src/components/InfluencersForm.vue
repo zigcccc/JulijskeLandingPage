@@ -219,7 +219,8 @@ export default {
       instagram: '',
       description: '',
       not_a_robot: false,
-      check: ''
+      check: '',
+      env: process.env.NODE_ENV
     }
   },
   methods: {
@@ -259,10 +260,11 @@ export default {
           youtube: this.youtube,
           description: this.description
         }
-        console.log(qs.stringify(formdata));
-        // axios.post('/api/submit-influencer-form/', qs.stringify(formdata))
-        //   .then(res => {console.log(res)})
-        //   .catch(err => console.log(err));
+        let url = this.env === 'development' ? 'http://localhost:8000' : 'http://206.189.57.136/api/submit-influencer-form/';
+
+        axios.post(url, qs.stringify(formdata))
+          .then(res => {console.log(res)})
+          .catch(err => console.log(err));
       }
     }
   },
