@@ -1,6 +1,8 @@
 <?php
   require('vendor/autoload.php');
   require_once('./config.php');
+  require_once('./generateEmail.php');
+
   // Handle origin authentication
   if (isset($_SERVER['HTTP_ORIGIN'])) {
     $http_origin = $_SERVER['HTTP_ORIGIN'];
@@ -45,17 +47,32 @@
     die();
   }
 
+  $data = array(
+    "name" => $name,
+    "email" => $email,
+    "phone" => $phone,
+    "facebook" => $facebook,
+    "instagram" => $instagram,
+    "youtube" => $youtube,
+    "description" => $description
+  );
+
+  $emailContent = generateEmail($data);
+  echo $emailContent;
+
   $email = new \SendGrid\Mail\Mail();
   $email->setFrom("web@test.com", "Webmaster Julian Alps");
   $email->setSubject("Influencer form submission");
   $email->addTo("zkrasovec@gmail.com", "Ziga Krasovec");
   $email->addTo("info@forward.si", "Info Forward");
   $email->addContent(
-    "text/plain", "Example test message."
+    "text/html", $emailContent
   );
 
   $key = sendgrid_conf();
   $sendgrid = new \SendGrid($key);
+
+  
 
   try {
     $response = $sendgrid->send($email);
@@ -65,15 +82,3 @@
   } catch (Exception $e) {
     echo 'Caught exception: ', $e -> getMessage(), "\n";
   }
-
-  // $arr = array(
-  //   "name" => $name,
-  //   "email" => $email,
-  //   "phone" => $phone,
-  //   "facebook" => $facebook,
-  //   "instagram" => $instagram,
-  //   "youtube" => $youtube,
-  //   "description" => $description
-  // );
-
-  // echo json_encode($arr);

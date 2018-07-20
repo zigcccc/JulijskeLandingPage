@@ -71,6 +71,7 @@
               type="text"
               placeholder="Enter your phone number"
             />
+            <p class="help">Enter only digits</p>
           </div>
         </div>
       </div>
