@@ -2,13 +2,13 @@
   <nav :class="{'is-hidden' : isPastHero}">
       <div class="left-side">
         <social-links :style="{marginRight: '2em'}" location="navbar" />
-        <a href="#" class="influencers">
+        <a @click.prevent="toggleInfluencersPopup" href="#" class="influencers">
           <img src="@/assets/ikonaKameraInverted.svg" alt="Influencers in Julian Alps">
           {{ language === 'en' ? 'For influencers' : 'Za "influencerje"' }}
         </a>
       </div>
       <div class="logo-container">
-        <Logo mainColor="black" accentColor="green" />
+        <Logo mainColor="black" accentColor="black" />
       </div>
       <div class="right-side">
         <a href="#" class="influencers tablet">
@@ -71,6 +71,9 @@ export default {
         top: document.querySelector('#triglav-national-park').offsetTop,
         behavior: 'smooth'
       })
+    },
+    toggleInfluencersPopup() {
+      this.$store.dispatch('toggleInfluencersPopup');
     }
   },
   created(){
@@ -86,7 +89,7 @@ export default {
 
 <style lang="sass" scoped>
 nav
-  position: fixed
+  position: absolute
   top: 0
   width: 100%
   //z-index: 100
@@ -94,6 +97,7 @@ nav
   display: flex
   justify-content: space-between
   align-items: center
+  z-index: 100
   @media screen and (max-width: 414px)
     padding: 1em 1em 0
   &.is-hidden

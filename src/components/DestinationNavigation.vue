@@ -39,7 +39,7 @@ export default {
       })
     },
     arrowKeys(event, key) {
-      if (key === 40) {
+      if (key === 40 && !this.influencersPopupActive) {
         event.preventDefault();
         if (this.$store.getters.getActiveDestination.index !== this.destinations.length - 1 && this.$store.state.isPastHero) {
           this.goToNext()
@@ -50,7 +50,7 @@ export default {
           })
         }
       }
-      if (key === 38) {
+      if (key === 38 && !this.influencersPopupActive) {
         event.preventDefault();
         if (this.$store.getters.getActiveDestination.index !== 0) {
           this.goToPrev()
@@ -88,6 +88,9 @@ export default {
     },
     language() {
       return this.$store.getters.getLanguage;
+    },
+    influencersPopupActive() {
+      return this.$store.getters.influencersPopupState;
     }
   },
   created() {

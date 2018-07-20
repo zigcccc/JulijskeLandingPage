@@ -8,17 +8,22 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bulma": "^0.7.1",
     "chart.js": "^2.7.2",
     "count-js": "^1.1.0",
     "countup.js": "^1.9.3",
+    "query-string": "^6.1.0",
     "smoothscroll-polyfill": "^0.4.3",
     "underscore": "^1.9.1",
+    "vee-validate": "^2.1.0-beta.6",
     "vue": "^2.5.16",
     "vue-analytics": "^5.12.2",
+    "vue-click-outside": "^1.0.7",
     "vue-countup-v2": "^1.0.3",
     "vue-images-loaded": "^1.1.2",
     "vue-meta": "^1.5.0",
+    "vue-recaptcha": "^1.1.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

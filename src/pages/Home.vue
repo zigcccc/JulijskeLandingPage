@@ -1,6 +1,7 @@
 <template>
   <div id="home">
     <main-menu />
+    <influencers-popup />
     <hero />
     <destination-map-container />
     <destinations />
@@ -11,6 +12,7 @@
 
 <script>
 import MainMenu from '@/components/MainMenu'
+import InfluencersPopup from '@/components/InfluencersPopup'
 import Hero from '@/components/Hero'
 import DestinationMapContainer from '@/components/DestinationMapContainer'
 import Destinations from '@/components/Destinations'
@@ -19,6 +21,6 @@ import SiteFooter from '@/components/SiteFooter'
 
 export default {
   name: 'Home',
-  components: {MainMenu, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, SiteFooter}
+  components: {MainMenu, InfluencersPopup, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, SiteFooter}
 }
 </script>

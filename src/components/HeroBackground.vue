@@ -103,10 +103,16 @@ export default {
   &.loaded
     &#middle-ground
       bottom: -45%
+      @media screen and (max-width: 414px)
+        bottom: -10%
     &#front-ground
       bottom: -25%
+      @media screen and (max-width: 414px)
+        bottom: -30%
     &#front-hiker
       bottom: 0
+      @media screen and (max-width: 414px)
+        bottom: -15%
   &#middle-ground
     z-index: 15
     transform-origin: bottom center

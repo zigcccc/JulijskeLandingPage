@@ -10,6 +10,7 @@ const store = new Vuex.Store({
 	state: {
 		language: 'sl',
 		appLoading: true,
+		influencersPopupVisible: false,
 		heroHeight: 0,
 		isPastHero: false,
 		windowWidth: 0,
@@ -47,6 +48,9 @@ const store = new Vuex.Store({
 			} else {
 				state.language = 'en';
 			}
+		},
+		toggleInfluencersPopup(state) {
+			state.influencersPopupVisible = !state.influencersPopupVisible;
 		}
 	},
 	actions: {
@@ -73,6 +77,9 @@ const store = new Vuex.Store({
 		},
 		changeLanguage({ commit }, payload) {
 			commit('changeLanguage', payload);
+		},
+		toggleInfluencersPopup({ commit }) {
+			commit('toggleInfluencersPopup');
 		}
 	},
 	getters: {
@@ -131,6 +138,9 @@ const store = new Vuex.Store({
 		},
 		getLanguage: state => {
 			return state.language;
+		},
+		influencersPopupState: state => {
+			return state.influencersPopupVisible;
 		}
 	},
 	setter: {}

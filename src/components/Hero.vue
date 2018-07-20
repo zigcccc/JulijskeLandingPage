@@ -133,16 +133,12 @@ export default {
         font-size: 7em
       @media screen and (max-width: 414px)
         font-size: 6em
-        display: block
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
         text-align: center
       & > span
-        //display: block
         color: $primary
-        @media screen and (max-width: 768px)
-          &::after
-            content: '.'
-            display: inline-block
-            color: $white
 
   .hero-intro
     font-size: 1.4em
@@ -157,7 +153,7 @@ export default {
       text-align: center
       max-width: 75%
       display: block
-      margin: 0 auto
+      margin: 1em auto 0
     & > p
       text-shadow: 0 3px 6px rgba(0,0,0,.2)
 

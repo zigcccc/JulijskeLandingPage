@@ -1,14 +1,10 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{'popup-active' : influencersPopupActive}">
     <div id="loader" :class="{done : allLoaded}">
       <div class="loading-map-container">
-        <!-- <span class="percentage" :class="{done : allLoaded}">{{ Math.floor(loadedPercent) }}%</span> -->
         <logo :class="{done : allLoaded}" mainColor="black" accentColor="green" />
-        <!-- <europe-dotted-map :percent="parseFloat(loadedPercent)" /> -->
-        <!-- <loading-map :percent="parseFloat(loadedPercent)" /> -->
         <slovenija-line-map :percent="parseFloat(loadedPercent)" />
       </div>
-      <!-- <div :class="{done : allLoaded}" class="line" :style="{minWidth: `${loadedPercent}%`}"></div> -->
     </div>
     <Home v-images-loaded:on.progress="imageProgress" />
   </div>
@@ -17,15 +13,13 @@
 <script>
 import SmoothScroll from 'smoothscroll-polyfill'
 import imagesLoaded from 'vue-images-loaded'
-import LoadingMap from '@/components/LoadingMap'
-import EuropeDottedMap from '@/components/EuropeDottedMap';
 import SlovenijaLineMap from '@/components/SlovenijaLineMap'
 import Logo from '@/components/Logo'
 import Home from '@/pages/Home'
 
 export default {
   name: 'app',
-  components: {Home, LoadingMap, Logo, EuropeDottedMap, SlovenijaLineMap},
+  components: {Home, Logo, SlovenijaLineMap},
   directives: {
     imagesLoaded
   },
@@ -42,6 +36,9 @@ export default {
     },
     allImages() {
       return document.querySelectorAll('img').length
+    },
+    influencersPopupActive() {
+      return this.$store.getters.influencersPopupState;
     }
   },
   methods: {
@@ -55,6 +52,26 @@ export default {
         this.$store.dispatch('setAppLoading', false);
         this.$store.dispatch('setWindowWidth', window.innerWidth);
       }
+    },
+    preventScroll() {
+      if (window.addEventListener) {
+        window.addEventListener('DOMMouseScroll', event =>  event.preventDefault(), false);
+      }
+      window.onwheel = event => event.preventDefault();
+      window.onmousewheel =  document.onmousewheel = event => event.preventDefault();
+      window.ontouchmove  = event =>  event.preventDefault();
+      document.onkeydown  = event => {
+        ([38, 40].indexOf(event.keyCode) > -1) ? event.preventDefault() : null;
+      }
+    },
+    enableScroll() {
+      if (window.removeEventListener) {
+        window.removeEventListener('DOMMouseScroll', event => event.preventDefault(), false);
+      }
+      window.onmousewheel = document.onmousewheel = null; 
+      window.onwheel = null; 
+      window.ontouchmove = null;  
+      document.onkeydown = null;
     }
   },
   created() {
@@ -66,6 +83,15 @@ export default {
     } else {
       this.$store.dispatch('changeLanguage', window.navigator.language);
     }
+  },
+  watch: {
+    influencersPopupActive(cond) {
+      if (cond) {
+        this.preventScroll()
+      } else {
+        this.enableScroll()
+      }
+    }
   }
 }
 </script>
@@ -75,6 +101,24 @@ html,
 body
   overflow-x: hidden
   background: $black
+#app
+  &::after
+    content: ''
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    visibility: hidden
+    opacity: 0
+    +bounceTransition(300ms)
+  &.popup-active
+    &::after
+      background: transparentize($black, .1)
+      z-index: 100000000
+      visibility: hidden
+      opacity: 1
+      visibility: visible
 #loader
   position: fixed
   top: 0
@@ -94,21 +138,6 @@ body
   &.done
     opacity: 0
     visibility: hidden
-  span.percentage
-    font-weight: 900
-    font-size: 3em
-    line-height: 1
-    +easeTransition(500ms)
-    transition-delay: 500ms
-    position: absolute
-    bottom: 0
-    right: 0
-    transform: translate(0, 0)
-    @media screen and (max-width: 768px)
-      bottom: 10px
-    &.done
-      opacity: 0
-      visibility: hidden
   .logo
     +easeTransition(500ms)
     transition-delay: 750ms
