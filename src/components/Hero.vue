@@ -50,12 +50,10 @@ export default {
       return this.$el.clientHeight;
     },
     scrollPastHero() {
-      setTimeout(() => {
-        window.scrollTo({
-          top: this.heroHeight + 1,
-          behavior: 'smooth'
-        })
-      },1)
+      window.scrollTo({
+        top: this.heroHeight + 1,
+        behavior: 'smooth'
+      })
     },
     parallax(scrollTop) {
       if (scrollTop < this.heroHeight) {

@@ -1,25 +1,42 @@
 <template>
   <div id="influencers-popup" :class="{active : influencersPopupActive}">
+    <div @click="closePopup" id="popup-close-btn">
+      <i class="fas fa-times"></i>
+    </div>
     <div :class="{'has-errors' : formErrors.hasErrors}" class="errors">
-      <p>{{formErrors.errorMsg}}</p>
-      <a @click.prevent="clearErrors">Dismiss</a>
-    </div>    
+      <p v-if="language === 'en'">Ooops, something went wrong... Please try again.<small>Error: {{formErrors.errorMsg}}</small></p>
+      <a v-if="language === 'en'" @click.prevent="clearErrors">Dismiss</a>
+      <p v-if="language === 'sl'">Opa, nekaj se je zalomilo, prosimo poskusite ponovno.<small>Napaka: {{formErrors.errorMsg}}</small></p>
+      <a v-if="language === 'sl'" @click.prevent="clearErrors">Opusti</a>
+    </div>
+    <div :class="{'is-loading' : formLoading}" class="loading">
+      <loading-animation />
+    </div>
     <div class="columns">
       <div class="column is-two-fifths left"></div>
       <div class="column right">
         <div v-show="!formSubmitted" :class="{active : !formSubmitted}" class="form-not-submitted">
           <div class="form-intro">
-            <h3>Interested in becoming an influencer?</h3>
+            <h3>{{ language === 'sl' ? 'Bi radi postali ustvarjalec medijskih vsebin za destinacijo?' : 'Interested in becoming an influencer?' }}</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti commodi dicta repellat unde harum officiis. Laboriosam soluta totam qui voluptas.</p>
           </div>
           <influencers-form />
         </div>
         <div v-show="formSubmitted" :class="{active : formSubmitted}" class="form-submitted">
           <img src="@/assets/like.svg" alt="Julian Alps form submitted successfully">
-          <h4>Hooray! You submitted form successfully.</h4>
-          <p>Our team will contact you as soon as possible. For now, you can keep exploring everything this gorgeous destination has to offer.</p>
-          <div class="cta-container">
-            <a @click.prevent="closePopup">Close form</a>
+          <div v-if="language === 'en'">
+            <h4>Hooray! You submitted form successfully.</h4>
+            <p>Our team will contact you as soon as possible. For now, you can keep exploring everything this gorgeous destination has to offer.</p>
+            <div class="cta-container">
+              <a @click.prevent="closePopup">Close form</a>
+            </div>
+          </div>
+          <div v-if="language === 'sl'">
+            <h4>Juhuu! Obrazec je uspešno izpolnjen.</h4>
+            <p>Naša ekipa vas bo kontaktirala v najkrajšem možnem času. Za zdaj pa lahko še dodatno raziščete kaj vse ponuja ta prekrasna destinacija.</p>
+            <div class="cta-container">
+              <a @click.prevent="closePopup">Zapri obrazec</a>
+            </div>
           </div>
         </div>
       </div>
@@ -28,23 +45,30 @@
 </template>
 
 <script>
-import influencersForm from '@/components/InfluencersForm'
+import LoadingAnimation from '@/components/LoadingAnimation'
+import InfluencersForm from '@/components/InfluencersForm'
 
 export default {
   name: 'InfluencersPopup',
-  components: {influencersForm},
+  components: {LoadingAnimation, InfluencersForm},
   computed: {
     influencersPopupActive() {
       return this.$store.getters.influencersPopupState;
     },
     formSubmitted() {
-      return this.$store.getters.getFormStatus.submitted;
+      return this.$store.getters.getFormStatus.submitted.status;
+    },
+    formSubmittedMsg() {
+      return this.$store.getters.getFormStatus.submitted.msg;
     },
     formLoading() {
       return this.$store.getters.getFormStatus.loading;
     },
     formErrors() {
       return this.$store.getters.getFormStatus.errors;
+    },
+    language() {
+      return this.$store.getters.getLanguage;
     }
   },
   methods: {
@@ -84,11 +108,14 @@ export default {
   box-shadow: $shadow-4
   border-radius: 5px
   overflow: hidden
-  // display: grid
-  // grid-template-columns: 4fr 5fr
   opacity: 0
   visibility: hidden
   +bounceTransition(500ms)
+  @media screen and (max-width: 991px)
+    max-width: 720px
+  @media screen and (max-width: 768px)
+    height: 90vh
+    max-height: 90vh
   &.active
     transform: translate3d(-50%, -50%, 0)
     opacity: 1
@@ -111,6 +138,8 @@ export default {
     justify-content: flex-start
     align-items: center
     color: $white
+    @media screen and (max-width: 768px)
+      display: none
 
   .right
     background: $white
@@ -120,9 +149,16 @@ export default {
     justify-content: flex-start
     align-items: flex-start
     position: relative
+    @media screen and (max-width: 768px)
+      height: 100%
     .form-intro
       max-width: 500px
       margin: 3em 0 2em 2em
+      @media screen and (max-width: 991px)
+        max-width: 360px
+      @media screen and (max-width: 768px)
+        margin: 2em 0 1em
+        max-width: 320px
     h3
       text-align: left
       font-weight: 900
@@ -140,6 +176,8 @@ export default {
       line-height: 1.618
       max-width: 100%
       margin: 1em auto 0
+      @media screen and (max-width: 768px)
+        font-size: 14px
 
 .errors
   position: fixed
@@ -170,12 +208,50 @@ export default {
     border-radius: 200px
     font-weight: 900
     font-size: 16px
+    & > small
+      display: block
+      font-size: .75em
+      margin-top: 5px
   & > a
     margin-top: 1em
     color: $white
     font-weight: 900
     text-transform: uppercase
     text-shadow: 0 3px 6px rgba(0,0,0,.5)
+
+.loading
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  background: transparentize($black, .07)
+  +easeTransition(500)
+  opacity: 0
+  z-index: -1
+  visibility: hidden
+  transform: translate3d(0, 100%, 0)
+  &.is-loading
+    z-index: 10000
+    visibility: visible
+    transform: translate3d(0, 0, 0)
+    opacity: 1
+
+#popup-close-btn
+  position: absolute
+  top: 15px
+  right: 20px
+  z-index: 10000
+  font-size: 1.5em
+  +bounceTransition(500ms)
+  color: $black
+  &:hover
+    cursor: pointer
+    transform: scale(1.2) rotate(90deg)
+    color: $primary
 
 
 .form-submitted,
@@ -200,6 +276,7 @@ export default {
     color: $black
     font-size: 1.25em
     margin: 2em 0 0
+    text-align: center !important
   p
     margin: .5em !important
     text-align: center !important

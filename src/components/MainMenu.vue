@@ -9,13 +9,13 @@
     <div id="language-toggle" :class="{visible : menuState}">
       <language-switcher :toggleMenu="true" />
     </div>
-    <div id="main-menu__destinations" :class="{visible : menuState}">
+    <div id="main-menu__destinations" :class="{visible : menuState, 'ios-safari' : iosSafari}">
       <a class="destinations-links" :style="{backgroundImage: `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('/images/destinations/${destination.id}.png')`}" @click.prevent="handleMenuClick(destination.id)" v-for="destination in destinations" :key="destination.id">
         {{ destination.name[language] }}
       </a>
     </div>
-    <div v-show="menuState" class="mobile-bottom">
-      <a href="#" class="mobile-influencers">
+    <div v-show="menuState" class="mobile-bottom" :class="{'ios-safari' : iosSafari}">
+      <a @click.prevent="toggleInfluencersPopup" href="#" class="mobile-influencers">
         <img src="@/assets/ikonaKamera.svg" alt="Influencers in Julian Alps">
         For influencers
       </a>
@@ -43,6 +43,9 @@ export default {
     },
     language() {
       return this.$store.getters.getLanguage;
+    },
+    iosSafari() {
+      return this.$store.getters.isIosSafari;
     }
   },
   methods: {
@@ -64,6 +67,10 @@ export default {
         top: document.querySelector('#triglav-national-park').offsetTop,
         behavior: 'smooth'
       })
+    },
+    toggleInfluencersPopup() {
+      this.closeMenu();
+      this.$store.dispatch('toggleInfluencersPopup');
     }
   }
 }
@@ -97,6 +104,9 @@ export default {
       justify-content: space-between
       @media screen and (max-width: 414px)
         opacity: 1
+        bottom: 0
+        &.ios-safari
+          bottom: 65px
       & > a
         font-size: 14px
         padding: .5em
@@ -187,6 +197,9 @@ export default {
       @media screen and (max-width: 414px)
         display: flex
         flex-direction: column
+        &.isIosSafari
+          &.visible
+            transform: translateY(-20px)
       a.destinations-links
         align-self: center
         justify-self: center

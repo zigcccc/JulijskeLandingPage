@@ -14,11 +14,15 @@ const store = new Vuex.Store({
 		heroHeight: 0,
 		isPastHero: false,
 		formLoading: false,
+		iosSafari: false,
 		formErrors: {
 			hasErrors: false,
 			errorMsg: ''
 		},
-		formSubmitted: false,
+		formSubmitted: {
+			status: false,
+			msg: {}
+		},
 		windowWidth: 0,
 		pastDestinations: false,
 		menuOpen: false,
@@ -73,8 +77,14 @@ const store = new Vuex.Store({
 				errorMsg: ''
 			};
 		},
-		formSubmitted(state) {
-			state.formSubmitted = true;
+		formSubmitted(state, payload) {
+			state.formSubmitted = {
+				status: true,
+				msg: payload
+			};
+		},
+		setIosSafari(state, payload) {
+			state.iosSafari = payload;
 		}
 	},
 	actions: {
@@ -114,13 +124,22 @@ const store = new Vuex.Store({
 		clearFormErrors({ commit }) {
 			commit('clearFormErrors');
 		},
-		formSubmitted({ commit }) {
-			commit('formSubmitted');
+		formSubmitted({ commit }, payload) {
+			commit('formSubmitted', payload);
+		},
+		setIosSafari({ commit }, payload) {
+			commit('setIosSafari', payload);
 		}
 	},
 	getters: {
 		doneLoading: state => {
 			return !state.appLoading;
+		},
+		menuState: state => {
+			return state.menuOpen;
+		},
+		isIosSafari: state => {
+			return state.iosSafari;
 		},
 		getActiveDestination: state => {
 			return state.activeDestination;

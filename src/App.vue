@@ -39,6 +39,9 @@ export default {
     },
     influencersPopupActive() {
       return this.$store.getters.influencersPopupState;
+    },
+    menuOpen() {
+      return this.$store.getters.menuState;
     }
   },
   methods: {
@@ -51,6 +54,13 @@ export default {
         this.allLoaded = true
         this.$store.dispatch('setAppLoading', false);
         this.$store.dispatch('setWindowWidth', window.innerWidth);
+      }
+    },
+    determineSafari(){
+      const isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+      const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isSafari && iOS) {
+        this.$store.dispatch('setIosSafari', true);
       }
     },
     preventScroll() {
@@ -83,9 +93,17 @@ export default {
     } else {
       this.$store.dispatch('changeLanguage', window.navigator.language);
     }
+    this.determineSafari();
   },
   watch: {
     influencersPopupActive(cond) {
+      if (cond) {
+        this.preventScroll()
+      } else {
+        this.enableScroll()
+      }
+    },
+    menuOpen(cond) {
       if (cond) {
         this.preventScroll()
       } else {

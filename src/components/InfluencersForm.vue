@@ -5,7 +5,7 @@
       <!-- Step 1 -->
       <div :class="{active : activeStep === 1}" class="step step-1">
         <div class="field">
-          <label class="label">Name</label>
+          <label class="label">{{ language === 'sl' ? 'Ime in priimek' : 'Name' }}</label>
           <div class="control has-icons-right has-icons-left">
             <span class="icon is-small is-left">
               <i class="fas fa-user"></i>
@@ -17,18 +17,31 @@
               <i class="fas fa-times"></i>
             </span>
             <input
+              v-if="language === 'en'"
               :class="{'is-success' : validFullName, 'is-danger' : invalidFullName}"
               v-validate="{required: true, alpha_spaces: true}"
               v-model="full_name"
               name="full_name"
+              autocomplete="name"
               class="input"
               type="text"
               placeholder="Enter your full name"
             />
+            <input
+              v-if="language === 'sl'"
+              :class="{'is-success' : validFullName, 'is-danger' : invalidFullName}"
+              v-validate="{required: true, alpha_spaces: true}"
+              v-model="full_name"
+              name="full_name"
+              autocomplete="name"
+              class="input"
+              type="text"
+              placeholder="Vnesite ime in priimek"
+            />
           </div>
         </div>
         <div class="field">
-          <label class="label">Email</label>
+          <label class="label">{{ language === 'sl' ? 'E-pošta' : 'Email' }}</label>
           <div class="control has-icons-right has-icons-left">
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
@@ -40,18 +53,31 @@
               <i class="fas fa-times"></i>
             </span>
             <input
+              v-if="language === 'en'"
               :class="{'is-success' : validEmail, 'is-danger' : invalidEmail}"
               v-validate="{required: true, email: true}"
               v-model="email"
               name="email"
+              autocomplete="email"
               class="input"
               type="text"
               placeholder="Enter your email address"
             />
+            <input
+              v-if="language === 'sl'"
+              :class="{'is-success' : validEmail, 'is-danger' : invalidEmail}"
+              v-validate="{required: true, email: true}"
+              v-model="email"
+              name="email"
+              autocomplete="email"
+              class="input"
+              type="text"
+              placeholder="Vnesite svoj e-poštni naslov"
+            />
           </div>
         </div>
         <div class="field">
-          <label class="label">Phone Number</label>
+          <label class="label">{{ language === 'sl' ? 'Telefonska številka' : 'Phone number' }}</label>
           <div class="control has-icons-right has-icons-left">
             <span class="icon is-small is-left">
               <i class="fas fa-phone"></i>
@@ -63,15 +89,28 @@
               <i class="fas fa-times"></i>
             </span>
             <input
+              v-if="language === 'en'"
               :class="{'is-success' : validPhoneNum, 'is-danger' : invalidPhoneNum}"
               v-validate="{required: true, numeric: true, min: 7, max: 12}"
               v-model="phone_num"
               name="phone_num"
+              autocomplete="tel"
               class="input"
               type="text"
               placeholder="Enter your phone number"
             />
-            <p class="help">Enter only digits</p>
+            <input
+              v-if="language === 'sl'"
+              :class="{'is-success' : validPhoneNum, 'is-danger' : invalidPhoneNum}"
+              v-validate="{required: true, numeric: true, min: 7, max: 12}"
+              v-model="phone_num"
+              name="phone_num"
+              autocomplete="tel"
+              class="input"
+              type="text"
+              placeholder="Vnesite svojo telefonsko številko"
+            />
+            <p class="help">{{ language === 'sl' ? 'Vnesite samo številke' : 'Enter only digits' }}</p>
           </div>
         </div>
       </div>
@@ -91,6 +130,7 @@
               <i class="fas fa-times"></i>
             </span>
             <input
+              v-if="language === 'en'"
               :class="{'is-success' : validFacebook, 'is-danger' : invalidFacebook}"
               v-validate="{required: false, url: true}"
               v-model="facebook"
@@ -98,6 +138,16 @@
               class="input"
               type="url"
               placeholder="Link to your facebook profile"
+            />
+            <input
+              v-if="language === 'sl'"
+              :class="{'is-success' : validFacebook, 'is-danger' : invalidFacebook}"
+              v-validate="{required: false, url: true}"
+              v-model="facebook"
+              name="facebook"
+              class="input"
+              type="url"
+              placeholder="Povezava do vašega facebook profila"
             />
           </div>
         </div>
@@ -114,6 +164,7 @@
               <i class="fas fa-times"></i>
             </span>
             <input
+              v-if="language === 'en'"
               :class="{'is-success' : validInstagram, 'is-danger' : invalidInstagram}"
               v-validate="{required: false, url: true}"
               v-model="instagram"
@@ -121,6 +172,16 @@
               class="input"
               type="url"
               placeholder="Link to your instagram profile"
+            />
+            <input
+              v-if="language === 'sl'"
+              :class="{'is-success' : validInstagram, 'is-danger' : invalidInstagram}"
+              v-validate="{required: false, url: true}"
+              v-model="instagram"
+              name="instagram"
+              class="input"
+              type="url"
+              placeholder="Povezava do vašega instagram profila"
             />
           </div>
         </div>
@@ -137,6 +198,7 @@
               <i class="fas fa-times"></i>
             </span>
             <input
+              v-if="language === 'en'"
               :class="{'is-success' : validYoutube, 'is-danger' : invalidYoutube}"
               v-validate="{required: false, url: true}"
               v-model="youtube"
@@ -145,6 +207,16 @@
               type="url"
               placeholder="Link to your youtube channel"
             />
+            <input
+              v-if="language === 'sl'"
+              :class="{'is-success' : validYoutube, 'is-danger' : invalidYoutube}"
+              v-validate="{required: false, url: true}"
+              v-model="youtube"
+              name="youtube"
+              class="input"
+              type="url"
+              placeholder="Povezava do vašega youtube kanala"
+            />
           </div>
         </div>
       </div>
@@ -152,7 +224,8 @@
       <!-- Step 3 -->
       <div :class="{active : activeStep === 3}" class="step step-3">
         <div class="field">
-          <label class="label">Tell us more about you</label>
+          <label v-if="language === 'en'" class="label">Tell us more about you</label>
+          <label v-if="language === 'sl'" class="label">Povejte nam več o sebi</label>
           <div class="control has-icons-right">
             <span v-if="validDescription" class="icon is-small is-right">
               <i class="fas fa-check"></i>
@@ -161,12 +234,22 @@
               <i class="fas fa-times"></i>
             </span>
             <textarea
+              v-if="language === 'en'"
               :class="{'is-success' : validDescription, 'is-danger' : invalidDescription}"
               v-validate="{required: true}"
               v-model="description"
               name="description"
               class="textarea"
               placeholder="Describe yourself..."
+            ></textarea>
+            <textarea
+              v-if="language === 'sl'"
+              :class="{'is-success' : validDescription, 'is-danger' : invalidDescription}"
+              v-validate="{required: true}"
+              v-model="description"
+              name="description"
+              class="textarea"
+              placeholder="Predstavite se..."
             ></textarea>
           </div>
         </div>
@@ -181,7 +264,7 @@
             >
             <label for="not-a-robot"></label>
           </div>
-          <label for="not-a-robot" class="label centered">Not a robot</label>
+          <label for="not-a-robot" class="label centered">{{ language === 'sl' ? 'Nisem robot' : 'Not a robot' }}</label>
         </div>
         <input type="hidden" name="check" v-model="check">
       </div>
@@ -241,6 +324,17 @@ export default {
         this.activeStep = i;
       }
     },
+    clearInputs() {
+      this.changeFormStep(1);
+      this.full_name = '';
+      this.email = '';
+      this.phone_num = '';
+      this.facebook = '';
+      this.instagram = '';
+      this.youtube = '';
+      this.description = '';
+      this.not_a_robot = false;
+    },
     handleSubmitBtnClick(e) {
       e.preventDefault();
       if (this.activeStep !== 3) {
@@ -263,21 +357,51 @@ export default {
         }
         let url = this.env === 'development' ? 'http://localhost:8000' : 'http://206.189.57.136/api/submit-influencer-form/';
 
+        this.$store.dispatch('changeFormLoadingStatus', true);
+
         axios.post(url, qs.stringify(formdata))
-          .then(res => {console.log(res)})
-          .catch(err => console.log(err));
+          .then(res => {
+            this.$store.dispatch('changeFormLoadingStatus', false);
+            this.clearInputs();
+            if (res.status) {
+              this.$store.dispatch('formSubmitted', res.data.msg);
+            } else {
+              this.$store.dispatch('attachFormErrors', {status: true, msg: res.statusText}); 
+            }
+          })
+          .catch(err => {
+            this.$store.dispatch('changeFormLoadingStatus', false);
+            this.clearInputs();
+            this.$store.dispatch('attachFormErrors', {status: true, msg: err.response.statusText});
+          });
       }
     }
   },
   computed: {
+    language() {
+      return this.$store.getters.getLanguage;
+    },
+    factor() {
+      if (this.$store.getters.getWindowWidth > 991) {
+        return 480
+      } else if(this.$store.getters.getWindowWidth > 768 && this.$store.getters.getWindowWidth < 991) {
+        return 340
+      } else {
+        return 320
+      }
+    },
     formStyle() {
-      let offset = 480 * (this.activeStep - 1);
+      let offset = this.factor * (this.activeStep - 1);
       return {
         transform: `translate3d(-${offset}px, 0, 0)`
       }
     },
     submitButtonValue() {
-      return this.activeStep === 3 ? 'Submit form' : 'Next step';
+      if (this.language === 'en') {
+        return this.activeStep === 3 ? 'Submit form' : 'Next step';
+      } else {
+        return this.activeStep === 3 ? 'Pošlji obrazec' : 'Naslednji korak';
+      }
     },
     validFirstStep() {
       return this.validFullName && this.validEmail && this.validPhoneNum;
@@ -403,6 +527,8 @@ export default {
   display: flex
   align-items: center
   padding: 0 2em
+  @media screen and (max-width: 768px)
+    padding: 0
 #influencers-form
   width: 100%
   display: flex
@@ -415,6 +541,10 @@ export default {
     visibility: hidden
     transition: opacity 300ms ease-in-out 250ms
     opacity: 0
+    @media screen and (max-width: 991px)
+      width: 340px
+    @media screen and (max-width: 768px)
+      width: 320px
     &.active
       visibility: visible
       opacity: 1
@@ -427,6 +557,12 @@ export default {
   justify-content: center
   min-height: 20px
   width: 480px
+  @media screen and (max-width: 991px)
+    width: 340px
+    bottom: 10px
+  @media screen and (max-width: 768px)
+    width: 320px
+    left: 2em
   & > span
     +getSquare(15px)
     border-radius: 50%
@@ -452,6 +588,12 @@ export default {
   width: 480px
   display: flex
   justify-content: center
+  @media screen and (max-width: 991px)
+    width: 340px
+    bottom: 45px
+  @media screen and (max-width: 768px)
+    width: 320px
+    left: 2em
   #submit-btn
     position: relative
     z-index: 10
@@ -465,6 +607,8 @@ export default {
     font-weight: 900
     box-shadow: $shadow-1
     font-size: .75em
+    -webkit-appearance: none;
+    -moz-appearance: none;
     +bounceTransition(500ms)
     &.disabled
       box-shadow: none

@@ -58,7 +58,6 @@
   );
 
   $emailContent = generateEmail($data);
-  echo $emailContent;
 
   $email = new \SendGrid\Mail\Mail();
   $email->setFrom("web@test.com", "Webmaster Julian Alps");
@@ -76,9 +75,13 @@
 
   try {
     $response = $sendgrid->send($email);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
+    $message = array(
+      'msg' => array(
+        'en' => 'The form was submitted successfully.',
+        'sl' => 'Obrazec je bil uspešno izpolnjen in poslan.'
+      )
+    );
+    echo json_encode($message);
   } catch (Exception $e) {
     echo 'Caught exception: ', $e -> getMessage(), "\n";
   }

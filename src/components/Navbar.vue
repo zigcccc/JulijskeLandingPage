@@ -11,9 +11,9 @@
         <Logo mainColor="black" accentColor="black" />
       </div>
       <div class="right-side">
-        <a href="#" class="influencers tablet">
+        <a @click.prevent="toggleInfluencersPopup" href="#" class="influencers tablet">
           <img src="@/assets/ikonaKameraInverted.svg" alt="Influencers in Julian Alps">
-          {{ language === 'en' ? 'For influencers' : 'Za influencerje' }}
+          {{ language === 'en' ? 'For influencers' : 'Za "influencerje"' }}
         </a>
         <a @click.prevent="scrollToTNP" class="tnp">
           {{ language === 'en' ? 'Triglav National Park' : 'Triglavski narodni park' }}
@@ -74,6 +74,12 @@ export default {
     },
     toggleInfluencersPopup() {
       this.$store.dispatch('toggleInfluencersPopup');
+      if (this.$store.getters.getWindowWidth < 768) {
+        window.scrollTo({
+          top: 50,
+          behavior: 'instant'
+        })
+      }
     }
   },
   created(){
