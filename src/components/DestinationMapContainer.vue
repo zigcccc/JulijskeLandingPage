@@ -129,9 +129,9 @@ export default {
               showLines: false,
               spanGaps: false,
               cubicInterpolationMode: 'monotone',
-              borderColor: 'rgba(38, 196, 133, 1)',
+              borderColor: '#628E6D',
               pointRadius: 7,
-              pointBackgroundColor: 'rgba(38, 196, 133, 1)',
+              pointBackgroundColor: '#628E6D',
               borderWidth: 5,
               backgroundColor: 'rgba(0,0,0,0)',
               data: data

@@ -57,7 +57,8 @@ export default {
       }
     },
     determineSafari(){
-      const isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+      // eslint-disable-next-line
+      const isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/); 
       const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
       if (isSafari && iOS) {
         this.$store.dispatch('setIosSafari', true);

@@ -632,8 +632,10 @@ textarea,
     &:focus
       border-color: $error
   &.is-success
+    border-color: $primary
     &:focus
       border-color: $primary
+      box-shadow: 0 0 0 0.125em transparentize($primary, .75)
   &:focus
     border-color: $black
     outline: none
