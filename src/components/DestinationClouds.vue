@@ -1,9 +1,9 @@
 <template>
   <div class="destination-clouds">
-    <div class="image-cloud" id="cloud1" :style="cloudStyle1" :class="{animated : animation, tnp : destination === 'tnp'}">
+    <div class="image-cloud" id="cloud1" :style="cloudStyle1" :class="{animated : animation, tnp : destination === 'tnp', video : destination === 'video'}">
       <img src="/images/Clouds_02.png" alt="Clouds in Julian Alps">
     </div>
-    <div class="image-cloud" id="cloud2" :style="cloudStyle2" :class="{animated : animation, tnp : destination === 'tnp'}">
+    <div class="image-cloud" id="cloud2" :style="cloudStyle2" :class="{animated : animation, tnp : destination === 'tnp', video : destination === 'video'}">
       <img src="/images/Clouds_03.png" alt="Clouds in Julian Alps">
     </div>
   </div>
@@ -83,6 +83,14 @@ export default {
       &.tnp
         left: -25%
         bottom: -35%
+      &.video
+        top: -10%
+        left: -5%
+        @media screen and (max-width: 768px)
+          display: none
+        &.animated
+          animation-duration: 30s
+          animation-name: cloud-anim-3
       &.animated
         animation-duration: 30s
         animation-name: cloud-anim-1
@@ -91,6 +99,14 @@ export default {
       left: -45%
       &.tnp
         left: -15%
+      &.video
+        left: 0
+        top: -15%
+        @media screen and (max-width: 768px)
+          display: none
+        &.animated
+          animation-duration: 35s
+          animation-name: cloud-anim-4
       &.animated
         animation-duration: 35s
         animation-name: cloud-anim-2
@@ -108,6 +124,22 @@ export default {
     transform: translate3d(0,0,0)
   50%
     transform: translate3d(-15%,20%,0)
+  100%
+    transform: translate3d(0,0,0)
+
+@keyframes cloud-anim-3
+  0%
+    transform: translate3d(0,0,0)
+  50%
+    transform: translate3d(-15%,5%,0)
+  100%
+    transform: translate3d(0,0,0)
+
+@keyframes cloud-anim-4
+  0%
+    transform: translate3d(0,0,0)
+  50%
+    transform: translate3d(15%,5%,0)
   100%
     transform: translate3d(0,0,0)
 </style>

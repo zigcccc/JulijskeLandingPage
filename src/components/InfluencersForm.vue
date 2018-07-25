@@ -366,13 +366,15 @@ export default {
             if (res.status) {
               this.$store.dispatch('formSubmitted', res.data.msg);
             } else {
-              this.$store.dispatch('attachFormErrors', {status: true, msg: res.statusText}); 
+              let msg = res ? res.statusText : 'Unknow error...';
+              this.$store.dispatch('attachFormErrors', {status: true, msg: msg}); 
             }
           })
           .catch(err => {
+            let msg = err.response ? err.response.statusText : 'Unknown error...';
             this.$store.dispatch('changeFormLoadingStatus', false);
             this.clearInputs();
-            this.$store.dispatch('attachFormErrors', {status: true, msg: err.response.statusText});
+            this.$store.dispatch('attachFormErrors', {status: true, msg: msg});
           });
       }
     }

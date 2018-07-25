@@ -101,7 +101,7 @@ export default {
     //height: calc(#{$hero-height} - 75px)
 
 .hero-columns
-  margin-top: 40vh
+  margin-top: 45vh
   position: relative
   z-index: 10
   @media screen and (max-width: 1440px)
@@ -109,7 +109,7 @@ export default {
   @media screen and (max-width: 768px)
     margin-top: 35vh
   @media screen and (max-width: 414px)
-    margin-top: 20vh
+    margin-top: 30vh
 
   .hero-title
     display: flex

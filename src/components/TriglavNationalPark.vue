@@ -12,7 +12,8 @@
         </div>
         <div class="column is-special">
           <span :class="{active : isVisible}" id="nadmorska-visina" v-if="isVisible">
-            <small><span><i class="fas fa-map-pin"></i></span>highest point in country - <strong>Mt. Triglav</strong></small>
+            <small v-if="language === 'en'"><span><i class="fas fa-map-pin"></i></span>highest point in Slovenia - <strong>Mt. Triglav</strong></small>
+            <small v-if="language === 'sl'"><span><i class="fas fa-map-pin"></i></span>najvišja točka v Sloveniji - <strong>Triglav</strong></small>
             <i-count-up 
               :startVal="startVal"
               :endVal="endVal"
@@ -121,9 +122,9 @@ export default {
 <style lang="sass" scoped>
 #triglav-national-park
   min-height: 100vh
-  padding-bottom: 100px
   position: relative
   overflow: hidden
+  padding-bottom: 100px
   z-index: 10005
   background: $white
   background:
@@ -131,9 +132,6 @@ export default {
     repeat: repeat
     size: 400px 400px
     attachment: fixed
-  margin-bottom: $footer-height
-  @media screen and (max-width: 768px)
-    margin-bottom: 0
 
   h2
     font-weight: 900
@@ -195,6 +193,8 @@ export default {
       color: $white
       text-transform: uppercase
       font-weight: 900
+      text-align: center
+      font-size: .9em
       +bounceTransition
       &:hover
         transform: translate3d(0, -5px, 0)

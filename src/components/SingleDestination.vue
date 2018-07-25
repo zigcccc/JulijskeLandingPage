@@ -26,7 +26,7 @@ export default {
     return {
       isInViewport: false,
       sectionOffset: 0,
-      sectionPadding: window.innerHeight / 3,
+      sectionPadding: this.$store.getters.getWindowWidth > 768 ? window.innerHeight / 3 : window.innerHeight,
       sectionBackground: {
         backgroundImage: `
           linear-gradient(
@@ -151,6 +151,7 @@ export default {
     margin-top: 50px
   @media screen and (max-width: 414px)
     margin-top: 40px
+    justify-content: center
   & > span
     position: relative
     z-index: 2
@@ -166,6 +167,8 @@ export default {
     background: $primary
     border-radius: 200px
     padding: .75em 1.5em
+    text-align: center
+    font-size: .95em
     box-shadow: $shadow-3
     color: $white
     text-transform: uppercase
