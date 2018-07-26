@@ -17,8 +17,8 @@
       <div class="column right">
         <div v-show="!formSubmitted" :class="{active : !formSubmitted}" class="form-not-submitted">
           <div class="form-intro">
-            <h3>{{ language === 'sl' ? 'Bi radi postali ustvarjalec medijskih vsebin za destinacijo?' : 'Interested in becoming an influencer?' }}</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti commodi dicta repellat unde harum officiis. Laboriosam soluta totam qui voluptas.</p>
+            <h3>{{ language === 'sl' ? 'Bi radi postali ustvarjalec medijskih vsebin za destinacijo?' : 'Interested in becoming media content creator for this destination?' }}</h3>
+            <p>Tell us more about yourself. Fill the from and show us your content on at least one social media channel.</p>
           </div>
           <influencers-form />
         </div>

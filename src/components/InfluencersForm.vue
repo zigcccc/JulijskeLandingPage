@@ -91,7 +91,7 @@
             <input
               v-if="language === 'en'"
               :class="{'is-success' : validPhoneNum, 'is-danger' : invalidPhoneNum}"
-              v-validate="{required: true, numeric: true, min: 7, max: 12}"
+              v-validate="{required: true}"
               v-model="phone_num"
               name="phone_num"
               autocomplete="tel"
@@ -102,7 +102,7 @@
             <input
               v-if="language === 'sl'"
               :class="{'is-success' : validPhoneNum, 'is-danger' : invalidPhoneNum}"
-              v-validate="{required: true, numeric: true, min: 7, max: 12}"
+              v-validate="{required: true}"
               v-model="phone_num"
               name="phone_num"
               autocomplete="tel"
@@ -110,7 +110,6 @@
               type="text"
               placeholder="Vnesite svojo telefonsko številko"
             />
-            <p class="help">{{ language === 'sl' ? 'Vnesite samo številke' : 'Enter only digits' }}</p>
           </div>
         </div>
       </div>
@@ -240,7 +239,7 @@
               v-model="description"
               name="description"
               class="textarea"
-              placeholder="Describe yourself..."
+              placeholder="Tell us when you would like to visit and anything else you would like to add."
             ></textarea>
             <textarea
               v-if="language === 'sl'"

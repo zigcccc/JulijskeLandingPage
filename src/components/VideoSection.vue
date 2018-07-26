@@ -14,13 +14,13 @@
         <div :class="{active: visible}" class="column influencer-column">
           <h2 v-if="language === 'en'">Interested in becoming media content creator for this destination?</h2>
           <h2 v-if="language === 'sl'">Bi radi postali ustvarjalec medijskih vsebin za to destinacijo?</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora totam nihil et, quaerat quidem accusamus quam saepe quod, suscipit, aperiam veritatis cupiditate?</p>
+          <p>Is social media your passion, do you create your own content? Show us what you do and get a free vacation with us.</p>
           <div class="benefits-container">
             <div class="benefit" v-for="benefit in benefits" :key="benefit.en">
               <span><i class="fas fa-check"></i></span><p>{{ benefit[language] }}</p>
             </div>
           </div>
-          <p>Beatae voluptas earum ipsam est quis ea porro provident quisquam, corporis tempora minus numquam. Laudantium, minima expedita!</p>
+          <p><strong>Are you ready to start your adventure?</strong><br>Tell us more about yourself. Fill the from and show us your content on at least one social media channel.</p>
           <div class="cta-container">
             <a @click.prevent="openInfluencerForm">Fill out this form</a>
           </div>
@@ -40,15 +40,15 @@ export default {
       iframeHeight: 0,
       benefits: [
         {
-          'en': 'Free staying at the destination',
+          'en': 'Meet the locals experience',
           'sl': 'Brezplačno bivanje v destinaciji'
         },
         {
-          'en': 'Attend local activities',
+          'en': 'Try out different activities and attend events for free',
           'sl': 'Udeležba na lokalnih aktivnostih'
         },
         {
-          'en': 'Taste authentic local cusine',
+          'en': 'Taste our local cusine',
           'sl': 'Okusite pristne okuse lokalne kulinarike'
         }
       ],
@@ -171,10 +171,13 @@ export default {
     text-align: justify
     margin: 1em 0
     max-width: 75%
+    strong
+      color: $black
+      font-weight: 900
 
   .cta-container
     display: flex
-    justify-content: center
+    justify-content: flex-start
     margin-top: 1.5em
     & > a
       background: $primary
