@@ -79,11 +79,6 @@ export default {
       
       if (scrollTop > (offsetTop - elemHeight + padding)) {
         this.visible = true;
-        this.$ga.event({
-          eventCategory: 'Video Section View',
-          eventAction: this.language,
-          eventLabel: window.location.pathname
-        });
       } else {
         this.visible = false;
       }
