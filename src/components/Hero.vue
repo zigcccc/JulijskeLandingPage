@@ -113,7 +113,7 @@ export default {
     margin-top: 30vh
   @media screen and (max-width: 768px)
     margin-top: 35vh
-  @media screen and (max-width: 414px)
+  @media screen and (max-width: 575px)
     margin-top: 30vh
 
   .hero-title
@@ -134,7 +134,7 @@ export default {
       @media screen and (max-width: 768px)
         display: flex
         font-size: 7em
-      @media screen and (max-width: 414px)
+      @media screen and (max-width: 575px)
         font-size: 6em
         display: flex
         flex-wrap: wrap

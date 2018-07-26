@@ -193,7 +193,7 @@
         "/jesenice/jesenice_05.jpg",
         "/jesenice/jesenice_06.jpg"
       ],
-      "url": "http://www.turizem.jesenice.si/",
+      "url": "http://www.turizem.jesenice.si/en/",
       "mapUrl": "https://www.google.si/maps/place/4270+Jesenice/@46.4358788,14.0354262,14.33z/data=!4m5!3m4!1s0x477a9ab1c13c74bd:0x966c9bfc901b914d!8m2!3d46.4367047!4d14.0526057",
       "sea_level": 585,
       "phone": {
@@ -221,7 +221,7 @@
         "/zirovnica/zirovnica_05.jpg",
         "/zirovnica/zirovnica_06.jpg"
       ],
-      "url": "http://www.visitzirovnica.si/",
+      "url": "http://www.visitzirovnica.si/en/",
       "mapUrl": "https://www.google.si/maps/place/Municipality+of+%C5%BDirovnica/@46.3997311,14.148326,13z/data=!4m5!3m4!1s0x477a99dbd9feeed7:0x1e18375f7a4a4ff6!8m2!3d46.3954403!4d14.1539632",
       "sea_level": 558,
       "phone": {

@@ -107,7 +107,7 @@ export default {
       z-index: 10000001
       display: flex
       justify-content: space-between
-      @media screen and (max-width: 414px)
+      @media screen and (max-width: 730px)
         opacity: 1
         bottom: 0
         &.ios-safari

@@ -186,10 +186,16 @@ export default {
     text-transform: uppercase
     font-weight: 900
     +bounceTransition
+    @media screen and (max-width: 768px)
+      transform: translate3d(7%, 0, 0)
     &:hover
       transform: translate3d(0, -5px, 0)
+      @media screen and (max-width: 768px)
+        transform: translate3d(7%, -5px, 0)
       & + span
         transform: translateY(-3px) translateX(-10%)
+        @media screen and (max-width: 768px)
+          transform: translate3d(17%, -3px, 0)
 
 .destination-images-container
   padding-top: 75px

@@ -11,6 +11,9 @@
         <Logo mainColor="black" accentColor="black" />
       </div>
       <div class="right-side">
+        <a id="feel-slovenia" href="https://www.slovenia.info/en" target="_blank">
+          <feel-slovenia :primary="true" />
+        </a>
         <a @click.prevent="toggleInfluencersPopup" href="#" class="influencers tablet">
           <img src="@/assets/ikonaKameraInverted.svg" alt="Influencers in Julian Alps">
           {{ language === 'en' ? 'For influencers' : 'Za "influencerje"' }}
@@ -29,10 +32,11 @@
 
 <script>
 import SocialLinks from '@/components/SocialLinks'
+import FeelSlovenia from '@/components/FeelSlovenia'
 import Logo from '@/components/Logo'
 export default {
   name: 'Navbar',
-  components: {SocialLinks, Logo},
+  components: {SocialLinks, FeelSlovenia, Logo},
   props: {
     heroHeight: {
       type: Number,
@@ -137,7 +141,7 @@ nav
       display: flex
       flex-direction: row-reverse
       margin-right: 1.5em
-    @media screen and (max-width: 414px)
+    @media screen and (max-width: 550px)
       display: none
   &:hover
     cursor: pointer
@@ -162,23 +166,28 @@ nav
     display: block
     position: absolute
     top: 50%
+    z-index: -1
     @media screen and (max-width: 1360px)
       max-width: 150px
     @media screen and (max-width: 1300px)
       max-width: 100px
-    @media screen and (max-width: 1024px)
+    @media screen and (max-width: 1140px)
       display: none
   &::before
     left: -75%
     transform: translate3d(-50%, -50%, 0)
-    @media screen and (max-width: 1300px)
+    @media screen and (max-width: 1600px)
+      left: -60%
+    @media screen and (max-width: 1530px)
       left: -50%
     @media screen and (max-width: 1300px)
       left: -25%
   &::after
     right: -75%
     transform: translate3d(50%, -50%, 0)
-    @media screen and (max-width: 1300px)
+    @media screen and (max-width: 1600px)
+      right: -60%
+    @media screen and (max-width: 1530px)
       right: -50%
     @media screen and (max-width: 1300px)
       right: -25%
@@ -191,6 +200,13 @@ nav
   color: $black
   font-size: 14px
   min-width: 33%
+  #feel-slovenia
+    display: block
+    min-width: 100px
+    margin-right: 1em
+    transform: translate3d(0, 20%, 0)
+    @media screen and (max-width: 768px)
+      display: none
   .menu-icon
     display: flex
     align-items: center
@@ -210,7 +226,7 @@ nav
     align-items: center
     color: $black
     font-weight: 300
-    @media screen and (max-width: 414px)
+    @media screen and (max-width: 730px)
       display: none
     &:hover
       & > img

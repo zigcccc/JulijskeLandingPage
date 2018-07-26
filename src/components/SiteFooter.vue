@@ -11,11 +11,16 @@
         </div>
       </div><!-- END footer-header -->
       <div class="footer-content">
-        <div class="destination-details" v-for="destination in destinationsContactInfo" :key="destination.name[language]">
-          <h5>{{ destination.name[language] }}</h5>
-          <a :href="destination.web" target="_blank">www{{ destination.web.split('www')[1] }}</a><br>
-          <a :href="`tel:${destination.phone.full}`">{{ destination.phone.display }}</a><br>
-          <a :href="`mailto:${destination.email}`">{{ destination.email }}</a><br>
+        <div class="destination-details">
+          <div v-for="destination in destinationsContactInfo" :key="destination.name[language]">
+            <h5>{{ destination.name[language] }}</h5>
+            <a :href="destination.web" target="_blank">www{{ destination.web.split('www')[1] }}</a><br>
+            <a :href="`tel:${destination.phone.full}`">{{ destination.phone.display }}</a><br>
+            <a :href="`mailto:${destination.email}`">{{ destination.email }}</a><br>
+          </div>
+          <a href="https://www.slovenia.info/en" target="_blank" id="feel-slovenia-footer">
+            <feel-slovenia />
+          </a>
         </div>
       </div>
       <div class="footer-legal-info">
@@ -36,12 +41,13 @@
 
 <script>
 import SocialLinks from '@/components/SocialLinks'
+import FeelSlovenia from '@/components/FeelSlovenia'
 import Logo from '@/components/Logo'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default {
   name: 'SiteFooter',
-  components: {SocialLinks, Logo, LanguageSwitcher},
+  components: {SocialLinks, Logo, FeelSlovenia, LanguageSwitcher},
   computed: {
     visible() {
       return this.$store.getters.isPastDestinations
@@ -94,6 +100,8 @@ footer
       margin-right: 1em
       poisiton: relative
       z-index: 1000
+      @media screen and (max-width: 414px)
+        display: none
 
 .footer-content
   color: $white
@@ -105,14 +113,20 @@ footer
   justify-content: flex-start
   position: relative
   z-index: 10
+  @media screen and (max-width: 768px)
+    padding: 0
 
   .destination-details
-    min-width: calc(20% - 1em)
-    margin: 0 .5em 2em
+    // min-width: calc(20% - 1em)
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    width: 100%
+    grid-gap: 2em
+    margin-bottom: 2em
     @media screen and (max-width: 768px)
-      min-width: calc(25% - 1em)
+      grid-template-columns: repeat(2, 1fr)
     @media screen and (max-width: 414px)
-      min-width: calc(50% - 1em)
+      grid-template-columns: repeat(2, 1fr)
       padding-left: 1.5em
     h5
       font-size: 1.2em
@@ -126,6 +140,15 @@ footer
       +simpleTransition
       &:hover
         color: $primary
+    #feel-slovenia-footer
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      & > svg
+        width: 75%
+        transform: translate3d(0, 20%, 0)
+        &:hover
+          transform: translate3d(0, 20%, 0) scale(1.2)
 
 .footer-legal-info
   font-size: 14px
@@ -134,6 +157,7 @@ footer
   z-index: 10
   @media screen and (max-width: 414px)
     font-size: 12px
+    padding: 0 1em
   &::before
     content: ''
     width: 450px
@@ -182,12 +206,19 @@ footer
   align-items: center
   z-index: 10
   +bounceTransition(500ms)
+  @media screen and (max-width: 768px)
+    bottom: 57px
+    right: unset
+    left: 50%
+    transform: translate3d(-50%, 0, 0)
   & > span
     font-size: 1.5em
     +bounceTransition(750ms)
   &:hover
     transform: translate3d(0, -3px, 0)
     box-shadow: $shadow-4
+    @media screen and (max-width: 768px)
+      transform: translate3d(-50%, -3px, 0)
     & > span
       transform: translate3d(0, -5px, 0)
 </style>  

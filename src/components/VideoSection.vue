@@ -126,7 +126,7 @@ export default {
     @media screen and (max-width: 600px)
       transform: translate3d(10px, 15%, 0)
 .columns
-  padding-top: 10vh
+  padding-top: 12vh
   position: relative
   z-index: 10
   @media screen and (max-width: 768px)
@@ -171,6 +171,8 @@ export default {
     text-align: justify
     margin: 1em 0
     max-width: 75%
+    @media screen and (max-width: 768px)
+      max-width: 100%
     strong
       color: $black
       font-weight: 900
@@ -179,6 +181,8 @@ export default {
     display: flex
     justify-content: flex-start
     margin-top: 1.5em
+    @media screen and (max-width: 768px)
+      justify-content: center
     & > a
       background: $primary
       box-shadow: $shadow-2
@@ -200,6 +204,8 @@ export default {
     font-weight: 700
     font-size: 1.15em
     align-items: center
+    @media screen and (max-width: 768px)
+      font-size: 1em
     span
       margin-right: 1em
       color: $primary
