@@ -1,8 +1,8 @@
 <template>
   <div class="social-links" :class="{inverted : inNavbar}">
-    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a @click="handleSocialLinkClick('facebook')" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a @click="handleSocialLinkClick('instagram')" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a @click="handleSocialLinkClick('youtube')" href="#" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
 </template>
 
@@ -19,6 +19,15 @@ export default {
   computed: {
     inNavbar() {
       return this.location === 'navbar';
+    }
+  },
+  methods: {
+    handleSocialLinkClick(platform) {
+      this.$ga.event({
+        eventCategory: 'Social Link Click',
+        eventAction: platform,
+        eventLabel: this.location
+      })
     }
   }
 }

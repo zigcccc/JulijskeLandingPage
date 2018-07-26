@@ -22,6 +22,9 @@
         &copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span>{{ language === 'sl' ? 'Izdelava spletne strani' : 'Website production' }}: <a href="https://forward.si" target="_blank">Forward - agencija za digitalni marketing</a>
       </div>
     </div>
+    <a @click.prevent="scrollToTop" href="#" id="go-to-top">
+      <span><i class="fas fa-angle-up"></i></span>
+    </a>
     <div id="mountain1" class="footer-mountain">
       <img src="@/assets/footerMountain.svg" alt="Ikona Triglav">
     </div>
@@ -165,5 +168,27 @@ footer
       transform: scale(3) translate3d(-10%, -20px, 0)
       opacity: .25
 
-</style>
+#go-to-top
+  position: absolute
+  bottom: 1em
+  right: 1em
+  background: $white
+  color: $primary
+  border-radius: 50%
+  +getSquare(45px)
+  box-shadow: $shadow-2
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 10
+  +bounceTransition(500ms)
+  & > span
+    font-size: 1.5em
+    +bounceTransition(750ms)
+  &:hover
+    transform: translate3d(0, -3px, 0)
+    box-shadow: $shadow-4
+    & > span
+      transform: translate3d(0, -5px, 0)
+</style>  
 

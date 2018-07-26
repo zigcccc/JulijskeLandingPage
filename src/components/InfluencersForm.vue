@@ -320,6 +320,11 @@ export default {
       const goingForward = i > this.activeStep;
       if(this.validateStep(i) && goingForward) {
         this.activeStep = i;
+        this.$ga.event({
+          eventCategory: 'Form Step Change',
+          eventAction: `Step - ${i}`,
+          eventLabel: this.$store.getters.getWindowWidth > 768 ? 'Desktop' : 'Mobile'
+        });
       } else if(!goingForward) {
         this.activeStep = i;
       }
@@ -355,6 +360,7 @@ export default {
           youtube: this.youtube,
           description: this.description
         }
+        // Change this when going to full production - https://julian-alps.com/api/submit/submit-influencer-form/
         let url = this.env === 'development' ? 'http://localhost:8000' : 'http://206.189.57.136/api/submit-influencer-form/';
 
         this.$store.dispatch('changeFormLoadingStatus', true);
@@ -365,6 +371,11 @@ export default {
             this.clearInputs();
             if (res.status) {
               this.$store.dispatch('formSubmitted', res.data.msg);
+              this.$ga.event({
+                eventCategory: 'Influencers Form Submitted',
+                eventAction: this.language,
+                eventLabel: this.$store.getters.getWindowWidth > 768 ? 'Desktop' : 'Mobile'
+              })
             } else {
               let msg = res ? res.statusText : 'Unknow error...';
               this.$store.dispatch('attachFormErrors', {status: true, msg: msg}); 

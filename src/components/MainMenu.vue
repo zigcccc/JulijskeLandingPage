@@ -71,6 +71,11 @@ export default {
     toggleInfluencersPopup() {
       this.closeMenu();
       this.$store.dispatch('toggleInfluencersPopup');
+      this.$ga.event({
+        eventCategory: 'Influencers Form Open',
+        eventAction: 'Section - Navbar',
+        eventLabel: this.language
+      });
     }
   }
 }

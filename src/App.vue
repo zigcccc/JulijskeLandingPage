@@ -54,6 +54,7 @@ export default {
         this.allLoaded = true
         this.$store.dispatch('setAppLoading', false);
         this.$store.dispatch('setWindowWidth', window.innerWidth);
+        this.$ga.page('/');
       }
     },
     determineSafari(){

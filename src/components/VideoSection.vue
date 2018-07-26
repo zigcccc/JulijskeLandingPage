@@ -1,12 +1,12 @@
 <template>
   <div id="video-section">
-    <destination-clouds destination="video" :animation="true" />
+    <!-- <destination-clouds destination="video" :animation="true" /> -->
     <div :class="{active : visible}" id="video-section-art">
       <img src="@/assets/video-section-art.svg" alt="Influencers at JulianAlps" />
     </div>
-    <div class="container">
+    <div class="container is-fluid">
       <div class="columns">
-        <div class="column is-three-fifths iframe-column">
+        <div class="column iframe-column">
           <div :class="{active : visible}" class="iframe-container" :style="{height: `${iframeHeight}px`, width: '100%'}">
             <iframe width="100%" :height="iframeHeight" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
@@ -66,14 +66,24 @@ export default {
     },
     openInfluencerForm() {
       this.$store.dispatch('toggleInfluencersPopup');
+      this.$ga.event({
+        eventCategory: 'Influencers Form Open',
+        eventAction: 'Section - Video Section',
+        eventLabel: this.language
+      })
     },
     parallax(scrollTop) {
       const offsetTop = this.$el.offsetTop;
       const elemHeight = this.$el.clientHeight;
-      const padding = Math.round(window.innerHeight / 5);
+      const padding = Math.floor(window.innerHeight / 20);
       
       if (scrollTop > (offsetTop - elemHeight + padding)) {
         this.visible = true;
+        this.$ga.event({
+          eventCategory: 'Video Section View',
+          eventAction: this.language,
+          eventLabel: window.location.pathname
+        });
       } else {
         this.visible = false;
       }
@@ -90,7 +100,7 @@ export default {
 
 <style lang="sass" scoped>
 #video-section
-  //min-height: 100vh
+  overflow: hidden
   background:
     image: url('/images/patterns/topography.png')
     repeat: repeat
@@ -121,7 +131,7 @@ export default {
     @media screen and (max-width: 600px)
       transform: translate3d(10px, 15%, 0)
 .columns
-  padding-top: 15vh
+  padding-top: 10vh
   position: relative
   z-index: 10
   @media screen and (max-width: 768px)
@@ -142,6 +152,9 @@ export default {
 
 .influencer-column
   padding: 2em 0 2em 3em
+  display: flex
+  flex-direction: column
+  justify-content: center
   +fadeInOnActive
   @media screen and (max-width: 768px)
     padding: 2em
@@ -162,6 +175,7 @@ export default {
     line-height: 1.618
     text-align: justify
     margin: 1em 0
+    max-width: 75%
 
   .cta-container
     display: flex

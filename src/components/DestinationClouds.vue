@@ -84,8 +84,7 @@ export default {
         left: -25%
         bottom: -35%
       &.video
-        top: -10%
-        left: -5%
+        left: -15%
         @media screen and (max-width: 768px)
           display: none
         &.animated
@@ -101,7 +100,6 @@ export default {
         left: -15%
       &.video
         left: 0
-        top: -15%
         @media screen and (max-width: 768px)
           display: none
         &.animated

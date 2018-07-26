@@ -70,10 +70,20 @@ export default {
       window.scrollTo({
         top: document.querySelector('#triglav-national-park').offsetTop,
         behavior: 'smooth'
+      });
+      this.$ga.event({
+        eventCategory: 'Navbar TNP Button Click',
+        eventAction: this.$store.getters.getWindowWidth > 768 ? 'Desktop' : 'Mobile',
+        eventLabel: this.language
       })
     },
     toggleInfluencersPopup() {
       this.$store.dispatch('toggleInfluencersPopup');
+      this.$ga.event({
+        eventCategory: 'Influencers Form Open',
+        eventAction: 'Section - Navbar',
+        eventLabel: this.language
+      });
       if (this.$store.getters.getWindowWidth < 768) {
         window.scrollTo({
           top: 50,

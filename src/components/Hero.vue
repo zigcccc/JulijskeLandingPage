@@ -54,6 +54,11 @@ export default {
         top: this.heroHeight + 1,
         behavior: 'smooth'
       })
+      this.$ga.event({
+        eventCategory: 'Hero CTA Click',
+        eventAction: this.$store.getters.getWindowWidth > 768 ? 'Desktop' : 'Mobile',
+        eventLabel: this.language
+      })
     },
     parallax(scrollTop) {
       if (scrollTop < this.heroHeight) {

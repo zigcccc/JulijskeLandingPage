@@ -4,7 +4,7 @@
       <h2 class="destination-name" :class="{active : isActiveDestination}">{{ destination.name[language] }}</h2>
       <p class="destination-description" :class="{active : isActiveDestination}">{{ destination.description[language] }}</p>
       <div class="destination-cta-container" :class="{active : isActiveDestination}">
-        <a :href="destination.url" target="_blank">{{language === 'sl' ? 'odkrijte' : 'discover' }} {{ destination.name[language] }}</a>
+        <a @click="handleDestinationCtaClick" :href="destination.url" target="_blank">{{language === 'sl' ? 'odkrijte' : 'discover' }} {{ destination.name[language] }}</a>
         <span><i class="fas fa-arrow-right"></i></span>
       </div>
       <div class="destination-images-container" :class="{active : isActiveDestination}">
@@ -26,7 +26,7 @@ export default {
     return {
       isInViewport: false,
       sectionOffset: 0,
-      sectionPadding: this.$store.getters.getWindowWidth > 768 ? window.innerHeight / 3 : window.innerHeight,
+      sectionPadding: window.innerHeight / 3,
       sectionBackground: {
         backgroundImage: `
           linear-gradient(
@@ -49,7 +49,19 @@ export default {
       let inFocus = scrollTop + this.sectionPadding > this.sectionOffset && scrollTop + this.sectionPadding < this.sectionOffset + this.$el.clientHeight;
       if (inFocus && this.destination !== this.$store.getters.getActiveDestination) {
         this.$store.dispatch('setActiveDestination', this.destination)
+        this.$ga.event({
+          eventCategory: 'Destination View',
+          eventAction: this.destination.name[this.language],
+          eventLabel: this.language
+        });
       }
+    },
+    handleDestinationCtaClick() {
+      this.$ga.event({
+        eventCategory: 'Destination CTA Click',
+        eventAction: this.destination.url,
+        eventLabel: this.language
+      });
     }
   },
   computed: {

@@ -70,6 +70,11 @@ export default {
       // Handle store dispatch
       if (scroll >= this.$el.offsetTop - padding  && !this.$store.getters.isPastDestinations) {
         this.$store.dispatch('pastDestinations', true);
+        this.$ga.event({
+          eventCategory: 'TNP Section View',
+          eventAction: this.language,
+          eventLabel: window.location.pathanme
+        });
       }
       if (scroll < this.$el.offsetTop - padding && this.$store.getters.isPastDestinations) {
         this.$store.dispatch('pastDestinations', false)

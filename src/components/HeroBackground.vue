@@ -70,7 +70,6 @@ export default {
       if (scrollTop < this.heroHeight) {
         let factor1 = (scrollTop / 50)
         let factor2 = (scrollTop / 20)
-        console.log(factor1, factor2)
         this.middleGroundStyle.transform = `translate3d(0, ${factor1 * 8}%, 0) scale(${(factor1 / 20) + 1})`
         this.middleGroundStyle.filter = `blur(${factor2.toFixed(2)}px) contrast(120%)`
         this.frontGroundStyle.transform = `translate3d(0, ${factor1 * 20}%, 0) scale(${(factor1 / 7.5) + 1})`
