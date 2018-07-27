@@ -67,7 +67,14 @@ export default {
   },
   methods: {
     changeImage(i) {
-      this.activeImage = i
+      this.activeImage = i;
+      if (this.destination === this.activeDestination.id) {
+        this.$ga.event({
+          eventCategory: 'Destination Image Change',
+          eventAction: this.destination,
+          eventLabel: `Changed to image ${i + 1}`
+        });
+      }
     },
     toPrevImage() {
       if (this.activeImage > 0) {
