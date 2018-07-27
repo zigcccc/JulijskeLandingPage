@@ -26,6 +26,11 @@ export default {
   },
   methods: {
     changeLanguage(lang) {
+      this.$ga.event({
+        eventCategory: 'Language Change',
+        eventAction: `From ${this.language} to ${lang}`,
+        eventLabel: this.$store.getters.getWindowWidth > 768 ? 'Desktop' : 'Mobile'
+      })
       this.$store.dispatch('changeLanguage', lang);
       if (this.toggleMenu) {
         this.$store.dispatch('toggleMenu');

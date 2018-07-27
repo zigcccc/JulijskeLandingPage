@@ -4,7 +4,7 @@
       <h2 class="destination-name" :class="{active : isActiveDestination}">{{ destination.name[language] }}</h2>
       <p class="destination-description" :class="{active : isActiveDestination}">{{ destination.description[language] }}</p>
       <div class="destination-cta-container" :class="{active : isActiveDestination}">
-        <a @click="handleDestinationCtaClick" :href="destination.url" target="_blank">{{language === 'sl' ? 'odkrijte' : 'discover' }} {{ destination.name[language] }}</a>
+        <a @click="handleDestinationCtaClick" :href="destination.url" target="_blank">{{ destination.cta_text[language] }}</a>
         <span><i class="fas fa-arrow-right"></i></span>
       </div>
       <div class="destination-images-container" :class="{active : isActiveDestination}">
