@@ -2,17 +2,6 @@
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123.53 61.64" :class="{inverted : !primary}">
     <defs></defs>
     <title>feelSloveniaLogo</title>
-    <filter id="dropshadow" height="130%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/> <!-- stdDeviation is how much to blur -->
-      <feOffset dx="0" dy="5" result="offsetblur"/> <!-- how much to offset -->
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.5"/> <!-- slope is the opacity of the shadow -->
-      </feComponentTransfer>
-      <feMerge> 
-        <feMergeNode/> <!-- this contains the offset blurred image -->
-        <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
-      </feMerge>
-    </filter>
     <g id="Layer_2" data-name="Layer 2">
       <g id="Layer_1-2" data-name="Layer 1">
         <polygon class="cls-1" points="108.16 0 0 0.01 0 46.38 123.53 61.64 108.16 0"/>
