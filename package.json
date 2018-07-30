@@ -45,7 +45,6 @@
     "> 1%",
     "IE 10",
     "last 1 version",
-    "not ie <= 6",
-    "not dead"
+    "not ie <= 6"
   ]
 }
