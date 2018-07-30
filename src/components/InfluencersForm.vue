@@ -287,7 +287,7 @@
 
 <script>
 import axios from 'axios'
-import * as qs from 'query-string';
+import * as qs from 'qs';
 
 export default {
   name: 'InfluencersForm',

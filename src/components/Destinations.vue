@@ -21,7 +21,7 @@ export default {
       return this.$store.getters.getDestinations
     },
     microsoft() {
-      return this.$store.getters.isMicrosoft;
+      return this.$store.getters.getMicrosoft.isMicrosoft;
     }
   }
 }

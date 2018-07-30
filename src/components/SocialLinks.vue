@@ -1,7 +1,7 @@
 <template>
   <div class="social-links" :class="{inverted : inNavbar}">
     <a @click="handleSocialLinkClick('facebook')" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a @click="handleSocialLinkClick('instagram')" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a @click="handleSocialLinkClick('instagram')" href="https://www.instagram.com/julian.alps/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
     <a @click="handleSocialLinkClick('youtube')" href="#" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div id="app" :class="{'popup-active' : influencersPopupActive}">
-    <div v-if="microsoft.version >= 17 || !microsoft.isMicrosoft" id="loader" :class="{done : allLoaded}">
+    <div v-if="!microsoft.isMicrosoft" id="loader" :class="{done : allLoaded}">
       <div class="loading-map-container">
         <logo :class="{done : allLoaded}" mainColor="black" accentColor="green" />
         <slovenija-line-map :percent="parseFloat(loadedPercent)" />
@@ -11,7 +11,6 @@
 </template>
 
 <script>
-require('es6-promise').polyfill();
 import SmoothScroll from 'smoothscroll-polyfill'
 import imagesLoaded from 'vue-images-loaded'
 import SlovenijaLineMap from '@/components/SlovenijaLineMap'
@@ -22,7 +21,7 @@ export default {
   name: 'app',
   components: {Home, Logo, SlovenijaLineMap},
   directives: {
-    imagesLoaded
+    imagesLoaded: imagesLoaded
   },
   data() {
     return {
@@ -52,6 +51,8 @@ export default {
     imageProgress(instance, image) {      
       if (image.isLoaded) {
         this.loadedImages++
+      } else {
+        console.error(image)
       }
       this.loadedPercent = ((this.loadedImages / this.allImages) * 100).toFixed(2);
       if (this.loadedImages === this.allImages) {
@@ -62,8 +63,7 @@ export default {
       }
     },
     determineSafari(){
-      // eslint-disable-next-line
-      const isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/); 
+      const isSafari = !!navigator.userAgent.match(/Version\/[\d.]+.*Safari/); 
       const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
       if (isSafari && iOS) {
         this.$store.dispatch('setIosSafari', true);
