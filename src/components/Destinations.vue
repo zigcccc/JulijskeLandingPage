@@ -1,5 +1,5 @@
 <template>
-  <main id="destinations">
+  <main id="destinations" :class="{'full-width' : microsoft}">
     <destination-navigation />
     <single-destination
       v-for="destination in destinations"
@@ -19,6 +19,9 @@ export default {
   computed: {
     destinations() {
       return this.$store.getters.getDestinations
+    },
+    microsoft() {
+      return this.$store.getters.isMicrosoft;
     }
   }
 }
@@ -32,6 +35,8 @@ export default {
   z-index: 10000
   background: $black
   color: $white
+  &.full-width
+    width: 100vw
   @media screen and (max-width: 768px)
     width: 100vw
 </style>

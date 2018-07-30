@@ -15,6 +15,10 @@ const store = new Vuex.Store({
 		isPastHero: false,
 		formLoading: false,
 		iosSafari: false,
+		microsoft: {
+			isMicrosoft: false,
+			verison: null
+		},
 		formErrors: {
 			hasErrors: false,
 			errorMsg: ''
@@ -47,6 +51,10 @@ const store = new Vuex.Store({
 		},
 		pastDestinations(state, payload) {
 			state.pastDestinations = payload;
+		},
+		setMicrosoft(state, { cond, version }) {
+			state.microsoft.isMicrosoft = cond;
+			state.microsoft.version = version;
 		},
 		setWindowWidth(state, payload) {
 			state.windowWidth = payload;
@@ -97,6 +105,9 @@ const store = new Vuex.Store({
 		pastHero({ commit }, payload) {
 			commit('pastHero', payload);
 		},
+		setMicrosoft({ commit }, payload) {
+			commit('setMicrosoft', payload);
+		},
 		toggleMenu({ commit }) {
 			commit('toggleMenu');
 		},
@@ -134,6 +145,9 @@ const store = new Vuex.Store({
 	getters: {
 		doneLoading: state => {
 			return !state.appLoading;
+		},
+		getMicrosoft: state => {
+			return state.microsoft;
 		},
 		menuState: state => {
 			return state.menuOpen;

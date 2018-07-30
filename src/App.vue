@@ -1,6 +1,6 @@
 <template>
   <div id="app" :class="{'popup-active' : influencersPopupActive}">
-    <div id="loader" :class="{done : allLoaded}">
+    <div v-if="microsoft.version >= 17 || !microsoft.isMicrosoft" id="loader" :class="{done : allLoaded}">
       <div class="loading-map-container">
         <logo :class="{done : allLoaded}" mainColor="black" accentColor="green" />
         <slovenija-line-map :percent="parseFloat(loadedPercent)" />
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+require('es6-promise').polyfill();
 import SmoothScroll from 'smoothscroll-polyfill'
 import imagesLoaded from 'vue-images-loaded'
 import SlovenijaLineMap from '@/components/SlovenijaLineMap'
@@ -42,6 +43,9 @@ export default {
     },
     menuOpen() {
       return this.$store.getters.menuState;
+    },
+    microsoft() {
+      return this.$store.getters.getMicrosoft;
     }
   },
   methods: {
@@ -84,6 +88,30 @@ export default {
       window.onwheel = null; 
       window.ontouchmove = null;  
       document.onkeydown = null;
+    },
+    detectIE() {
+      var ua = window.navigator.userAgent;
+      var msie = ua.indexOf('MSIE ');
+      if (msie > 0) {
+        // IE 10 or older => return version number
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+      }
+
+      var trident = ua.indexOf('Trident/');
+      if (trident > 0) {
+        // IE 11 => return version number
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+      }
+
+      var edge = ua.indexOf('Edge/');
+      if (edge > 0) {
+        // Edge (IE 12+) => return version number
+        return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+      }
+
+      // other browser
+      return false;
     }
   },
   created() {
@@ -96,6 +124,10 @@ export default {
       this.$store.dispatch('changeLanguage', window.navigator.language);
     }
     this.determineSafari();
+    if (this.detectIE()) {
+      const version = this.detectIE();
+      this.$store.dispatch('setMicrosoft', {cond: true, version: version});
+    }
   },
   watch: {
     influencersPopupActive(cond) {
@@ -121,6 +153,7 @@ html,
 body
   overflow-x: hidden
   background: $black
+
 #app
   &::after
     content: ''

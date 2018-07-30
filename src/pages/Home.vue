@@ -3,7 +3,7 @@
     <main-menu />
     <influencers-popup />
     <hero />
-    <destination-map-container />
+    <destination-map-container v-if="!microsoft.isMicrosoft" />
     <destinations />
     <triglav-national-park />
     <video-section />
@@ -23,6 +23,11 @@ import SiteFooter from '@/components/SiteFooter'
 
 export default {
   name: 'Home',
-  components: {MainMenu, InfluencersPopup, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, VideoSection, SiteFooter}
+  components: {MainMenu, InfluencersPopup, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, VideoSection, SiteFooter},
+  computed: {
+    microsoft() {
+      return this.$store.getters.getMicrosoft;
+    }
+  }
 }
 </script>

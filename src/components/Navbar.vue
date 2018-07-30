@@ -202,7 +202,7 @@ nav
   min-width: 33%
   #feel-slovenia
     display: block
-    min-width: 100px
+    width: 100px
     margin-right: 1em
     transform: translate3d(0, 20%, 0)
     @media screen and (max-width: 768px)

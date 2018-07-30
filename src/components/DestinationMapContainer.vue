@@ -149,7 +149,7 @@ export default {
   },
   mounted() {
     this.chart = document.getElementById('sea-level-chart').getContext('2d')
-    this.handleChart(this.chartData)
+    this.handleChart(this.chartData);
   }
 }
 </script>
