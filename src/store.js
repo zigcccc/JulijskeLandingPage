@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import latin_map from '@/utils/latinMap';
 
 import { destinations } from '@/structure.json';
+import { Object } from 'core-js';
 
 Vue.use(Vuex);
 
@@ -168,10 +169,11 @@ const store = new Vuex.Store({
 					.split(' ')
 					.join('-')
 					.latinise();
-				return {
-					...destination,
-					id: destinationID
-				};
+				return Object.assign({ id: destinationID }, destination);
+				// return {
+				// 	...destination,
+				// 	id: destinationID
+				// };
 			});
 		},
 		prevAndNext: (state, getters) => {
