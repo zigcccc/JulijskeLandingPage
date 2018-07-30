@@ -8,7 +8,7 @@
       <div class="columns">
         <div class="column iframe-column">
           <div :class="{active : visible}" class="iframe-container" :style="{height: `${iframeHeight}px`, width: '100%'}">
-            <iframe width="100%" :height="iframeHeight" src="https://www.youtube.com/embed/HD4n8vr6ZLQ?showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="100%" :height="iframeHeight" src="https://www.youtube.com/embed/xdV6CHwo2c0?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
         <div :class="{active: visible}" class="column influencer-column">
