@@ -38,8 +38,9 @@
     "vue-template-compiler": "^2.5.16"
   },
   "browserslist": [
-    "> 1%",
+    "> 0.2%",
     "last 4 versions",
-    "not ie <= 8"
+    "not ie <= 6",
+    "not dead"
   ]
 }
