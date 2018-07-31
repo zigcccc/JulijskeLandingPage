@@ -1,5 +1,5 @@
 <template>
-  <footer v-show="visible">
+  <footer v-show="visible || isOldExplorer" :class="{'is-ie' : isOldExplorer}">
     <div class="container is-fluid">
       <div class="footer-header">
         <div @click="scrollToTop" class="left">
@@ -11,7 +11,7 @@
         </div>
       </div><!-- END footer-header -->
       <div class="footer-content">
-        <div class="destination-details">
+        <div class="destination-details" :class="{'is-ie' : isOldExplorer}">
           <div v-for="destination in destinationsContactInfo" :key="destination.name[language]">
             <h5>{{ destination.name[language] }}</h5>
             <a :href="destination.web" target="_blank">www{{ destination.web.split('www')[1] }}</a><br>
@@ -50,13 +50,16 @@ export default {
   components: {SocialLinks, Logo, FeelSlovenia, LanguageSwitcher},
   computed: {
     visible() {
-      return this.$store.getters.isPastDestinations
+      return this.$store.getters.isPastDestinations || this.$store.getters.getMicrosoft.version <= 11;
     },
     destinationsContactInfo() {
       return this.$store.getters.getDestinationsContactInfo
     },
     language(){
       return this.$store.getters.getLanguage;
+    },
+    isOldExplorer() {
+      return this.$store.getters.getMicrosoft.version <= 11;
     }
   },
   methods: {
@@ -80,6 +83,8 @@ footer
   padding: 1em 0
   color: $white
   overflow: hidden
+  &.is-ie
+    position: relative
   @media screen and (max-width: 768px)
     position: relative
 
@@ -128,6 +133,12 @@ footer
     width: 100%
     grid-gap: 2em
     margin-bottom: 2em
+    &.is-ie
+      display: flex
+      flex-wrap: wrap
+      & > div
+        min-width: 20%
+        margin-bottom: 1em
     @media screen and (max-width: 768px)
       grid-template-columns: repeat(2, 1fr)
     @media screen and (max-width: 414px)

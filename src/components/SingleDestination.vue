@@ -1,13 +1,13 @@
 <template>
-  <div class="single-destination" :id="destination.id" :style="sectionBackground">
+  <div class="single-destination" :class="{'old-explorer' : isOldExplorer}" :id="destination.id" :style="sectionBackground">
     <div class="destination-container">
-      <h2 class="destination-name" :class="{active : isActiveDestination}">{{ destination.name[language] }}</h2>
-      <p class="destination-description" :class="{active : isActiveDestination}">{{ destination.description[language] }}</p>
-      <div class="destination-cta-container" :class="{active : isActiveDestination}">
+      <h2 class="destination-name" :class="{active : isActiveDestination || isOldExplorer}">{{ destination.name[language] }}</h2>
+      <p class="destination-description" :class="{active : isActiveDestination || isOldExplorer}">{{ destination.description[language] }}</p>
+      <div class="destination-cta-container" :class="{active : isActiveDestination || isOldExplorer}">
         <a @click="handleDestinationCtaClick" :href="destination.url" target="_blank">{{ destination.cta_text[language] }}</a>
         <span><i class="fas fa-arrow-right"></i></span>
       </div>
-      <div class="destination-images-container" :class="{active : isActiveDestination}">
+      <div class="destination-images-container" :class="{active : isActiveDestination || isOldExplorer}">
         <destination-images :images="destination.images" :destination="destination.id" controlsAlign="right" />
         <destination-clouds v-if="destination.images.length > 0" :destination="destination.id" :sectionOffset="sectionOffset" :animation="false" :parallax="true" />
       </div>
@@ -75,11 +75,20 @@ export default {
     },
     language() {
       return this.$store.getters.getLanguage;
+    },
+    isIE() {
+      return this.$store.getters.getMicrosoft.isMicrosoft;
+    },
+    isOldExplorer() {
+      return this.$store.getters.getMicrosoft.version <= 11;
     }
   },
   created() {
     document.addEventListener('scroll', e => {
-      this.checkViewport(e.target.scrollingElement.scrollTop)
+      if(this.isIE) {
+        return
+      }
+      this.checkViewport(e.target.scrollingElement.scrollTop);
     })
   },
   mounted() {
@@ -101,6 +110,9 @@ export default {
     size: cover
     repeat: no-repeat
     attachment: fixed
+  &.old-explorer
+    background-size: cover
+    background-attachment: scroll !important
   @media screen and (max-width: 414px)
     background-size: cover
     background-attachment: scroll !important

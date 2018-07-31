@@ -43,6 +43,9 @@ export default {
     },
     loaded() {
       return this.$store.getters.doneLoading;
+    },
+    isIE() {
+      return this.$store.getters.getMicrosoft.isMicrosoft;
     }
   },
   methods: {
@@ -81,7 +84,10 @@ export default {
       this.$store.dispatch('setHeroHeight', this.getHeroHeight());
     })
     document.addEventListener('scroll', e => {
-      this.parallax(e.target.scrollingElement.scrollTop)
+      if (this.isIE) {
+        return
+      }
+      this.parallax(e.target.scrollingElement.scrollTop);
     })
   },
   mounted(){
