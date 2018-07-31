@@ -6,7 +6,8 @@
         <slovenija-line-map :percent="parseFloat(loadedPercent)" />
       </div>
     </div>
-    <Home v-images-loaded:on.progress="imageProgress" />
+    <Home v-if="!microsoft.isMicrosoft" v-images-loaded:on.progress="imageProgress" />
+    <Home v-else />
   </div>
 </template>
 
@@ -127,6 +128,10 @@ export default {
     if (this.detectIE()) {
       const version = this.detectIE();
       this.$store.dispatch('setMicrosoft', {cond: true, version: version});
+      this.allLoaded = true
+      this.$store.dispatch('setAppLoading', false);
+      this.$store.dispatch('setWindowWidth', window.innerWidth);
+      this.$ga.page('/');
     }
   },
   watch: {

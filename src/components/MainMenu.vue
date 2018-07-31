@@ -1,5 +1,5 @@
 <template>
-  <div id="menu" :class="{active : menuState}">
+  <div id="menu" :class="{active : menuState, 'is-ie' : isOldExplorer}">
     <div :class="{visible : menuState}" @click="closeMenu" id="menu-icon">
       <span><i class="fas fa-times"></i></span>
     </div>
@@ -9,8 +9,8 @@
     <div id="language-toggle" :class="{visible : menuState}">
       <language-switcher :toggleMenu="true" />
     </div>
-    <div id="main-menu__destinations" :class="{visible : menuState, 'ios-safari' : iosSafari}">
-      <a class="destinations-links" :style="{backgroundImage: `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('/images/destinations/${destination.id}.png')`}" @click.prevent="handleMenuClick(destination.id)" v-for="destination in destinations" :key="destination.id">
+    <div id="main-menu__destinations" :class="{visible : menuState, 'ios-safari' : iosSafari, 'is-ie' : isOldExplorer}">
+      <a class="destinations-links" :class="{'is-ie' : isOldExplorer}" :style="{backgroundImage: `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('/images/destinations/${destination.id}.png')`}" @click.prevent="handleMenuClick(destination.id)" v-for="destination in destinations" :key="destination.id">
         {{ destination.name[language] }}
       </a>
     </div>
@@ -46,6 +46,9 @@ export default {
     },
     iosSafari() {
       return this.$store.getters.isIosSafari;
+    },
+    isOldExplorer() {
+      return this.$store.getters.getMicrosoft.version <= 11;
     }
   },
   methods: {
@@ -199,6 +202,9 @@ export default {
         transform: translateY(0)
         opacity: 1
         visibility: visible
+      &.is-ie
+        display: flex
+        flex-direction: column
       @media screen and (max-width: 414px)
         display: flex
         flex-direction: column
@@ -227,6 +233,13 @@ export default {
         z-index: 10000005
         overflow: hidden
         transition: text-shadow 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 250ms, transform 750ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 250ms
+        &.is-ie
+          font-size: 1em
+          min-width: 100%
+          padding: .65em 1em
+          background-image: none !important
+          min-height: 0 !important
+          text-align: center
         @media screen and (max-width: 414px)
           font-size: 1em
           min-width: 100%

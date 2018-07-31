@@ -42,6 +42,11 @@ export default {
       }
     }
   },
+  computed: {
+    isIE() {
+      return this.$store.getters.getMicrosoft.isMicrosoft;
+    }
+  }, 
   methods: {
     cloudParallax(scrollTop) {
       if(this.parallax) {
@@ -57,7 +62,11 @@ export default {
   },
   created() {
     document.addEventListener('scroll', e => {
-      this.cloudParallax(e.target.scrollingElement.scrollTop)
+      if (this.isIE) {
+        this.cloudParallax(document.documentElement.scrollTop);
+      } else {
+        this.cloudParallax(e.target.scrollingElement.scrollTop);
+      } 
     })
   },
   destroyed() {

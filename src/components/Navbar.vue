@@ -11,7 +11,7 @@
         <Logo mainColor="black" accentColor="black" />
       </div>
       <div class="right-side">
-        <a id="feel-slovenia" href="https://www.slovenia.info/en" target="_blank">
+        <a id="feel-slovenia" :class="{'is-ie' : isIE}" href="https://www.slovenia.info/en" target="_blank">
           <feel-slovenia :primary="true" />
         </a>
         <a @click.prevent="toggleInfluencersPopup" href="#" class="influencers tablet">
@@ -49,6 +49,9 @@ export default {
     }
   },
   computed: {
+    isIE () {
+      return this.$store.getters.getMicrosoft.isMicrosoft;
+    },
     menuOpen() {
       return this.$store.state.menuOpen;
     },
@@ -98,7 +101,10 @@ export default {
   },
   created(){
     document.addEventListener('scroll', e => {
-      this.scrollTop(e.target.scrollingElement.scrollTop)
+      if (this.isIE) {
+        return
+      }
+      this.scrollTop(e.target.scrollingElement.scrollTop);
     })
   },
   destroyed() {
@@ -205,6 +211,8 @@ nav
     width: 100px
     margin-right: 1em
     transform: translate3d(0, 20%, 0)
+    &.is-ie
+      height: 50px
     @media screen and (max-width: 768px)
       display: none
   .menu-icon

@@ -82,9 +82,17 @@ export default {
       }
     }
   },
+  computed: {
+    isIE() {
+      return this.$store.getters.getMicrosoft.isMicrosoft;
+    }
+  },
   created(){
     document.addEventListener('scroll', e => {
-      this.parallax(e.target.scrollingElement.scrollTop)
+      if (this.isIE) {
+        return
+      }
+      this.parallax(e.target.scrollingElement.scrollTop);
     })
   },
   destroyed(){
