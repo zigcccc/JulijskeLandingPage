@@ -234,6 +234,8 @@ export default {
           background-image: unset !important
           min-height: unset
           text-align: center
+        @media screen and (max-width: 345px)
+          padding: .4em 1em
         &::before
           content: ''
           display: block

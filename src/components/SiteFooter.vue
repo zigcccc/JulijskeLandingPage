@@ -90,12 +90,17 @@ footer
   margin-top: 1em
   @media screen and (max-width: 768px)
     padding: 0 1em
+  @media screen and (max-width: 345px)
+    padding: 0 .5em
   .left
     &:hover
       cursor: pointer
   .right
     display: flex
     align-items: center
+    .social-links
+      @media screen and (max-width: 345px)
+        font-size: .8em
     .language-switcher
       margin-right: 1em
       poisiton: relative
@@ -128,6 +133,9 @@ footer
     @media screen and (max-width: 414px)
       grid-template-columns: repeat(2, 1fr)
       padding-left: 1.5em
+    @media screen and (max-width: 345px)
+      padding-left: .5em
+      grid-gap: .5em
     h5
       font-size: 1.2em
       font-weight: 900

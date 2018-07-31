@@ -117,20 +117,27 @@ export default {
 #video-section-art
   position: absolute
   min-width: 600px
-  bottom: 0
-  right: 0
-  overflow: hidden
+  min-height: 390px
+  bottom: -10px
+  right: -40px
   +fadeInOnActive
   @media screen and (max-width: 600px)
     min-width: 100vw
   & > img
-    transform: translate3d(12px, 10px, 0)
+    transform: translate3d(12px, 0px, 0)
     @media screen and (max-width: 1385px)
-      transform: translate3d(7.5%, 10px, 0)
+      transform: translate3d(12px, 10px, 0)
     @media screen and (max-width: 1130px)
-      transform: translate3d(25%, 5%, 0)
+      transform: translate3d(12px, 10%, 0)
+    @media screen and (max-width: 991px)
+      transform: translate3d(75px, 15%, 0) scale(.75)
     @media screen and (max-width: 600px)
-      transform: translate3d(10px, 15%, 0)
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      width: 100vw
+      transform: translate3d(-25px,0,0)
 .columns
   padding-top: 12vh
   position: relative

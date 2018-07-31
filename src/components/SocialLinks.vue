@@ -52,6 +52,8 @@ export default {
     color: $white
     padding: 0 15px
     text-shadow: 0 3px 6px rgba(0,0,0,.2)
+    @media screen and (max-width: 345px)
+      padding: 0 10px
     & > i
       +bounceTransition(400ms)
     &:hover

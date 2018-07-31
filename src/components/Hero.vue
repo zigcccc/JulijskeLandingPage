@@ -140,6 +140,8 @@ export default {
         flex-wrap: wrap
         justify-content: center
         text-align: center
+      @media screen and (max-width: 345px)
+        font-size: 4em
       & > span
         color: $primary
 
