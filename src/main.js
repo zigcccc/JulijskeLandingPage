@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import VueAnalytics from 'vue-analytics';
 import VueGtm from 'vue-gtm/dist/vue-gtm.min.js';
+import Meta from 'vue-meta';
 import * as Cookie from 'js-cookie';
 import VeeValidate from 'vee-validate';
 import store from './store';
@@ -24,6 +25,8 @@ Vue.use(VueGtm, {
 	debug: false,
 	enabled: !trackingDisabled
 });
+
+Vue.use(Meta);
 
 new Vue({
 	store,
