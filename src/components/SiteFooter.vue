@@ -18,13 +18,18 @@
             <a :href="`tel:${destination.phone.full}`">{{ destination.phone.display }}</a><br>
             <a :href="`mailto:${destination.email}`">{{ destination.email }}</a><br>
           </div>
-          <a href="https://www.slovenia.info/en" target="_blank" id="feel-slovenia-footer">
-            <feel-slovenia />
-          </a>
+          <div class="logos-container">
+            <a href="https://www.slovenia.info/en" target="_blank" id="feel-slovenia-footer">
+              <feel-slovenia />
+            </a>
+            <a href="https://www.lonelyplanet.com/slovenia/the-julian-alps" target="_blank" id="lonely-planet">
+              <img src="@/assets/lonelyPlanet.png" alt="Lonely Planet Julian Alps Slovenia" />
+            </a>
+          </div>
         </div>
       </div>
       <div class="footer-legal-info">
-        &copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span>{{ language === 'sl' ? 'Izdelava spletne strani' : 'Website production' }}: <a href="https://forward.si" target="_blank">Forward - agencija za digitalni marketing</a>
+        &copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span><div id="site-authors">{{ language === 'sl' ? 'Izdelava spletne strani' : 'Website production' }}: <a href="https://forward.si" target="_blank">Forward - agencija za digitalni marketing</a></div>
       </div>
     </div>
     <a @click.prevent="scrollToTop" href="#" id="go-to-top">
@@ -159,15 +164,31 @@ footer
       +simpleTransition
       &:hover
         color: $primary
-    #feel-slovenia-footer
+    .logos-container
       display: flex
-      justify-content: flex-start
       align-items: center
-      & > svg
-        width: 75%
-        transform: translate3d(0, 20%, 0)
+      justify-content: flex-start
+      & > a
+        max-width: 35%
+        @media screen and (max-width: 768px)
+          max-width: unset
+      #lonely-planet
         &:hover
-          transform: translate3d(0, 20%, 0) scale(1.2)
+          & > img
+            transform: scale(1.2)
+        & > img
+          +easeTransition(500ms)
+          transform: scale(1)
+      #feel-slovenia-footer
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        & > svg
+          +easeTransition(500ms)
+          width: 75%
+          transform: translate3d(0, 0, 0)
+          &:hover
+            transform: translate3d(0, 0, 0) scale(1.2)
 
 .footer-legal-info
   font-size: 14px
@@ -188,12 +209,19 @@ footer
     margin: .25em auto 2em
   & > span
     margin: 0 1em
-  & > a
-    color: $white
-    font-weight: 900
-    +simpleTransition
-    &:hover
-      color: $primary
+    @media screen and (max-width: 600px)
+      display: none
+
+  #site-authors
+    display: inline
+    @media screen and (max-width: 600px)
+      display: block
+    & > a
+      color: $white
+      font-weight: 900
+      +simpleTransition
+      &:hover
+        color: $primary
 
 .footer-mountain
   position: absolute
@@ -226,7 +254,7 @@ footer
   z-index: 10
   +bounceTransition(500ms)
   @media screen and (max-width: 768px)
-    bottom: 57px
+    bottom: 65px
     right: unset
     left: 50%
     transform: translate3d(-50%, 0, 0)
