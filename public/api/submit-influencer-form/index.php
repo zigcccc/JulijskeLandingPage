@@ -10,12 +10,12 @@
       header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
     } else {
       http_response_code(403);
-      echo "You're not allowed to access this page...";
+      echo "You're not allowed to access this page... HTTP Origin: " . $http_origin;
       die();
     }
   } else {
     http_response_code(403);
-    echo "You're not allowed to access this page...";
+    echo "You're not allowed to access this page... Http origin not set...";
     die();
   }
 
