@@ -346,6 +346,8 @@ export default {
     z-index: 5
     &.visible
       transform: translate3d(2.5%,30%,0) scale(1.05)
+      @media screen and (min-width: 1500px)
+        transform: translate3d(0,35%,0) scaleX(1.05)
       @media screen and (max-width: 768px)
         transform: translate3d(2.5%,-25%,0) scale(1.05)
         opacity: .75
