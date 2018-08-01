@@ -24,18 +24,6 @@ export default {
   directives: {
     imagesLoaded: imagesLoaded
   },
-  metaInfo: {
-    title: 'Julian Alps',
-    titleTemplate: '%s :: Where the Adventure Begins',
-    meta: [
-      {vmid: 'description', name: 'description', content:'Explore the beauty of the pure and intact nature, surrounding this gorgeous destination.'},
-      {vmid: 'og:image', name: 'og:image', content: `${window.location.origin}/main-image.jpg`},
-      {vmid: 'og:url', name: 'og:url', content: `${window.location.origin}`},
-      {vmid: 'og:title', name: 'og:title', content: 'Julian Alps :: Where the Adventure Begins'},
-      {vmid: 'og:description', name: 'og:description', content: 'Explore the beauty of the pure and intact nature, surrounding this gorgeous destination.'},
-      {vmid: 'og:type', name: 'og:type', content: 'website'}
-    ]
-  },
   data() {
     return {
       loadedImages: 0,
