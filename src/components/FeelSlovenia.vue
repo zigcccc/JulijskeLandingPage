@@ -41,8 +41,7 @@ svg
     .cls-3
       fill: darken($primary, 5%)
   .cls-1
-    fill: $primary
-    //fill: $white
+    fill: $black
   .cls-2
     fill: $white
   .cls-3

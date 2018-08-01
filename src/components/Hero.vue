@@ -4,11 +4,11 @@
     <hero-background :heroHeight="heroHeight" :siteLoaded="loaded" />
     <div class="container">
       <div class="hero-columns">
-        <div class="hero-title">
+        <div class="hero-title" :class="{'is-ie' : isOldMicrosoft}">
           <h1 v-if="language === 'sl'" :style="titleStyle">Julijske<span>Alpe</span></h1>
           <h1 v-else :style="titleStyle">Julian<span>Alps</span></h1>
         </div>
-        <div class="hero-intro">
+        <div class="hero-intro" :class="{'is-ie' : isOldMicrosoft}">
           <p v-if="language === 'sl'" :style="titleStyle" class="intro-paragraph">Raziščite lepote neokrnjene narave, ki obdaja to čudovito in slikovito pokrajino.</p>
           <p v-else :style="titleStyle" class="intro-paragraph">Explore the beauty of the pure and intact nature, surrounding this gorgeous destination.</p>
         </div>
@@ -46,6 +46,9 @@ export default {
     },
     isIE() {
       return this.$store.getters.getMicrosoft.isMicrosoft;
+    },
+    isOldMicrosoft() {
+      return this.$store.getters.getMicrosoft.version <= 11;
     }
   },
   methods: {
@@ -126,6 +129,9 @@ export default {
     display: flex
     justify-content: center
     padding-right: 0
+    &.is-ie
+      h1
+        margin-top: -20%
     @media screen and (max-width: 768px)
       padding-right: 0
       justify-content: center
@@ -159,6 +165,8 @@ export default {
     text-align: center
     max-width: 700px
     margin: .75em auto 0
+    &.is-ie
+      margin-top: -8%
     @media screen and (max-width: 768px)
       font-size: 1.2em
       text-align: center

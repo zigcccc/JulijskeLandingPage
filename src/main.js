@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueAnalytics from 'vue-analytics';
-import VueFacebookPixel from 'vue-analytics-facebook-pixel';
+import VueGtm from 'vue-gtm/dist/vue-gtm.min.js';
+import * as Cookie from 'js-cookie';
 import VeeValidate from 'vee-validate';
 import store from './store';
 
@@ -9,11 +10,20 @@ Vue.use(VeeValidate);
 
 Vue.config.productionTip = false;
 
+const trackingDisabled =
+	String(Cookie.get('ga_fb_allowed')) === 'false' ? true : false;
+
 Vue.use(VueAnalytics, {
-	id: 'UA-122922765-1'
+	id: 'UA-122922765-1',
+	debug: {
+		enabled: false
+	}
 });
 
-Vue.use(VueFacebookPixel);
+Vue.use(VueGtm, {
+	debug: false,
+	enabled: !trackingDisabled
+});
 
 new Vue({
 	store,

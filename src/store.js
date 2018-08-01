@@ -16,6 +16,7 @@ const store = new Vuex.Store({
 		isPastHero: false,
 		formLoading: false,
 		iosSafari: false,
+		gdprModalOpen: true,
 		microsoft: {
 			isMicrosoft: false,
 			verison: null
@@ -94,6 +95,9 @@ const store = new Vuex.Store({
 		},
 		setIosSafari(state, payload) {
 			state.iosSafari = payload;
+		},
+		setGdprModalState(state, payload) {
+			state.gdprModalOpen = payload;
 		}
 	},
 	actions: {
@@ -141,6 +145,9 @@ const store = new Vuex.Store({
 		},
 		setIosSafari({ commit }, payload) {
 			commit('setIosSafari', payload);
+		},
+		setGdprModalState({ commit }, payload) {
+			commit('setGdprModalState', payload);
 		}
 	},
 	getters: {
@@ -175,6 +182,9 @@ const store = new Vuex.Store({
 				// 	id: destinationID
 				// };
 			});
+		},
+		gdprModalOpen: state => {
+			return state.gdprModalOpen;
 		},
 		prevAndNext: (state, getters) => {
 			let output = {};

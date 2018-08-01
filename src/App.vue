@@ -117,14 +117,6 @@ export default {
   },
   created() {
     SmoothScroll.polyfill();
-  },
-  mounted() {
-    if(localStorage.getItem('lang')) {
-      this.$store.dispatch('changeLanguage', localStorage.getItem('lang'));
-    } else {
-      this.$store.dispatch('changeLanguage', window.navigator.language);
-    }
-    this.determineSafari();
     if (this.detectIE()) {
       const version = this.detectIE();
       this.$store.dispatch('setMicrosoft', {cond: true, version: version});
@@ -133,6 +125,14 @@ export default {
       this.$store.dispatch('setWindowWidth', window.innerWidth);
       this.$ga.page('/');
     }
+  },
+  mounted() {
+    if(localStorage.getItem('lang')) {
+      this.$store.dispatch('changeLanguage', localStorage.getItem('lang'));
+    } else {
+      this.$store.dispatch('changeLanguage', window.navigator.language);
+    }
+    this.determineSafari();
   },
   watch: {
     influencersPopupActive(cond) {

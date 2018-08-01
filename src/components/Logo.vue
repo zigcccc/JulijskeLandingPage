@@ -28,6 +28,8 @@ h3.logo
   font-weight: 900
   &.main__black
     color: $black
+    & > span
+      color: $primary
   &.main__green
     color: $primary
   &.accent__white

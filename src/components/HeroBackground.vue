@@ -1,8 +1,8 @@
 <template>
   <div id="hero-background">
-    <img :class="{loaded : siteLoaded}" :style="middleGroundStyle" id="middle-ground" class="hero-mountain" src="@/assets/cutted_background/middleGround.png" alt="Julian Alps">
-    <img :class="{loaded : siteLoaded}" :style="frontGroundStyle" id="front-ground" class="hero-mountain" src="@/assets/cutted_background/frontGround.png" alt="Julian Alps">
-    <img :class="{loaded : siteLoaded}" :style="frontHikerStyle" id="front-hiker" class="hero-mountain" src="@/assets/cutted_background/frontHiker.png" alt="Julian Alps">
+    <img :class="{loaded : siteLoaded, 'is-ie' : isOldMicrosoft}" :style="middleGroundStyle" id="middle-ground" class="hero-mountain" src="@/assets/cutted_background/middleGround.png" alt="Julian Alps">
+    <img :class="{loaded : siteLoaded, 'is-ie' : isOldMicrosoft}" :style="frontGroundStyle" id="front-ground" class="hero-mountain" src="@/assets/cutted_background/frontGround.png" alt="Julian Alps">
+    <img :class="{loaded : siteLoaded, 'is-ie' : isOldMicrosoft}" :style="frontHikerStyle" id="front-hiker" class="hero-mountain" src="@/assets/cutted_background/frontHiker.png" alt="Julian Alps">
     <div id="clouds">
       <div class="hero-clouds" id="cloud1">
         <img :style="cloudsStyle1" src="/images/Clouds_01.png" alt="Clouds in Julian Alps">
@@ -85,6 +85,9 @@ export default {
   computed: {
     isIE() {
       return this.$store.getters.getMicrosoft.isMicrosoft;
+    },
+    isOldMicrosoft() {
+      return this.$store.getters.getMicrosoft.version <= 11;
     }
   },
   created(){
@@ -108,6 +111,13 @@ export default {
   position: absolute
   bottom: -100%
   z-index: 10
+  &.is-ie
+    &#middle-ground
+      bottom: -60% !important
+    &#front-ground
+      bottom: -25% !important
+    &#front-hiker
+      bottom: 0 !important
   &.loaded
     &#middle-ground
       bottom: -35%

@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <gdpr />
     <main-menu />
     <influencers-popup />
     <hero />
@@ -13,6 +14,7 @@
 
 <script>
 import MainMenu from '@/components/MainMenu'
+import gdpr from '@/components/gdpr';
 import InfluencersPopup from '@/components/InfluencersPopup'
 import Hero from '@/components/Hero'
 import DestinationMapContainer from '@/components/DestinationMapContainer'
@@ -23,7 +25,7 @@ import SiteFooter from '@/components/SiteFooter'
 
 export default {
   name: 'Home',
-  components: {MainMenu, InfluencersPopup, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, VideoSection, SiteFooter},
+  components: {MainMenu, gdpr, InfluencersPopup, Hero, DestinationMapContainer, Destinations, TriglavNationalPark, VideoSection, SiteFooter},
   computed: {
     microsoft() {
       return this.$store.getters.getMicrosoft;
