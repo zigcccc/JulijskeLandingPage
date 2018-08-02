@@ -56,9 +56,12 @@
               v-if="language === 'en'"
               :class="{'is-success' : validEmail, 'is-danger' : invalidEmail}"
               v-validate="{required: true, email: true}"
-              v-model="email"
+              v-model.trim="email"
               name="email"
               autocomplete="email"
+              @keypress="handleEmailInput"
+              @change="handleEmailAutofill"
+              @focus="handleEmailAutofill"
               class="input"
               type="text"
               placeholder="Enter your email address"
@@ -387,6 +390,12 @@ export default {
             this.$store.dispatch('attachFormErrors', {status: true, msg: msg});
           });
       }
+    },
+    handleEmailInput(e) {
+      e.keyCode === 32 ? e.preventDefault() : false;
+    },
+    handleEmailAutofill() {
+      this.email = this.email.replace(/ /g, "");
     }
   },
   computed: {

@@ -114,9 +114,6 @@ export default {
   @media screen and (max-width: 991px)
     max-width: 720px
   @media screen and (max-width: 768px)
-    height: 90vh
-    max-height: 90vh
-  @media screen and (max-width: 320px)
     height: 100vh
     max-height: 100vh
   &.active
@@ -257,6 +254,8 @@ export default {
   font-size: 1.5em
   +bounceTransition(500ms)
   color: $black
+  @media screen and (max-width: 320px)
+    top: 35px
   &:hover
     cursor: pointer
     transform: scale(1.2) rotate(90deg)
