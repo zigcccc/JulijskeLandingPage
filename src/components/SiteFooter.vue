@@ -258,6 +258,8 @@ footer
     right: unset
     left: 50%
     transform: translate3d(-50%, 0, 0)
+  @media screen and (max-width: 320px)
+    bottom: 75px
   & > span
     font-size: 1.5em
     +bounceTransition(750ms)

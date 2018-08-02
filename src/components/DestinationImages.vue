@@ -59,7 +59,14 @@ export default {
       return this.$store.getters.isPastDestinations;
     },
     imageWidth() {
-      return this.$store.getters.getWindowWidth > 414 ? 225 : 150;
+      const windowWidth = this.$store.getters.getWindowWidth;
+      if (windowWidth > 414) {
+        return 255;
+      } else if (windowWidth < 414 && windowWidth > 320) {
+        return 150;
+      } else {
+        return 120
+      }
     },
     language() {
       return this.$store.getters.getLanguage;
@@ -141,6 +148,8 @@ export default {
   +easeTransition(500ms)
   @media screen and (max-width: 414px)
     min-height: #{$destination-image-mobile-active-height + 20}
+  @media screen and (max-width: 320px)
+    min-height: #{$destination-image-small-active-height + 20}
   .image-container
     height: $destination-image-base-height
     min-width: #{$destination-image-base-height * 1.5}
@@ -154,12 +163,18 @@ export default {
     @media screen and (max-width: 414px)
       height: $destination-image-mobile-base-height
       min-width: #{$destination-image-mobile-base-height * 1.5}
+    @media screen and (max-width: 320px)
+      height: $destination-image-small-base-height
+      min-width: #{$destination-image-small-base-height * 1.5}
     &.active
       height: $destination-image-active-height
       min-width: #{$destination-image-active-height * 1.5} 
       @media screen and (max-width: 414px)
         height: $destination-image-mobile-active-height
         min-width: #{$destination-image-mobile-active-height * 1.5}
+      @media screen and (max-width: 320px)
+        height: $destination-image-small-active-height
+        min-width: #{$destination-image-small-active-height * 1.5}
     & > img
       object-fit: cover
 

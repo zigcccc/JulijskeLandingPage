@@ -398,8 +398,10 @@ export default {
         return 480
       } else if(this.$store.getters.getWindowWidth > 768 && this.$store.getters.getWindowWidth < 991) {
         return 340
-      } else {
+      } else if(this.$store.getters.getWindowWidth > 320 && this.$store.getters.getWindowWidth < 768) {
         return 320
+      } else {
+        return 280
       }
     },
     formStyle() {
@@ -557,6 +559,8 @@ export default {
       width: 340px
     @media screen and (max-width: 768px)
       width: 320px
+    @media screen and (max-width: 320px)
+      width: 280px
     &.active
       visibility: visible
       opacity: 1
@@ -575,6 +579,9 @@ export default {
   @media screen and (max-width: 768px)
     width: 320px
     left: 2em
+  @media screen and (max-width: 320px)
+    width: 280px
+    left: 1em
   & > span
     +getSquare(15px)
     border-radius: 50%
@@ -606,6 +613,9 @@ export default {
   @media screen and (max-width: 768px)
     width: 320px
     left: 2em
+  @media screen and (max-width: 320px)
+    width: 280px
+    left: 1em
   #submit-btn
     position: relative
     z-index: 10

@@ -116,6 +116,9 @@ export default {
   @media screen and (max-width: 768px)
     height: 90vh
     max-height: 90vh
+  @media screen and (max-width: 320px)
+    height: 100vh
+    max-height: 100vh
   &.active
     transform: translate3d(-50%, -50%, 0)
     opacity: 1
@@ -159,10 +162,16 @@ export default {
       @media screen and (max-width: 768px)
         margin: 2em 0 1em
         max-width: 320px
+      @media screen and (max-width: 320px)
+        margin: 1em 0 1em
+        max-width: 280px
     h3
       text-align: left
       font-weight: 900
       font-size: 1.2em
+      @media screen and (max-width: 320px)
+        font-size: 1em
+        max-width: 90%
       &::after
         content: ''
         width: 50px

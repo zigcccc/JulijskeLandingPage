@@ -308,6 +308,8 @@ export default {
     font-size: 4em
     margin-left: auto
     margin-right: auto
+  @media screen and (max-width: 320px)
+    padding: 0 .5em
   & > span
     text-align: right
 

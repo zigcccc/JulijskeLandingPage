@@ -26,6 +26,8 @@ h3.logo
   color: $white
   text-shadow: 0 5px 10px rgba(0,0,0,.2)
   font-weight: 900
+  @media screen and (max-width: 320px)
+    font-size: 1.75em
   &.main__black
     color: $black
     & > span
