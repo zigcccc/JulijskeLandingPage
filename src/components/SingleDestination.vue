@@ -33,7 +33,7 @@ export default {
             rgba(0,0,0,.65),
             rgba(0,0,0,.65)
           ),
-          url('/images/destinations/${this.destination.id}.png')
+          url('/images/destinations/${this.destination.id}.jpg')
         `
       }
     }
