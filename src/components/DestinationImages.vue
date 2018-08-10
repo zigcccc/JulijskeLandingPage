@@ -1,24 +1,24 @@
 <template>
-  <div v-if="images.length > 0" class="destination-images">
-    <div class="destination-images-controls" :class="{'align-left' : controlsAlign === 'left', 'align-right' : controlsAlign === 'right'}">
-      <span @click="toPrevImage" id="prev-image" :class="{disabled : activeImage === 0}"><i class="fas fa-chevron-left"></i></span>
-      <div class="images-controls-data">
-        {{ activeImage + 1 }} <em>{{ language === 'sl' ? 'od' : 'of' }}</em> {{ images.length }}
-      </div>
-      <span @click="toNextImage" id="next-image" :class="{disabled : activeImage === images.length - 1}"><i class="fas fa-chevron-right"></i></span>
-    </div>
-    <div class="destination-images-inner" :style="containerStyle">
-      <div 
-        v-for="(image, i) in images"
-        :key="image"
-        class="image-container"
-        :class="{active : i === activeImage}"
-        @click="changeImage(i)"
-      >
-        <img :src="`/images/destinations/${image}`" :alt="destination" />
-      </div>
-    </div>
-  </div>
+	<div v-if="images.length > 0" class="destination-images">
+		<div class="destination-images-controls" :class="{'align-left' : controlsAlign === 'left', 'align-right' : controlsAlign === 'right'}">
+			<span @click="toPrevImage" id="prev-image" :class="{disabled : activeImage === 0}"><i class="fas fa-chevron-left"></i></span>
+			<div class="images-controls-data">
+				{{ activeImage + 1 }} <em>{{ language === 'sl' ? 'od' : 'of' }}</em> {{ images.length }}
+			</div>
+			<span @click="toNextImage" id="next-image" :class="{disabled : activeImage === images.length - 1}"><i class="fas fa-chevron-right"></i></span>
+		</div>
+		<div class="destination-images-inner" :style="containerStyle">
+			<div 
+				v-for="(image, i) in images"
+				:key="image"
+				class="image-container"
+				:class="{active : i === activeImage}"
+				@click="changeImage(i)"
+			>
+				<img :src="`/images/destinations/${image}`" :alt="destination" />
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>

@@ -1,12 +1,12 @@
 <template>
-  <div v-show="showGDPRmodal" :class="{active : loaded}" id="gdpr">
-    <div class="image-container">
-      <img src="@/assets/cookie.svg" alt="Web Cookies" />
-    </div>
-    <p>Do you allow us to collect anonymised data on the viewing of our content? We will improve your user experience.</p>
-    <a @click.prevent="enableGDPR" href="#">i agree</a> 
-    <a class="disable-gdpr" @click.prevent="disableGDPR" href="#">I don't agree</a>
-  </div>
+	<div v-show="showGDPRmodal" :class="{active : true}" id="gdpr">
+		<div class="image-container">
+			<img src="@/assets/cookie.svg" alt="Web Cookies" />
+		</div>
+		<p>Do you allow us to collect anonymised data on the viewing of our content? We will improve your user experience.</p>
+		<a @click.prevent="enableGDPR" href="#">i agree</a> 
+		<a class="disable-gdpr" @click.prevent="disableGDPR" href="#">I don't agree</a>
+	</div>
 </template>
 
 <script>
@@ -80,7 +80,7 @@ export default {
     z-index: 999999999
     opacity: 0
     +easeTransition(500ms)
-    transition-delay: 1500ms
+    //transition-delay: 1500ms
     transform: translate3d(100%, 0, 0)
     display: flex
     justify-content: center

@@ -1,30 +1,30 @@
 <template>
-  <div id="menu" :class="{active : menuState, 'is-ie' : isOldExplorer}">
-    <div :class="{visible : menuState}" @click="closeMenu" id="menu-icon">
-      <span><i class="fas fa-times"></i></span>
-    </div>
-    <div :class="{visible: menuState}" id="social-links">
-      <social-links />
-    </div>
-    <div id="language-toggle" :class="{visible : menuState}">
-      <language-switcher :toggleMenu="true" />
-    </div>
-    <div id="main-menu__destinations" :class="{visible : menuState, 'ios-safari' : iosSafari, 'is-ie' : isOldExplorer}">
-      <a class="destinations-links" :class="{'is-ie' : isOldExplorer}" :style="{backgroundImage: `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('/images/destinations/${destination.id}.png')`}" @click.prevent="handleMenuClick(destination.id)" v-for="destination in destinations" :key="destination.id">
-        {{ destination.name[language] }}
-      </a>
-    </div>
-    <div v-show="menuState" class="mobile-bottom" :class="{'ios-safari' : iosSafari}">
-      <a @click.prevent="toggleInfluencersPopup" href="#" class="mobile-influencers">
-        <img src="@/assets/ikonaKamera.svg" alt="Influencers in Julian Alps">
-        For influencers
-      </a>
-      <a @click.prevent="scrollToTNP" class="mobile-tnp">
-        Triglav National Park
-        <img src="@/assets/ikonaGora.svg" alt="Triglav National Park">
-      </a>
-    </div>
-  </div>
+	<div id="menu" :class="{active : menuState, 'is-ie' : isOldExplorer}">
+		<div :class="{visible : menuState}" @click="closeMenu" id="menu-icon">
+			<span><i class="fas fa-times"></i></span>
+		</div>
+		<div :class="{visible: menuState}" id="social-links">
+			<social-links />
+		</div>
+		<div id="language-toggle" :class="{visible : menuState}">
+			<language-switcher :toggle-menu="true" />
+		</div>
+		<div id="main-menu__destinations" :class="{visible : menuState, 'ios-safari' : iosSafari, 'is-ie' : isOldExplorer}">
+			<a class="destinations-links" :class="{'is-ie' : isOldExplorer}" :style="{backgroundImage: `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('/images/destinations/${destination.id}.jpg')`}" @click.prevent="handleMenuClick(destination.id)" v-for="destination in destinations" :key="destination.id">
+				{{ destination.name[language] }}
+			</a>
+		</div>
+		<div v-show="menuState" class="mobile-bottom" :class="{'ios-safari' : iosSafari}">
+			<a @click.prevent="toggleInfluencersPopup" href="#" class="mobile-influencers">
+				<img src="@/assets/ikonaKamera.svg" alt="Influencers in Julian Alps">
+				For influencers
+			</a>
+			<a @click.prevent="scrollToTNP" class="mobile-tnp">
+				Triglav National Park
+				<img src="@/assets/ikonaGora.svg" alt="Triglav National Park">
+			</a>
+		</div>
+	</div>
 </template>
 
 <script>

@@ -1,15 +1,15 @@
 <template>
-  <div id="home">
-    <gdpr />
-    <main-menu />
-    <influencers-popup />
-    <hero />
-    <destination-map-container v-if="!microsoft.isMicrosoft" />
-    <destinations />
-    <triglav-national-park />
-    <video-section />
-    <site-footer />
-  </div>
+	<div id="home">
+		<gdpr />
+		<main-menu />
+		<influencers-popup />
+		<hero />
+		<destination-map-container v-if="!microsoft.isMicrosoft" />
+		<destinations />
+		<triglav-national-park />
+		<video-section />
+		<site-footer />
+	</div>
 </template>
 
 <script>

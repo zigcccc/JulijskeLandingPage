@@ -1,5 +1,5 @@
 <template>
-  <div id="loading-animation" class="lds-css ng-scope"><div style="width:100%;height:100%" class="lds-ellipsis"><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div></div>
+	<div id="loading-animation" class="lds-css ng-scope"><div style="width:100%;height:100%" class="lds-ellipsis"><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div></div>
 </template>
 <style lang="sass" scoped>
 @keyframes lds-ellipsis3

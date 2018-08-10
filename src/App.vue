@@ -1,14 +1,14 @@
 <template>
-  <div id="app" :class="{'popup-active' : influencersPopupActive}">
-    <div v-if="!microsoft.isMicrosoft" id="loader" :class="{done : allLoaded}">
-      <div class="loading-map-container">
-        <logo :class="{done : allLoaded}" mainColor="black" accentColor="green" />
-        <slovenija-line-map :percent="parseFloat(loadedPercent)" />
-      </div>
-    </div>
-    <Home v-if="!microsoft.isMicrosoft" v-images-loaded:on.progress="imageProgress" />
-    <Home v-else />
-  </div>
+	<div id="app" :class="{'popup-active' : influencersPopupActive}">
+		<div v-if="!microsoft.isMicrosoft" id="loader" :class="{done : allLoaded}">
+			<div class="loading-map-container">
+				<logo :class="{done : allLoaded}" main-color="black" accent-color="green" />
+				<slovenija-line-map :percent="parseFloat(loadedPercent)" />
+			</div>
+		</div>
+		<Home v-if="!microsoft.isMicrosoft" v-images-loaded:on.progress="imageProgress" />
+		<Home v-else />
+	</div>
 </template>
 
 <script>

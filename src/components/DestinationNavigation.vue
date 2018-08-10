@@ -1,19 +1,19 @@
 <template>
-  <div id="destination-nav" :class="{fixed : isPastHero, hidden : isPastDestinations}">
-    <div v-if="prevAndNext.next" @click="goToNext" id="next-dest">
-      <span><i class="fas fa-long-arrow-alt-left"></i></span>
-      {{ prevAndNext.next.name[language] }}
-    </div>
-    <div v-else class="spacer"></div>
-    <div id="destination-counter">
-      {{ $store.state.activeDestination.index + 1 }} / {{ destinations.length }}
-    </div>
-    <div v-if="prevAndNext.prev" @click="goToPrev" id="prev-dest">
-      {{ prevAndNext.prev.name[language] }}
-      <span><i class="fas fa-long-arrow-alt-right"></i></span>
-    </div>
-    <div v-else class="spacer"></div>
-  </div>
+	<div id="destination-nav" :class="{fixed : isPastHero, hidden : isPastDestinations}">
+		<div v-if="prevAndNext.next" @click="goToNext" id="next-dest">
+			<span><i class="fas fa-long-arrow-alt-left"></i></span>
+			{{ prevAndNext.next.name[language] }}
+		</div>
+		<div v-else class="spacer"></div>
+		<div id="destination-counter">
+			{{ $store.state.activeDestination.index + 1 }} / {{ destinations.length }}
+		</div>
+		<div v-if="prevAndNext.prev" @click="goToPrev" id="prev-dest">
+			{{ prevAndNext.prev.name[language] }}
+			<span><i class="fas fa-long-arrow-alt-right"></i></span>
+		</div>
+		<div v-else class="spacer"></div>
+	</div>
 </template>
 
 <script>

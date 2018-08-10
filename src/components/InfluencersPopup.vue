@@ -1,47 +1,47 @@
 <template>
-  <div id="influencers-popup" :class="{active : influencersPopupActive}">
-    <div @click="closePopup" id="popup-close-btn">
-      <i class="fas fa-times"></i>
-    </div>
-    <div :class="{'has-errors' : formErrors.hasErrors}" class="errors">
-      <p v-if="language === 'en'">Ooops, something went wrong... Please try again.<small>Error: {{formErrors.errorMsg}}</small></p>
-      <a v-if="language === 'en'" @click.prevent="clearErrors">Dismiss</a>
-      <p v-if="language === 'sl'">Opa, nekaj se je zalomilo, prosimo poskusite ponovno.<small>Napaka: {{formErrors.errorMsg}}</small></p>
-      <a v-if="language === 'sl'" @click.prevent="clearErrors">Opusti</a>
-    </div>
-    <div :class="{'is-loading' : formLoading}" class="loading">
-      <loading-animation />
-    </div>
-    <div class="columns">
-      <div class="column is-two-fifths left"></div>
-      <div class="column right">
-        <div v-show="!formSubmitted" :class="{active : !formSubmitted}" class="form-not-submitted">
-          <div class="form-intro">
-            <h3>{{ language === 'sl' ? 'Bi radi postali ustvarjalec medijskih vsebin za destinacijo?' : 'Interested in becoming media content creator for this destination?' }}</h3>
-            <p>Tell us more about yourself. Fill the from and show us your content on at least one social media channel.</p>
-          </div>
-          <influencers-form />
-        </div>
-        <div v-show="formSubmitted" :class="{active : formSubmitted}" class="form-submitted">
-          <img src="@/assets/like.svg" alt="Julian Alps form submitted successfully">
-          <div v-if="language === 'en'">
-            <h4>Hooray! You submitted form successfully.</h4>
-            <p>Our team will contact you as soon as possible. For now, you can keep exploring everything this gorgeous destination has to offer.</p>
-            <div class="cta-container">
-              <a @click.prevent="closePopup">Close form</a>
-            </div>
-          </div>
-          <div v-if="language === 'sl'">
-            <h4>Juhuu! Obrazec je uspešno izpolnjen.</h4>
-            <p>Naša ekipa vas bo kontaktirala v najkrajšem možnem času. Za zdaj pa lahko še dodatno raziščete kaj vse ponuja ta prekrasna destinacija.</p>
-            <div class="cta-container">
-              <a @click.prevent="closePopup">Zapri obrazec</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div id="influencers-popup" :class="{active : influencersPopupActive}">
+		<div @click="closePopup" id="popup-close-btn">
+			<i class="fas fa-times"></i>
+		</div>
+		<div :class="{'has-errors' : formErrors.hasErrors}" class="errors">
+			<p v-if="language === 'en'">Ooops, something went wrong... Please try again.<small>Error: {{formErrors.errorMsg}}</small></p>
+			<a v-if="language === 'en'" @click.prevent="clearErrors">Dismiss</a>
+			<p v-if="language === 'sl'">Opa, nekaj se je zalomilo, prosimo poskusite ponovno.<small>Napaka: {{formErrors.errorMsg}}</small></p>
+			<a v-if="language === 'sl'" @click.prevent="clearErrors">Opusti</a>
+		</div>
+		<div :class="{'is-loading' : formLoading}" class="loading">
+			<loading-animation />
+		</div>
+		<div class="columns">
+			<div class="column is-two-fifths left"></div>
+			<div class="column right">
+				<div v-show="!formSubmitted" :class="{active : !formSubmitted}" class="form-not-submitted">
+					<div class="form-intro">
+						<h3>{{ language === 'sl' ? 'Bi radi postali ustvarjalec medijskih vsebin za destinacijo?' : 'Interested in becoming media content creator for this destination?' }}</h3>
+						<p>Tell us more about yourself. Fill the from and show us your content on at least one social media channel.</p>
+					</div>
+					<influencers-form />
+				</div>
+				<div v-show="formSubmitted" :class="{active : formSubmitted}" class="form-submitted">
+					<img src="@/assets/like.svg" alt="Julian Alps form submitted successfully">
+					<div v-if="language === 'en'">
+						<h4>Hooray! You submitted form successfully.</h4>
+						<p>Our team will contact you as soon as possible. For now, you can keep exploring everything this gorgeous destination has to offer.</p>
+						<div class="cta-container">
+							<a @click.prevent="closePopup">Close form</a>
+						</div>
+					</div>
+					<div v-if="language === 'sl'">
+						<h4>Juhuu! Obrazec je uspešno izpolnjen.</h4>
+						<p>Naša ekipa vas bo kontaktirala v najkrajšem možnem času. Za zdaj pa lahko še dodatno raziščete kaj vse ponuja ta prekrasna destinacija.</p>
+						<div class="cta-container">
+							<a @click.prevent="closePopup">Zapri obrazec</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>

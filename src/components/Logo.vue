@@ -1,5 +1,5 @@
 <template>
-  <h3 class="logo" :class="[`main__${mainColor}`, `accent__${accentColor}`]">JulianAlps<span>.</span></h3>
+	<h3 class="logo" :class="[`main__${mainColor}`, `accent__${accentColor}`]">JulianAlps<span>.</span></h3>
 </template>
 
 <script>

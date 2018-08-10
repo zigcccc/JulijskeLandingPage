@@ -1,47 +1,47 @@
 <template>
-  <footer v-show="visible || isOldExplorer" :class="{'is-ie' : isOldExplorer}">
-    <div class="container is-fluid">
-      <div class="footer-header">
-        <div @click="scrollToTop" class="left">
-          <Logo accentColor="green" />
-        </div>
-        <div class="right">
-          <language-switcher :toggleMenu="false" location="footer" />
-          <social-links />
-        </div>
-      </div><!-- END footer-header -->
-      <div class="footer-content">
-        <div class="destination-details" :class="{'is-ie' : isOldExplorer}">
-          <div v-for="destination in destinationsContactInfo" :key="destination.name[language]">
-            <h5>{{ destination.name[language] }}</h5>
-            <a :href="destination.web" target="_blank">www{{ destination.web.split('www')[1] }}</a><br>
-            <a :href="`tel:${destination.phone.full}`">{{ destination.phone.display }}</a><br>
-            <a :href="`mailto:${destination.email}`">{{ destination.email }}</a><br>
-          </div>
-          <div class="logos-container">
-            <a href="https://www.slovenia.info/en" target="_blank" id="feel-slovenia-footer">
-              <feel-slovenia />
-            </a>
-            <a href="https://www.lonelyplanet.com/slovenia/the-julian-alps" target="_blank" id="lonely-planet">
-              <img src="@/assets/lonelyPlanet.png" alt="Lonely Planet Julian Alps Slovenia" />
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-legal-info">
-        &copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span><div id="site-authors">{{ language === 'sl' ? 'Izdelava spletne strani' : 'Website production' }}: <a href="https://forward.si" target="_blank">Forward - agencija za digitalni marketing</a></div>
-      </div>
-    </div>
-    <a @click.prevent="scrollToTop" href="#" id="go-to-top">
-      <span><i class="fas fa-angle-up"></i></span>
-    </a>
-    <div id="mountain1" class="footer-mountain">
-      <img src="@/assets/footerMountain.svg" alt="Ikona Triglav">
-    </div>
-    <div id="mountain2" class="footer-mountain">
-      <img src="@/assets/footerMountain.svg" alt="Ikona Triglav">
-    </div>
-  </footer>
+	<footer v-show="visible || isOldExplorer" :class="{'is-ie' : isOldExplorer}">
+		<div class="container is-fluid">
+			<div class="footer-header">
+				<div @click="scrollToTop" class="left">
+					<Logo accent-color="green" />
+				</div>
+				<div class="right">
+					<language-switcher :toggle-menu="false" location="footer" />
+					<social-links />
+				</div>
+			</div><!-- END footer-header -->
+			<div class="footer-content">
+				<div class="destination-details" :class="{'is-ie' : isOldExplorer}">
+					<div v-for="destination in destinationsContactInfo" :key="destination.name[language]">
+						<h5>{{ destination.name[language] }}</h5>
+						<a :href="destination.web" target="_blank">www{{ destination.web.split('www')[1] }}</a><br>
+						<a :href="`tel:${destination.phone.full}`">{{ destination.phone.display }}</a><br>
+						<a :href="`mailto:${destination.email}`">{{ destination.email }}</a><br>
+					</div>
+					<div class="logos-container">
+						<a href="https://www.slovenia.info/en" target="_blank" id="feel-slovenia-footer">
+							<feel-slovenia />
+						</a>
+						<a href="https://www.lonelyplanet.com/slovenia/the-julian-alps" target="_blank" id="lonely-planet">
+							<img src="@/assets/lonelyPlanet.png" alt="Lonely Planet Julian Alps Slovenia" />
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="footer-legal-info">
+				&copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span><div id="site-authors">{{ language === 'sl' ? 'Izdelava spletne strani' : 'Website production' }}: <a href="https://forward.si" target="_blank">Forward - agencija za digitalni marketing</a></div>
+			</div>
+		</div>
+		<a @click.prevent="scrollToTop" href="#" id="go-to-top">
+			<span><i class="fas fa-angle-up"></i></span>
+		</a>
+		<div id="mountain1" class="footer-mountain">
+			<img src="@/assets/footerMountain.svg" alt="Ikona Triglav">
+		</div>
+		<div id="mountain2" class="footer-mountain">
+			<img src="@/assets/footerMountain.svg" alt="Ikona Triglav">
+		</div>
+	</footer>
 </template>
 
 <script>

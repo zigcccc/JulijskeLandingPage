@@ -1,23 +1,23 @@
 <template>
-  <section id="hero" :style="{backgroundImage: `url(${bgimage})`}">
-    <navbar :heroHeight="heroHeight" />
-    <hero-background :heroHeight="heroHeight" :siteLoaded="loaded" />
-    <div class="container">
-      <div class="hero-columns">
-        <div class="hero-title" :class="{'is-ie' : isOldMicrosoft}">
-          <h1 v-if="language === 'sl'" :style="titleStyle">Julijske<span>Alpe</span></h1>
-          <h1 v-else :style="titleStyle">Julian<span>Alps</span></h1>
-        </div>
-        <div class="hero-intro" :class="{'is-ie' : isOldMicrosoft}">
-          <p v-if="language === 'sl'" :style="titleStyle" class="intro-paragraph">Raziščite lepote neokrnjene narave, ki obdaja to čudovito in slikovito pokrajino.</p>
-          <p v-else :style="titleStyle" class="intro-paragraph">Explore the beauty of the pure and intact nature, surrounding this gorgeous destination.</p>
-        </div>
-      </div>
-    </div><!-- END .container -->
-    <div class="hero-cta-container">
-      <a @click="scrollPastHero">{{ language === 'sl' ? 'razišči' : 'explore' }} <span><i class="fas fa-chevron-down"></i></span></a>
-    </div>
-  </section>
+	<section id="hero" :style="{backgroundImage: `url(${bgimage})`}">
+		<navbar :hero-height="heroHeight" />
+		<hero-background :hero-height="heroHeight" :site-loaded="loaded" />
+		<div class="container">
+			<div class="hero-columns">
+				<div class="hero-title" :class="{'is-ie' : isOldMicrosoft}">
+					<h1 v-if="language === 'sl'" :style="titleStyle">Julijske<span>Alpe</span></h1>
+					<h1 v-else :style="titleStyle">Julian<span>Alps</span></h1>
+				</div>
+				<div class="hero-intro" :class="{'is-ie' : isOldMicrosoft}">
+					<p v-if="language === 'sl'" :style="titleStyle" class="intro-paragraph">Raziščite lepote neokrnjene narave, ki obdaja to čudovito in slikovito pokrajino.</p>
+					<p v-else :style="titleStyle" class="intro-paragraph">Explore the beauty of the pure and intact nature, surrounding this gorgeous destination.</p>
+				</div>
+			</div>
+		</div><!-- END .container -->
+		<div class="hero-cta-container">
+			<a @click="scrollPastHero">{{ language === 'sl' ? 'razišči' : 'explore' }} <span><i class="fas fa-chevron-down"></i></span></a>
+		</div>
+	</section>
 </template>
 
 <script>

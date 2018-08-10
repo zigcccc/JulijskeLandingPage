@@ -1,26 +1,26 @@
 <template>
-  <div id="hero-background">
-    <img :class="{loaded : siteLoaded, 'is-ie' : isOldMicrosoft}" :style="middleGroundStyle" id="middle-ground" class="hero-mountain" src="@/assets/cutted_background/middleGround.png" alt="Julian Alps">
-    <img :class="{loaded : siteLoaded, 'is-ie' : isOldMicrosoft}" :style="frontGroundStyle" id="front-ground" class="hero-mountain" src="@/assets/cutted_background/frontGround.png" alt="Julian Alps">
-    <img :class="{loaded : siteLoaded, 'is-ie' : isOldMicrosoft}" :style="frontHikerStyle" id="front-hiker" class="hero-mountain" src="@/assets/cutted_background/frontHiker.png" alt="Julian Alps">
-    <div id="clouds">
-      <div class="hero-clouds" id="cloud1">
-        <img :style="cloudsStyle1" src="/images/Clouds_01.png" alt="Clouds in Julian Alps">
-      </div>
-      <div class="hero-clouds" id="cloud2">
-        <img :style="cloudsStyle2" src="/images/Clouds_02.png" alt="Clouds in Julian Alps">
-      </div>
-      <div class="hero-clouds" id="cloud3">
-        <img :style="cloudsStyle3" src="/images/Clouds_03.png" alt="Clouds in Julian Alps">
-      </div>
-      <div class="hero-clouds" id="cloud4">
-        <img :style="cloudsStyle4" src="/images/Clouds_03.png" alt="Clouds in Julian Alps">
-      </div>
-      <div class="hero-clouds" id="cloud5">
-        <img :style="cloudsStyle5" src="/images/Clouds_02.png" alt="Clouds in Julian Alps">
-      </div>
-    </div>
-  </div>
+	<div id="hero-background">
+		<img :class="{loaded : siteLoaded, 'is-ie' : isOldMicrosoft}" :style="middleGroundStyle" id="middle-ground" class="hero-mountain" src="@/assets/cutted_background/middleGround.png" alt="Julian Alps">
+		<img :class="{loaded : siteLoaded, 'is-ie' : isOldMicrosoft}" :style="frontGroundStyle" id="front-ground" class="hero-mountain" src="@/assets/cutted_background/frontGround.png" alt="Julian Alps">
+		<img :class="{loaded : siteLoaded, 'is-ie' : isOldMicrosoft}" :style="frontHikerStyle" id="front-hiker" class="hero-mountain" src="@/assets/cutted_background/frontHiker.png" alt="Julian Alps">
+		<div id="clouds">
+			<div class="hero-clouds" id="cloud1">
+				<img :style="cloudsStyle1" src="/images/Clouds_01.png" alt="Clouds in Julian Alps">
+			</div>
+			<div class="hero-clouds" id="cloud2">
+				<img :style="cloudsStyle2" src="/images/Clouds_02.png" alt="Clouds in Julian Alps">
+			</div>
+			<div class="hero-clouds" id="cloud3">
+				<img :style="cloudsStyle3" src="/images/Clouds_03.png" alt="Clouds in Julian Alps">
+			</div>
+			<div class="hero-clouds" id="cloud4">
+				<img :style="cloudsStyle4" src="/images/Clouds_03.png" alt="Clouds in Julian Alps">
+			</div>
+			<div class="hero-clouds" id="cloud5">
+				<img :style="cloudsStyle5" src="/images/Clouds_02.png" alt="Clouds in Julian Alps">
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>

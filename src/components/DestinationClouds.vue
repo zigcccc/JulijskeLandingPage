@@ -1,12 +1,12 @@
 <template>
-  <div class="destination-clouds">
-    <div class="image-cloud" id="cloud1" :style="cloudStyle1" :class="{animated : animation, tnp : destination === 'tnp', video : destination === 'video'}">
-      <img src="/images/Clouds_02.png" alt="Clouds in Julian Alps">
-    </div>
-    <div class="image-cloud" id="cloud2" :style="cloudStyle2" :class="{animated : animation, tnp : destination === 'tnp', video : destination === 'video'}">
-      <img src="/images/Clouds_03.png" alt="Clouds in Julian Alps">
-    </div>
-  </div>
+	<div class="destination-clouds">
+		<div class="image-cloud" id="cloud1" :style="cloudStyle1" :class="{animated : animation, tnp : destination === 'tnp', video : destination === 'video'}">
+			<img src="/images/Clouds_02.png" alt="Clouds in Julian Alps">
+		</div>
+		<div class="image-cloud" id="cloud2" :style="cloudStyle2" :class="{animated : animation, tnp : destination === 'tnp', video : destination === 'video'}">
+			<img src="/images/Clouds_03.png" alt="Clouds in Julian Alps">
+		</div>
+	</div>
 </template>
 
 <script>

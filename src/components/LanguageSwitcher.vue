@@ -1,7 +1,7 @@
 <template>
-  <div class="language-switcher">
-    <span :class="{active : language === 'en'}" @click="changeLanguage('en')">en</span> / <span :class="{active : language === 'sl'}" @click="changeLanguage('sl')">sl</span>
-  </div>
+	<div class="language-switcher">
+		<span :class="{active : language === 'en'}" @click="changeLanguage('en')">en</span> / <span :class="{active : language === 'sl'}" @click="changeLanguage('sl')">sl</span>
+	</div>
 </template>
 
 <script>

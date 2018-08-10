@@ -1,42 +1,42 @@
 <template>
-  <div id="triglav-national-park">
-    <div class="container is-fluid">
-      <div class="columns">
-        <div class="column is-three-fifths">
-          <h2 :class="{active : isVisible || isOldExplorer}">{{ language === 'sl' ? 'Triglavski Narodni Park' : 'Triglav National Park' }}</h2>
-          <p :class="{active : isVisible || isOldExplorer}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-          <div class="tnp-cta-container" :class="{active : isVisible || isOldExplorer}">
-            <a v-if="language === 'en'" href="https://www.tnp.si/en/learn/" target="_blank">discover triglav national park</a>
-            <a v-if="language === 'sl'" href="https://www.tnp.si/sl/spoznajte/" target="_blank">odkrijte triglavski narodni park</a>
-          </div>
-        </div>
-        <div class="column is-special">
-          <span :class="{active : isVisible || isOldExplorer}" id="nadmorska-visina" v-if="isVisible">
-            <small v-if="language === 'en'"><span><i class="fas fa-map-pin"></i></span>highest point in Slovenia - <strong>Mt. Triglav</strong></small>
-            <small v-if="language === 'sl'"><span><i class="fas fa-map-pin"></i></span>najvišja točka v Sloveniji - <strong>Triglav</strong></small>
-            <i-count-up 
-              :startVal="startVal"
-              :endVal="endVal"
-              :decimals="decimals"
-              :duration="duration"
-              :options="options"
-            />m
-          </span>
-        </div>
-      </div>
-      <div class="images-container" :class="{active : mountainsVisible || isOldExplorer}">
-        <destination-images :images="images" destination="Triglav National Park" controlsAlign="left"  />
-        <destination-clouds destination="tnp" :animation="true" :parallax="false" class="tnp-images-clouds" />
-      </div>
-    </div>
-    <!-- Bottom mountains -->
-    <div :class="{visible : mountainsVisible || isOldExplorer}" id="mountain1" class="tnp-mountain">
-      <img src="@/assets/tnp_cutted_bg_01.png" alt="Triglav national park sightseeing">
-    </div>
-    <div :class="{visible : mountainsVisible || isOldExplorer}" id="mountain2" class="tnp-mountain">
-      <img src="@/assets/aljazev_stolp.png" alt="Aljaz Tower on the top of Triglav mountain">
-    </div>
-  </div>
+	<div id="triglav-national-park">
+		<div class="container is-fluid">
+			<div class="columns">
+				<div class="column is-three-fifths">
+					<h2 :class="{active : isVisible || isOldExplorer}">{{ language === 'sl' ? 'Triglavski Narodni Park' : 'Triglav National Park' }}</h2>
+					<p :class="{active : isVisible || isOldExplorer}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+					<div class="tnp-cta-container" :class="{active : isVisible || isOldExplorer}">
+						<a v-if="language === 'en'" href="https://www.tnp.si/en/learn/" target="_blank">discover triglav national park</a>
+						<a v-if="language === 'sl'" href="https://www.tnp.si/sl/spoznajte/" target="_blank">odkrijte triglavski narodni park</a>
+					</div>
+				</div>
+				<div class="column is-special">
+					<span :class="{active : isVisible || isOldExplorer}" id="nadmorska-visina" v-if="isVisible">
+						<small v-if="language === 'en'"><span><i class="fas fa-map-pin"></i></span>highest point in Slovenia - <strong>Mt. Triglav</strong></small>
+						<small v-if="language === 'sl'"><span><i class="fas fa-map-pin"></i></span>najvišja točka v Sloveniji - <strong>Triglav</strong></small>
+						<i-count-up 
+							:start-val="startVal"
+							:end-val="endVal"
+							:decimals="decimals"
+							:duration="duration"
+							:options="options"
+						/>m
+					</span>
+				</div>
+			</div>
+			<div class="images-container" :class="{active : mountainsVisible || isOldExplorer}">
+				<destination-images :images="images" destination="Triglav National Park" controls-align="left"  />
+				<destination-clouds destination="tnp" :animation="true" :parallax="false" class="tnp-images-clouds" />
+			</div>
+		</div>
+		<!-- Bottom mountains -->
+		<div :class="{visible : mountainsVisible || isOldExplorer}" id="mountain1" class="tnp-mountain">
+			<img src="@/assets/tnp_cutted_bg_01.png" alt="Triglav national park sightseeing">
+		</div>
+		<div :class="{visible : mountainsVisible || isOldExplorer}" id="mountain2" class="tnp-mountain">
+			<img src="@/assets/aljazev_stolp.png" alt="Aljaz Tower on the top of Triglav mountain">
+		</div>
+	</div>
 </template>
 
 <script>

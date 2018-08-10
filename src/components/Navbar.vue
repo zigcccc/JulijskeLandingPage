@@ -1,33 +1,33 @@
 <template>
-  <nav :class="{'is-hidden' : isPastHero}">
-      <div class="left-side">
-        <social-links :style="{marginRight: '2em'}" location="navbar" />
-        <a @click.prevent="toggleInfluencersPopup" href="#" class="influencers">
-          <img src="@/assets/ikonaKameraInverted.svg" alt="Influencers in Julian Alps">
-          {{ language === 'en' ? 'For influencers' : 'Za "influencerje"' }}
-        </a>
-      </div>
-      <div class="logo-container">
-        <Logo mainColor="black" accentColor="black" />
-      </div>
-      <div class="right-side">
-        <a id="feel-slovenia" :class="{'is-ie' : isIE}" href="https://www.slovenia.info/en" target="_blank">
-          <feel-slovenia :primary="true" />
-        </a>
-        <a @click.prevent="toggleInfluencersPopup" href="#" class="influencers tablet">
-          <img src="@/assets/ikonaKameraInverted.svg" alt="Influencers in Julian Alps">
-          {{ language === 'en' ? 'For influencers' : 'Za "influencerje"' }}
-        </a>
-        <a @click.prevent="scrollToTNP" class="tnp">
-          {{ language === 'en' ? 'Triglav National Park' : 'Triglavski narodni park' }}
-          <img src="@/assets/ikonaGoraInverted.svg" alt="Triglav National Park">
-        </a>
-        <div @click="toggleMenu" class="menu-icon">
-          {{ menuText }}
-          <img src="@/assets/MenuInverted.svg" alt="Meni">
-        </div>
-      </div>
-  </nav>
+	<nav :class="{'is-hidden' : isPastHero}">
+		<div class="left-side">
+			<social-links :style="{marginRight: '2em'}" location="navbar" />
+			<a @click.prevent="toggleInfluencersPopup" href="#" class="influencers">
+				<img src="@/assets/ikonaKameraInverted.svg" alt="Influencers in Julian Alps">
+				{{ language === 'en' ? 'For influencers' : 'Za "influencerje"' }}
+			</a>
+		</div>
+		<div class="logo-container">
+			<Logo main-color="black" accent-color="black" />
+		</div>
+		<div class="right-side">
+			<a id="feel-slovenia" :class="{'is-ie' : isIE}" href="https://www.slovenia.info/en" target="_blank">
+				<feel-slovenia :primary="true" />
+			</a>
+			<a @click.prevent="toggleInfluencersPopup" href="#" class="influencers tablet">
+				<img src="@/assets/ikonaKameraInverted.svg" alt="Influencers in Julian Alps">
+				{{ language === 'en' ? 'For influencers' : 'Za "influencerje"' }}
+			</a>
+			<a @click.prevent="scrollToTNP" class="tnp">
+				{{ language === 'en' ? 'Triglav National Park' : 'Triglavski narodni park' }}
+				<img src="@/assets/ikonaGoraInverted.svg" alt="Triglav National Park">
+			</a>
+			<div @click="toggleMenu" class="menu-icon">
+				{{ menuText }}
+				<img src="@/assets/MenuInverted.svg" alt="Meni">
+			</div>
+		</div>
+	</nav>
 </template>
 
 <script>

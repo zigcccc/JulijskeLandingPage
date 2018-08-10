@@ -1,5 +1,5 @@
 module.exports = {
-	configureWebpack: {
+    configureWebpack: {
 		entry: ['babel-polyfill', './src/main.js'],
 		module: {
 			rules: [
@@ -19,5 +19,7 @@ module.exports = {
 				}
 			]
 		}
-	}
+	},
+
+    lintOnSave: undefined
 };

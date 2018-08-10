@@ -11,7 +11,11 @@
     'http://julian-alps.com/',
     'http://julian-alps.com',
     'http://www.julian-alps.com/',
-    'http://www.julian-alps.com'
+    'http://www.julian-alps.com',
+    'https://www.julian-alps.com/',
+    'https://www.julian-alps.com',
+    'https://julian-alps.com/',
+    'https://julian-alps.com'
   );
 
   // Handle origin authentication

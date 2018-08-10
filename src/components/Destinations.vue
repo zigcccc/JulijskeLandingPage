@@ -1,12 +1,12 @@
 <template>
-  <main id="destinations" :class="{'full-width' : microsoft}">
-    <destination-navigation />
-    <single-destination
-      v-for="destination in destinations"
-      :key="destination.id"
-      :destination="destination"
-    />
-  </main>
+	<main id="destinations" :class="{'full-width' : microsoft}">
+		<destination-navigation />
+		<single-destination
+			v-for="destination in destinations"
+			:key="destination.id"
+			:destination="destination"
+		/>
+	</main>
 </template>
 
 <script>

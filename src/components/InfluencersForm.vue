@@ -1,294 +1,294 @@
 <template>
-  <div id="influencers-form-container">
-    <form id="influencers-form" class="form" :style="formStyle">
+	<div id="influencers-form-container">
+		<form id="influencers-form" class="form" :style="formStyle">
 
-      <!-- Step 1 -->
-      <div :class="{active : activeStep === 1}" class="step step-1">
-        <div class="field">
-          <label class="label">{{ language === 'sl' ? 'Ime in priimek' : 'Name' }}</label>
-          <div class="control has-icons-right has-icons-left">
-            <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
-            </span>
-            <span v-if="validFullName" class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-            <span v-if="invalidFullName" class="icon is-small is-right">
-              <i class="fas fa-times"></i>
-            </span>
-            <input
-              v-if="language === 'en'"
-              :class="{'is-success' : validFullName, 'is-danger' : invalidFullName}"
-              v-validate="{required: true, alpha_spaces: true}"
-              v-model="full_name"
-              name="full_name"
-              autocomplete="name"
-              class="input"
-              type="text"
-              placeholder="Enter your full name"
-            />
-            <input
-              v-if="language === 'sl'"
-              :class="{'is-success' : validFullName, 'is-danger' : invalidFullName}"
-              v-validate="{required: true, alpha_spaces: true}"
-              v-model="full_name"
-              name="full_name"
-              autocomplete="name"
-              class="input"
-              type="text"
-              placeholder="Vnesite ime in priimek"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">{{ language === 'sl' ? 'E-pošta' : 'Email' }}</label>
-          <div class="control has-icons-right has-icons-left">
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span v-if="validEmail" class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-            <span v-if="invalidEmail" class="icon is-small is-right">
-              <i class="fas fa-times"></i>
-            </span>
-            <input
-              v-if="language === 'en'"
-              :class="{'is-success' : validEmail, 'is-danger' : invalidEmail}"
-              v-validate="{required: true, email: true}"
-              v-model.trim="email"
-              name="email"
-              autocomplete="email"
-              @keypress="handleEmailInput"
-              @change="handleEmailAutofill"
-              @focus="handleEmailAutofill"
-              class="input"
-              type="text"
-              placeholder="Enter your email address"
-            />
-            <input
-              v-if="language === 'sl'"
-              :class="{'is-success' : validEmail, 'is-danger' : invalidEmail}"
-              v-validate="{required: true, email: true}"
-              v-model.trim="email"
-              name="email"
-              autocomplete="email"
-              @keypress="handleEmailInput"
-              @change="handleEmailAutofill"
-              @focus="handleEmailAutofill"
-              class="input"
-              type="text"
-              placeholder="Vnesite svoj e-poštni naslov"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">{{ language === 'sl' ? 'Telefonska številka' : 'Phone number' }}</label>
-          <div class="control has-icons-right has-icons-left">
-            <span class="icon is-small is-left">
-              <i class="fas fa-phone"></i>
-            </span>
-            <span v-if="validPhoneNum" class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-            <span v-if="invalidPhoneNum" class="icon is-small is-right">
-              <i class="fas fa-times"></i>
-            </span>
-            <input
-              v-if="language === 'en'"
-              :class="{'is-success' : validPhoneNum, 'is-danger' : invalidPhoneNum}"
-              v-validate="{required: true}"
-              v-model="phone_num"
-              name="phone_num"
-              autocomplete="tel"
-              class="input"
-              type="text"
-              placeholder="Enter your phone number"
-            />
-            <input
-              v-if="language === 'sl'"
-              :class="{'is-success' : validPhoneNum, 'is-danger' : invalidPhoneNum}"
-              v-validate="{required: true}"
-              v-model="phone_num"
-              name="phone_num"
-              autocomplete="tel"
-              class="input"
-              type="text"
-              placeholder="Vnesite svojo telefonsko številko"
-            />
-          </div>
-        </div>
-      </div>
+			<!-- Step 1 -->
+			<div :class="{active : activeStep === 1}" class="step step-1">
+				<div class="field">
+					<label class="label">{{ language === 'sl' ? 'Ime in priimek' : 'Name' }}</label>
+					<div class="control has-icons-right has-icons-left">
+						<span class="icon is-small is-left">
+							<i class="fas fa-user"></i>
+						</span>
+						<span v-if="validFullName" class="icon is-small is-right">
+							<i class="fas fa-check"></i>
+						</span>
+						<span v-if="invalidFullName" class="icon is-small is-right">
+							<i class="fas fa-times"></i>
+						</span>
+						<input
+							v-if="language === 'en'"
+							:class="{'is-success' : validFullName, 'is-danger' : invalidFullName}"
+							v-validate="{required: true, alpha_spaces: true}"
+							v-model="full_name"
+							name="full_name"
+							autocomplete="name"
+							class="input"
+							type="text"
+							placeholder="Enter your full name"
+						/>
+						<input
+							v-if="language === 'sl'"
+							:class="{'is-success' : validFullName, 'is-danger' : invalidFullName}"
+							v-validate="{required: true, alpha_spaces: true}"
+							v-model="full_name"
+							name="full_name"
+							autocomplete="name"
+							class="input"
+							type="text"
+							placeholder="Vnesite ime in priimek"
+						/>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">{{ language === 'sl' ? 'E-pošta' : 'Email' }}</label>
+					<div class="control has-icons-right has-icons-left">
+						<span class="icon is-small is-left">
+							<i class="fas fa-envelope"></i>
+						</span>
+						<span v-if="validEmail" class="icon is-small is-right">
+							<i class="fas fa-check"></i>
+						</span>
+						<span v-if="invalidEmail" class="icon is-small is-right">
+							<i class="fas fa-times"></i>
+						</span>
+						<input
+							v-if="language === 'en'"
+							:class="{'is-success' : validEmail, 'is-danger' : invalidEmail}"
+							v-validate="{required: true, email: true}"
+							v-model.trim="email"
+							name="email"
+							autocomplete="email"
+							@keypress="handleEmailInput"
+							@change="handleEmailAutofill"
+							@focus="handleEmailAutofill"
+							class="input"
+							type="text"
+							placeholder="Enter your email address"
+						/>
+						<input
+							v-if="language === 'sl'"
+							:class="{'is-success' : validEmail, 'is-danger' : invalidEmail}"
+							v-validate="{required: true, email: true}"
+							v-model.trim="email"
+							name="email"
+							autocomplete="email"
+							@keypress="handleEmailInput"
+							@change="handleEmailAutofill"
+							@focus="handleEmailAutofill"
+							class="input"
+							type="text"
+							placeholder="Vnesite svoj e-poštni naslov"
+						/>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">{{ language === 'sl' ? 'Telefonska številka' : 'Phone number' }}</label>
+					<div class="control has-icons-right has-icons-left">
+						<span class="icon is-small is-left">
+							<i class="fas fa-phone"></i>
+						</span>
+						<span v-if="validPhoneNum" class="icon is-small is-right">
+							<i class="fas fa-check"></i>
+						</span>
+						<span v-if="invalidPhoneNum" class="icon is-small is-right">
+							<i class="fas fa-times"></i>
+						</span>
+						<input
+							v-if="language === 'en'"
+							:class="{'is-success' : validPhoneNum, 'is-danger' : invalidPhoneNum}"
+							v-validate="{required: true}"
+							v-model="phone_num"
+							name="phone_num"
+							autocomplete="tel"
+							class="input"
+							type="text"
+							placeholder="Enter your phone number"
+						/>
+						<input
+							v-if="language === 'sl'"
+							:class="{'is-success' : validPhoneNum, 'is-danger' : invalidPhoneNum}"
+							v-validate="{required: true}"
+							v-model="phone_num"
+							name="phone_num"
+							autocomplete="tel"
+							class="input"
+							type="text"
+							placeholder="Vnesite svojo telefonsko številko"
+						/>
+					</div>
+				</div>
+			</div>
 
-      <!-- Step 2 -->
-      <div :class="{active : activeStep === 2}" class="step step-2">
-        <div class="field">
-          <label class="label">Facebook</label>
-          <div class="control has-icons-right has-icons-left">
-            <span class="icon is-small is-left">
-              <i class="fab fa-facebook-f"></i>
-            </span>
-            <span v-if="validFacebook" class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-            <span v-if="invalidFacebook" class="icon is-small is-right">
-              <i class="fas fa-times"></i>
-            </span>
-            <input
-              v-if="language === 'en'"
-              :class="{'is-success' : validFacebook, 'is-danger' : invalidFacebook}"
-              v-validate="{required: false, url: true}"
-              v-model="facebook"
-              name="facebook"
-              class="input"
-              type="url"
-              placeholder="Link to your facebook profile"
-            />
-            <input
-              v-if="language === 'sl'"
-              :class="{'is-success' : validFacebook, 'is-danger' : invalidFacebook}"
-              v-validate="{required: false, url: true}"
-              v-model="facebook"
-              name="facebook"
-              class="input"
-              type="url"
-              placeholder="Povezava do vašega facebook profila"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Instagram</label>
-          <div class="control has-icons-right has-icons-left">
-            <span class="icon is-small is-left">
-              <i class="fab fa-instagram"></i>
-            </span>
-            <span v-if="validInstagram" class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-            <span v-if="invalidInstagram" class="icon is-small is-right">
-              <i class="fas fa-times"></i>
-            </span>
-            <input
-              v-if="language === 'en'"
-              :class="{'is-success' : validInstagram, 'is-danger' : invalidInstagram}"
-              v-validate="{required: false, url: true}"
-              v-model="instagram"
-              name="instagram"
-              class="input"
-              type="url"
-              placeholder="Link to your instagram profile"
-            />
-            <input
-              v-if="language === 'sl'"
-              :class="{'is-success' : validInstagram, 'is-danger' : invalidInstagram}"
-              v-validate="{required: false, url: true}"
-              v-model="instagram"
-              name="instagram"
-              class="input"
-              type="url"
-              placeholder="Povezava do vašega instagram profila"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Youtube</label>
-          <div class="control has-icons-right has-icons-left">
-            <span class="icon is-small is-left">
-              <i class="fab fa-youtube"></i>
-            </span>
-            <span v-if="validYoutube" class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-            <span v-if="invalidYoutube" class="icon is-small is-right">
-              <i class="fas fa-times"></i>
-            </span>
-            <input
-              v-if="language === 'en'"
-              :class="{'is-success' : validYoutube, 'is-danger' : invalidYoutube}"
-              v-validate="{required: false, url: true}"
-              v-model="youtube"
-              name="youtube"
-              class="input"
-              type="url"
-              placeholder="Link to your youtube channel"
-            />
-            <input
-              v-if="language === 'sl'"
-              :class="{'is-success' : validYoutube, 'is-danger' : invalidYoutube}"
-              v-validate="{required: false, url: true}"
-              v-model="youtube"
-              name="youtube"
-              class="input"
-              type="url"
-              placeholder="Povezava do vašega youtube kanala"
-            />
-          </div>
-        </div>
-      </div>
+			<!-- Step 2 -->
+			<div :class="{active : activeStep === 2}" class="step step-2">
+				<div class="field">
+					<label class="label">Facebook</label>
+					<div class="control has-icons-right has-icons-left">
+						<span class="icon is-small is-left">
+							<i class="fab fa-facebook-f"></i>
+						</span>
+						<span v-if="validFacebook" class="icon is-small is-right">
+							<i class="fas fa-check"></i>
+						</span>
+						<span v-if="invalidFacebook" class="icon is-small is-right">
+							<i class="fas fa-times"></i>
+						</span>
+						<input
+							v-if="language === 'en'"
+							:class="{'is-success' : validFacebook, 'is-danger' : invalidFacebook}"
+							v-validate="{required: false, url: true}"
+							v-model="facebook"
+							name="facebook"
+							class="input"
+							type="url"
+							placeholder="Link to your facebook profile"
+						/>
+						<input
+							v-if="language === 'sl'"
+							:class="{'is-success' : validFacebook, 'is-danger' : invalidFacebook}"
+							v-validate="{required: false, url: true}"
+							v-model="facebook"
+							name="facebook"
+							class="input"
+							type="url"
+							placeholder="Povezava do vašega facebook profila"
+						/>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">Instagram</label>
+					<div class="control has-icons-right has-icons-left">
+						<span class="icon is-small is-left">
+							<i class="fab fa-instagram"></i>
+						</span>
+						<span v-if="validInstagram" class="icon is-small is-right">
+							<i class="fas fa-check"></i>
+						</span>
+						<span v-if="invalidInstagram" class="icon is-small is-right">
+							<i class="fas fa-times"></i>
+						</span>
+						<input
+							v-if="language === 'en'"
+							:class="{'is-success' : validInstagram, 'is-danger' : invalidInstagram}"
+							v-validate="{required: false, url: true}"
+							v-model="instagram"
+							name="instagram"
+							class="input"
+							type="url"
+							placeholder="Link to your instagram profile"
+						/>
+						<input
+							v-if="language === 'sl'"
+							:class="{'is-success' : validInstagram, 'is-danger' : invalidInstagram}"
+							v-validate="{required: false, url: true}"
+							v-model="instagram"
+							name="instagram"
+							class="input"
+							type="url"
+							placeholder="Povezava do vašega instagram profila"
+						/>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">Youtube</label>
+					<div class="control has-icons-right has-icons-left">
+						<span class="icon is-small is-left">
+							<i class="fab fa-youtube"></i>
+						</span>
+						<span v-if="validYoutube" class="icon is-small is-right">
+							<i class="fas fa-check"></i>
+						</span>
+						<span v-if="invalidYoutube" class="icon is-small is-right">
+							<i class="fas fa-times"></i>
+						</span>
+						<input
+							v-if="language === 'en'"
+							:class="{'is-success' : validYoutube, 'is-danger' : invalidYoutube}"
+							v-validate="{required: false, url: true}"
+							v-model="youtube"
+							name="youtube"
+							class="input"
+							type="url"
+							placeholder="Link to your youtube channel"
+						/>
+						<input
+							v-if="language === 'sl'"
+							:class="{'is-success' : validYoutube, 'is-danger' : invalidYoutube}"
+							v-validate="{required: false, url: true}"
+							v-model="youtube"
+							name="youtube"
+							class="input"
+							type="url"
+							placeholder="Povezava do vašega youtube kanala"
+						/>
+					</div>
+				</div>
+			</div>
 
-      <!-- Step 3 -->
-      <div :class="{active : activeStep === 3}" class="step step-3">
-        <div class="field">
-          <label v-if="language === 'en'" class="label">Tell us more about you</label>
-          <label v-if="language === 'sl'" class="label">Povejte nam več o sebi</label>
-          <div class="control has-icons-right">
-            <span v-if="validDescription" class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-            <span v-if="invalidDescription" class="icon is-small is-right">
-              <i class="fas fa-times"></i>
-            </span>
-            <textarea
-              v-if="language === 'en'"
-              :class="{'is-success' : validDescription, 'is-danger' : invalidDescription}"
-              v-validate="{required: true}"
-              v-model="description"
-              name="description"
-              class="textarea"
-              placeholder="Tell us when you would like to visit and anything else you would like to add."
-            ></textarea>
-            <textarea
-              v-if="language === 'sl'"
-              :class="{'is-success' : validDescription, 'is-danger' : invalidDescription}"
-              v-validate="{required: true}"
-              v-model="description"
-              name="description"
-              class="textarea"
-              placeholder="Predstavite se..."
-            ></textarea>
-          </div>
-        </div>
-        <div class="field">
-          <div class="custom-checkbox-container">
-            <input 
-              type="checkbox"
-              name="not_a_robot"
-              id="not-a-robot"
-              v-model="not_a_robot"
-              v-validate="{required: true}"
-            >
-            <label for="not-a-robot"></label>
-          </div>
-          <label for="not-a-robot" class="label centered">{{ language === 'sl' ? 'Nisem robot' : 'Not a robot' }}</label>
-        </div>
-        <input type="hidden" name="check" v-model="check">
-      </div>
-    </form>
-    <div class="submit-btn-container">
-      <input 
-        :class="{disabled : (activeStep === 1 && !validFirstStep) || (activeStep === 2 && !validSecondStep) || (activeStep === 3 && !validThirdStep)}"
-        @click="handleSubmitBtnClick"
-        id="submit-btn"
-        type="submit"
-        :value="submitButtonValue"
-      >
-    </div>
-    <div class="steps-container">
-      <span @click="changeFormStep(1)" :class="{active : activeStep === 1, visited : activeStep > 1}"></span>
-      <span @click="changeFormStep(2)" :class="{active : activeStep === 2, visited : activeStep > 2}"></span>
-      <span @click="changeFormStep(3)" :class="{active : activeStep === 3}"></span>
-    </div>
-  </div>
+			<!-- Step 3 -->
+			<div :class="{active : activeStep === 3}" class="step step-3">
+				<div class="field">
+					<label v-if="language === 'en'" class="label">Tell us more about you</label>
+					<label v-if="language === 'sl'" class="label">Povejte nam več o sebi</label>
+					<div class="control has-icons-right">
+						<span v-if="validDescription" class="icon is-small is-right">
+							<i class="fas fa-check"></i>
+						</span>
+						<span v-if="invalidDescription" class="icon is-small is-right">
+							<i class="fas fa-times"></i>
+						</span>
+						<textarea
+							v-if="language === 'en'"
+							:class="{'is-success' : validDescription, 'is-danger' : invalidDescription}"
+							v-validate="{required: true}"
+							v-model="description"
+							name="description"
+							class="textarea"
+							placeholder="Tell us when you would like to visit and anything else you would like to add."
+						></textarea>
+						<textarea
+							v-if="language === 'sl'"
+							:class="{'is-success' : validDescription, 'is-danger' : invalidDescription}"
+							v-validate="{required: true}"
+							v-model="description"
+							name="description"
+							class="textarea"
+							placeholder="Predstavite se..."
+						></textarea>
+					</div>
+				</div>
+				<div class="field">
+					<div class="custom-checkbox-container">
+						<input 
+							type="checkbox"
+							name="not_a_robot"
+							id="not-a-robot"
+							v-model="not_a_robot"
+							v-validate="{required: true}"
+						>
+						<label for="not-a-robot"></label>
+					</div>
+					<label for="not-a-robot" class="label centered">{{ language === 'sl' ? 'Nisem robot' : 'Not a robot' }}</label>
+				</div>
+				<input type="hidden" name="check" v-model="check">
+			</div>
+		</form>
+		<div class="submit-btn-container">
+			<input 
+				:class="{disabled : (activeStep === 1 && !validFirstStep) || (activeStep === 2 && !validSecondStep) || (activeStep === 3 && !validThirdStep)}"
+				@click="handleSubmitBtnClick"
+				id="submit-btn"
+				type="submit"
+				:value="submitButtonValue"
+			>
+		</div>
+		<div class="steps-container">
+			<span @click="changeFormStep(1)" :class="{active : activeStep === 1, visited : activeStep > 1}"></span>
+			<span @click="changeFormStep(2)" :class="{active : activeStep === 2, visited : activeStep > 2}"></span>
+			<span @click="changeFormStep(3)" :class="{active : activeStep === 3}"></span>
+		</div>
+	</div>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-  <div id="destination-map">
-    <destination-map-image :activeDestination="activeDestination" :zoom="zoom" />
-  </div>
+	<div id="destination-map">
+		<destination-map-image :active-destination="activeDestination" :zoom="zoom" />
+	</div>
 </template>
 
 <script>
