@@ -8,8 +8,8 @@
       },
       "video": "",
       "description": {
-        "sl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        "sl": "Alpski biser na obrobju Julijskih Alp krasi ledeniško jezero s termalno jezersko vodo, otočkom in gradom na pečini. Živahen ritem majhnega objezerskega mesta umirjata blago podnebje in lepota gora, ki odseva v jezerski gladini, okolica pa ponuja odlične pogoje za prijeten oddih ali dejavne počitnice v vsakem letnem času.",
+        "en": "The Alpine pearl on the edge of the Julian Alps with the glacier lake and thermal lake water, island and a castle on the cliff. The lively rhythm of the small lakeside town is calmed by the mild climate and the beauty of mountains reflecting on the lake's surface, and the surroundings offer excellent conditions for pleasant relaxation or an active vacation in any season."
       },
       "images": [
         "/bled/bled_01.jpg",
@@ -41,8 +41,8 @@
       },
       "video": "",
       "description": {
-        "sl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        "sl": "Skrita oaza miru v objemu Julijskih Alp v osrčju Triglavskega narodnega parka, kjer leži največje naravno jezero v Sloveniji. Tu najdete mir in lepoto neokrnjene narave ter številne možnosti za aktiven oddih v vsakem letnem času. Očarali vas bodo tudi edinstveni, s tradicijo prežeti rokodelski izdelki in kulinarične posebnosti, združene v blagovno znamko Bohinjsko/From Bohinj.",
+        "en": "The hidden oasis of peace in the embrace of the Julian Alps in the heart of the Triglav National Park with the largest natural lake in Slovenia. Here you can find serenity and the beauty of unspoiled nature, as well as many opportunities for an active vacation in any season. You will be bedazzled by unique and traditional craft products as well as culinary specialities, combined under the Bohinjsko/From Bohinj brand."
       },
       "images": [
         "/bohinj/bohinj_01.jpg",
@@ -69,13 +69,13 @@
     {
       "index": 2,
       "name": {
-        "sl": "Goriška Brda",
-        "en": "Goriška Brda"
+        "sl": "Brda",
+        "en": "Brda"
       },
       "video": "",
       "description": {
-        "sl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        "sl": "Pravljična pokrajina s pisanimi vasicami, ugnezdena na pol poti med Alpami in Jadranom, z obiljem lepot, zanimivosti in doživetij. S pridihom Mediterana slovi po odličnih vinih in gastronomskih dobrotah. Goriška Brda so po svetu dobro znana zaradi briškega sadja, vina, izvrstnega oljčnega olja in ostalih pridelkov ter dišeče, okusne briške kuhinje – zgodba, polna doživetij, spominov in radoživega druženja.",
+        "en": "The fairytale landscape with picturesque villages, nestled half way between the Alps and the Adriatic, abounding in beauty, interesting spots and experiences. With a hint of the Mediterranean, it is well-known for its excellent wines and culinary specialities. The Goriška Brda are also known for their fruit, wine, olive oil and other products, as well as culinary specialities – a story full of experiences, memories and joyful gatherings."
       },
       "images": [
         "/goriska-brda/brda_01.jpg",
@@ -89,12 +89,12 @@
       "mapUrl": "https://www.google.si/maps/place/Municipality+of+Brda/@46.0161849,13.4842289,12z/data=!3m1!4b1!4m5!3m4!1s0x477bab32db63550b:0x400f81c823fec90!8m2!3d45.9975652!4d13.5270474",
       "sea_level": 259,
       "cta_text": {
-        "en": "Discover Goriška Brda",
-        "sl": "Odkrijte Goriška Brda"
+        "en": "Discover Brda",
+        "sl": "Odkrijte Brda"
       },
       "phone": {
-        "full": "+386045780205",
-        "display": "(04) 5780 205"
+        "full": "+38653959595",
+        "display": "+386 5 395 95 95"
       },
       "email": "tic@brda.si"
     },
@@ -106,8 +106,8 @@
       },
       "video": "",
       "description": {
-        "sl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        "sl": "Slikoviti svet Julijskih Alp, Triglavskega narodnega parka in smaragdne Soče vas vabi na aktiven oddih. Tu vas bodo navdušila izjemna aktivna doživetja, ki uvrščajo dolino Soče med najbolj priljubljene »outdoor« destinacije v Evropi. Nepozabna doživetja na Soči obogatijo razgledi z okoliških vrhov in raziskovanje zgodovinske dediščine.",
+        "en": "The picturesque world of the Julian Alps, the Triglav National Park and the emerald Soča River invite you for an active vacation. The valley will enthuse you with exceptional active experiences that rank the Soča Valley among the most popular outdoor destinations in Europe. Unforgettable experiences are enriched with the views from the surrounding peaks and by the exploration of historical heritage."
       },
       "images": [
         "/soca-valley/soca_01.jpg",
@@ -140,8 +140,8 @@
       },
       "video": "",
       "description": {
-        "sl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        "sl": "Gorsko sedišče, polno etnografskih draguljev in hkrati sodobnih adrenalinskih športov. Pozimi priljubljeno smučarko središče in prizorišče tekmovanj za alpske smučarje in skakalce. Privlačna točka za ljubitelje adrenalinskih športov ter pohodnike in kolesarje. Številne aktivnosti bodo povsem zapolnile tudi družinske počitnice.",
+        "en": "A town nestled in the embrace of mountains, full of ethnographic jewels and modern adrenaline sports. It is a popular ski centre in winter and a racing venue for alpine skiers and jumpers. It is also an attractive spot for adrenaline sports buffs, hikers and cyclists. Kranjska Gora is the perfect place for an active family vacation."
       },
       "images": [
         "/kranjska-gora/kranjskagora_08.jpg",
@@ -154,7 +154,7 @@
         "/kranjska-gora/kranjskagora_06.jpg"
       ],
       "url": "https://www.kranjska-gora.si/en",
-      "mapUrl": "https://www.google.si/maps/place/4280+Kranjska+Gora/@46.4604035,13.700742,12z/data=!3m1!4b1!4m5!3m4!1s0x477a7ce5980f8af5:0xdc10e282bbdf9dde!8m2!3d46.4845293!4d13.7857145",
+      "mapUrl": "https://www.google.si/maps/place/Municipality+of+Kranjska+Gora/@46.4501378,13.7743495,12z/data=!3m1!4b1!4m5!3m4!1s0x477a87f3fc23335f:0x9fe1dcf69ac47591!8m2!3d46.4883482!4d13.78956",
       "sea_level": 810,
       "cta_text": {
         "en": "Discover Kranjska Gora",
@@ -174,8 +174,8 @@
       },
       "video": "",
       "description": {
-        "sl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        "sl": "Prvinska idila ob vznožju Julijskih Alp med Bledom in Pokljuko vas bo pritegnila s pristnim vaškim utripom, čudovito naravno krajino in bogato kulturno dediščino. Vabi vas k odkrivanju tradicionalnih gorenjskih obrti, ki jih v kraju znova oživljajo, in naravnih biserov, ki so stkali okolico. Med njimi zagotovo kraljuje soteska Vintgar.",
+        "en": "An idyllic village at the foothills of the Julian Alps between Bled and Pokljuka, Gorje will attract you with its genuine village vibes, magnificent natural landscape and rich cultural heritage. It invites you to discover the traditional crafts of Gorenjska, and the natural pearls that have built the environment. The pearl among them is most certainly the Vintgar Gorge."
       },
       "images": [
         "/gorje/gorje_02.jpg",
@@ -205,8 +205,8 @@
       },
       "video": "",
       "description": {
-        "sl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        "sl": "Mesto jekla in cvetja, ki še priča o bogati jeklarski tradiciji, vas iz središča industrijske dediščine vabi v svojo okolico, kjer mesto ponuja odlično izhodišče za izlete in sprehode. Mesto vas vodi med nikoli pozabljene spomine na fužine, ki so jih strnili v okoliš Stare Save z muzejskim središčem, okolica mesta pa vabi med narcise in vrhove okoliških hribov.",
+        "en": "The city of steel and flowers, full of rich steel production tradition, invites you to explore its environs directly from the centre of industrial heritage and thus presents an excellent starting point for tours and walks. The city guides you amidst the never forgotten memories of the ironworks, which are featured in Stara Sava with its museum centre, the surrounding area of the city invites you to walk among the daffodils and to the peaks of the surrounding hills."
       },
       "images": [
         "/jesenice/jesenice_01.jpg",
@@ -238,8 +238,8 @@
       },
       "video": "",
       "description": {
-        "sl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        "sl": "Slikovite vasi pod Stolom in drugimi alpskimi vrhovi na Gorenjskem izžarevajo poseben mir in domačnost. Dediščina preteklosti jih oblikuje v srce kulture in čebelarstva.  Je prostor doživljanje kulture in čebelarstva kot poezije kmetijstva, dediščine preteklosti, ustvarjalnosti svojih velikih mož ter izjemne kulturne in naravne krajine.",
+        "en": "The picturesque villages beneath Stol and other alpine summits in Gorenjska have special characteristics that display peace and homeliness. The heritage of the past shapes them in the heart of culture and bee-keeping tradition.  It is a place where you can explore culture and bee-keeping as the poetry of agriculture, the heritage of the past, the creativity of great Slovenians and the exceptional cultural and natural landscape."
       },
       "images": [
         "/zirovnica/zirovnica_01.jpg",
@@ -270,8 +270,8 @@
       },
       "video": "",
       "description": {
-        "sl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+        "sl": "Dom medu in čokolade. Pristna arhitektura s srednjeveškim središčem in pestrost muzejev odlikujeta to očarljivo zgodovinsko mesto na pragu Julijskih Alp. Središče mesta vas vabi na očarljivo srečanje s preteklostjo, prežeto s sodobnim mestnim utripom, njena okolica pa vabi v naravo, ki s svojimi razglednimi vrhovi, čistimi rekami in prostranimi gozdovi ponuja prostor za aktivna doživetja. ",
+        "en": "The home of honey and chocolate. Authentic architecture, the medieval centre and the diversity of museums shape this charming historical town on the doorstep of the Julian Alps. Radovljica invites you to encounter the past and taste local cuisine in renowned restaurants and at lively events. The surroundings beckon you to explore traditional villages, castle ruins and other historical sites by bike or hike to panoramic summits in the area."
       },
       "images": [
         "/radovljica/radovljica_01.jpg",

@@ -8,7 +8,7 @@
 			<div class="columns">
 				<div class="column iframe-column">
 					<div :class="{active : visible || isOldExplorer}" class="iframe-container" :style="{height: `${iframeHeight}px`, width: '100%'}">
-						<iframe width="100%" :height="iframeHeight" src="https://www.youtube.com/embed/xdV6CHwo2c0?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						<iframe width="100%" :height="iframeHeight" src="https://www.youtube.com/embed/H6o20CpZm10?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 					</div>
 				</div>
 				<div :class="{active: visible || isOldExplorer}" class="column influencer-column">
@@ -21,7 +21,7 @@
 							<span><i class="fas fa-check"></i></span><p>{{ benefit[language] }}</p>
 						</div>
 					</div>
-					<p v-if="language === 'en'"><strong>Are you ready to start your adventure?</strong><br>Tell us more about yourself. Fill the from and show us your content on at least one social media channel.</p>
+					<p v-if="language === 'en'"><strong>Are you ready to start your adventure?</strong><br>Tell us more about yourself. Fill the form and show us your content on at least one social media channel.</p>
 					<p v-if="language === 'sl'"><strong>Ste pripravljeni na začetek vaše pustolovščine?</strong><br>Povejte nam več o sebi. Izpolnite obrazec in nam pokažite svojo vsebino na vsaj enem družbenem omrežju.</p>
 					<div class="cta-container">
 						<a @click.prevent="openInfluencerForm">{{ language === 'sl' ? 'Izpolnite ta obrazec' : 'Fill out this form'}}</a>

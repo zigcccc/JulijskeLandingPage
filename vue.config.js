@@ -1,6 +1,11 @@
 module.exports = {
-    configureWebpack: {
+	configureWebpack: {
 		entry: ['babel-polyfill', './src/main.js'],
+		optimization: {
+			splitChunks: {
+				chunks: 'all'
+			}
+		},
 		module: {
 			rules: [
 				{
@@ -21,5 +26,5 @@ module.exports = {
 		}
 	},
 
-    lintOnSave: undefined
+	lintOnSave: undefined
 };

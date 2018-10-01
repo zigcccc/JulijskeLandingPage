@@ -190,8 +190,10 @@ export default {
   &.align-right
     right: 20px
     @media screen and (max-width: 414px)
-      right: unset
-      left: 10px
+      // right: unset
+      // left: 10px
+      top: unset
+      bottom: -55px
   & > .images-controls-data
     margin: 0 1em
     font-weight: 900

@@ -18,7 +18,8 @@
 				<div v-show="!formSubmitted" :class="{active : !formSubmitted}" class="form-not-submitted">
 					<div class="form-intro">
 						<h3>{{ language === 'sl' ? 'Bi radi postali ustvarjalec medijskih vsebin za destinacijo?' : 'Interested in becoming media content creator for this destination?' }}</h3>
-						<p>Tell us more about yourself. Fill the from and show us your content on at least one social media channel.</p>
+						<p v-if="language === 'en'">Tell us more about yourself. Fill the form and show us your content on at least one social media channel.</p>
+						<p v-if="language === 'sl'">Povejte nam več o sebi. Izpolnite obrazec in nam pokažite svojo vsebino na vsaj enem družbenem omrežju.</p>
 					</div>
 					<influencers-form />
 				</div>

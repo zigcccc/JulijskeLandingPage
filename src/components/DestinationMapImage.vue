@@ -35,8 +35,8 @@
 			<circle class="background-circle" v-show="activeDestination.id === 'gorje'" cx="864.6" cy="144.9" />
 			<circle class="st1" :class="{active : activeDestination.id === 'bohinj'}" cx="612" cy="318" :r="circleRadius('bohinj')"/>
 			<circle class="background-circle" v-show="activeDestination.id === 'bohinj'" cx="612" cy="318"/>
-			<circle class="st1" :class="{active : activeDestination.id === 'goriska-brda'}" cx="210.9" cy="709.6" :r="circleRadius('goriska-brda')"/>
-			<circle class="background-circle" v-show="activeDestination.id === 'goriska-brda'" cx="210.9" cy="709.6" />
+			<circle class="st1" :class="{active : activeDestination.id === 'brda'}" cx="210.9" cy="709.6" :r="circleRadius('brda')"/>
+			<circle class="background-circle" v-show="activeDestination.id === 'brda'" cx="210.9" cy="709.6" />
 			<circle class="st1" :class="{active : activeDestination.id === 'soca-valley'}" cx="210.9" cy="382.9" :r="circleRadius('soca-valley')"/>
 			<circle class="background-circle" v-show="activeDestination.id === 'soca-valley'" cx="210.9" cy="382.9" />
 			<circle class="st1" :class="{active : activeDestination.id === 'kranjska-gora'}" cx="487.2" cy="19.8" :r="circleRadius('kranjska-gora')"/>
@@ -194,8 +194,8 @@
 			<rect @click="handleDestinationClick('bohinj')" x="603.6" y="273.5" class="st2" width="82.3" height="28"/>
 
 			<!-- Goriška Brda -->
-			<g id="goriska-brda-dest" :class="{active : activeDestination.id === 'goriska-brda'}">
-				<path class="st1" d="M241.4,693.7v6.3c-0.7,0.3-1.4,0.5-2.2,0.7c-0.8,0.2-1.7,0.2-2.5,0.2c-1.4,0-2.5-0.3-3.5-0.8
+			<g id="goriska-brda-dest" :class="{active : activeDestination.id === 'brda'}">
+				<!-- <path class="st1" d="M241.4,693.7v6.3c-0.7,0.3-1.4,0.5-2.2,0.7c-0.8,0.2-1.7,0.2-2.5,0.2c-1.4,0-2.5-0.3-3.5-0.8
         s-1.8-1.3-2.3-2.2c-0.5-1-0.8-2.1-0.8-3.4c0-1.3,0.3-2.4,0.8-3.4c0.5-1,1.3-1.7,2.3-2.2c1-0.5,2.1-0.8,3.4-0.8
         c0.9,0,1.8,0.1,2.6,0.4c0.8,0.2,1.4,0.6,1.9,1l-1,2.3c-0.6-0.4-1.1-0.7-1.7-0.8s-1.1-0.2-1.7-0.2c-1.1,0-2,0.3-2.5,0.9
         s-0.8,1.6-0.8,2.9c0,1.3,0.3,2.3,0.9,3s1.5,1,2.6,1c0.6,0,1.1-0.1,1.7-0.2v-2.3h-2.2v-2.2H241.4z"/>
@@ -217,21 +217,23 @@
         l-2.4,2.8h-1.7l-2.4-2.8h2.3l1,1.4L281.7,684.4z"/>
 				<path class="st1" d="M299.8,700.8h-3.9l-5-5.7v5.7h-3.3v-12.5h3.3v5.4l4.9-5.4h3.8l-5.5,6L299.8,700.8z"/>
 				<path class="st1" d="M309.4,700.8l-1.1-2.6h-5.5l-1.1,2.6h-3.3l5.8-12.5h2.6l5.9,12.5H309.4z M303.8,695.7h3.4l-1.7-4L303.8,695.7
-        z"/>
-				<path class="st1" d="M328.6,695.4c0.4,0.5,0.6,1.2,0.6,1.9c0,0.7-0.2,1.3-0.5,1.8s-0.9,0.9-1.5,1.2s-1.5,0.4-2.4,0.4h-6.2v-12.5
-        h6.1c1.3,0,2.4,0.3,3.1,0.9c0.8,0.6,1.2,1.4,1.2,2.4c0,0.6-0.2,1.2-0.5,1.7s-0.8,0.8-1.4,1.1C327.6,694.5,328.2,694.9,328.6,695.4
-        z M321.7,693.1h2.3c0.6,0,1.1-0.1,1.3-0.3s0.4-0.5,0.4-0.9c0-0.4-0.1-0.8-0.4-1c-0.3-0.2-0.7-0.3-1.3-0.3h-2.3V693.1z M325.7,698
-        c0.3-0.2,0.4-0.5,0.4-1s-0.1-0.8-0.4-1s-0.7-0.3-1.4-0.3h-2.6v2.7h2.6C325,698.3,325.4,698.2,325.7,698z"/>
-				<path class="st1" d="M342.1,700.8h-3.6l-2.2-4c-0.3-0.5-0.7-0.7-1.3-0.7h-1v4.7h-3.2v-12.5h6c1.5,0,2.7,0.3,3.4,1s1.1,1.6,1.1,2.9
-        c0,0.9-0.3,1.8-0.8,2.4s-1.3,1.1-2.2,1.3c0.7,0.2,1.3,0.6,1.7,1.4L342.1,700.8z M337.8,693.3c0.3-0.2,0.5-0.6,0.5-1.1
-        c0-0.5-0.2-0.9-0.5-1.1c-0.3-0.2-0.8-0.3-1.6-0.3H334v2.9h2.3C337,693.6,337.5,693.5,337.8,693.3z"/>
-				<path class="st1" d="M343.4,688.2h5.1c1.4,0,2.6,0.2,3.6,0.7c1,0.5,1.8,1.2,2.3,2.2c0.5,0.9,0.8,2.1,0.8,3.3
-        c0,1.3-0.3,2.4-0.8,3.4c-0.5,0.9-1.3,1.7-2.3,2.2c-1,0.5-2.2,0.7-3.6,0.7h-5.1V688.2z M348.3,698.1c1.2,0,2.1-0.3,2.8-0.9
-        c0.6-0.6,0.9-1.5,0.9-2.7c0-1.2-0.3-2.1-0.9-2.7c-0.6-0.6-1.5-0.9-2.8-0.9h-1.6v7.3H348.3z"/>
-				<path class="st1" d="M366.3,700.8l-1.1-2.6h-5.5l-1.1,2.6h-3.3l5.8-12.5h2.6l5.9,12.5H366.3z M360.7,695.7h3.4l-1.7-4L360.7,695.7
-        z"/>
+        z"/> -->
+				<g id="brda-trimmed">
+					<path class="st1" d="M328.6,695.4c0.4,0.5,0.6,1.2,0.6,1.9c0,0.7-0.2,1.3-0.5,1.8s-0.9,0.9-1.5,1.2s-1.5,0.4-2.4,0.4h-6.2v-12.5
+          h6.1c1.3,0,2.4,0.3,3.1,0.9c0.8,0.6,1.2,1.4,1.2,2.4c0,0.6-0.2,1.2-0.5,1.7s-0.8,0.8-1.4,1.1C327.6,694.5,328.2,694.9,328.6,695.4
+          z M321.7,693.1h2.3c0.6,0,1.1-0.1,1.3-0.3s0.4-0.5,0.4-0.9c0-0.4-0.1-0.8-0.4-1c-0.3-0.2-0.7-0.3-1.3-0.3h-2.3V693.1z M325.7,698
+          c0.3-0.2,0.4-0.5,0.4-1s-0.1-0.8-0.4-1s-0.7-0.3-1.4-0.3h-2.6v2.7h2.6C325,698.3,325.4,698.2,325.7,698z"/>
+					<path class="st1" d="M342.1,700.8h-3.6l-2.2-4c-0.3-0.5-0.7-0.7-1.3-0.7h-1v4.7h-3.2v-12.5h6c1.5,0,2.7,0.3,3.4,1s1.1,1.6,1.1,2.9
+          c0,0.9-0.3,1.8-0.8,2.4s-1.3,1.1-2.2,1.3c0.7,0.2,1.3,0.6,1.7,1.4L342.1,700.8z M337.8,693.3c0.3-0.2,0.5-0.6,0.5-1.1
+          c0-0.5-0.2-0.9-0.5-1.1c-0.3-0.2-0.8-0.3-1.6-0.3H334v2.9h2.3C337,693.6,337.5,693.5,337.8,693.3z"/>
+					<path class="st1" d="M343.4,688.2h5.1c1.4,0,2.6,0.2,3.6,0.7c1,0.5,1.8,1.2,2.3,2.2c0.5,0.9,0.8,2.1,0.8,3.3
+          c0,1.3-0.3,2.4-0.8,3.4c-0.5,0.9-1.3,1.7-2.3,2.2c-1,0.5-2.2,0.7-3.6,0.7h-5.1V688.2z M348.3,698.1c1.2,0,2.1-0.3,2.8-0.9
+          c0.6-0.6,0.9-1.5,0.9-2.7c0-1.2-0.3-2.1-0.9-2.7c-0.6-0.6-1.5-0.9-2.8-0.9h-1.6v7.3H348.3z"/>
+					<path class="st1" d="M366.3,700.8l-1.1-2.6h-5.5l-1.1,2.6h-3.3l5.8-12.5h2.6l5.9,12.5H366.3z M360.7,695.7h3.4l-1.7-4L360.7,695.7
+          z"/>
+				</g>
 			</g>
-			<rect @click="handleDestinationClick('goriska-brda')" x="224.5" y="684.4" class="st2" width="151.2" height="21.7"/>
+			<rect @click="handleDestinationClick('brda')" x="224.5" y="684.4" class="st2" width="151.2" height="21.7"/>
 
 			<!-- Soča Valley -->
 			<g id="soca-valley-dest" :class="{active : activeDestination.id === 'soca-valley'}">
@@ -316,7 +318,7 @@ export default {
             return 'transform: scale(1.2) translate3d(-340px,100px,0)'
           case 'bohinj':
             return 'transform: scale(.95) translate3d(-150px,0,0)'
-          case 'goriska-brda':
+          case 'brda':
             return 'transform: scale(1) translate3d(220px, -350px, 0)';
           case 'soca-valley':
             return 'transform: scale(1.1) translate3d(300px, -180px, 0)';
@@ -404,6 +406,9 @@ circle.st1
       left: 0
       z-index: -1
       background: transparentize($primary, .8)
+
+#brda-trimmed
+  transform: translateX(-60px) !important
 
 #map_places_names
   .active

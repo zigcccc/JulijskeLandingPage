@@ -4,7 +4,8 @@
 			<div class="columns">
 				<div class="column is-three-fifths">
 					<h2 :class="{active : isVisible || isOldExplorer}">{{ language === 'sl' ? 'Triglavski Narodni Park' : 'Triglav National Park' }}</h2>
-					<p :class="{active : isVisible || isOldExplorer}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+					<p v-if="language === 'en'" :class="{active : isVisible || isOldExplorer}">This dynamic mountain karst terrain features picturesque mountain peaks and valleys as well as numerous natural and cultural attractions and is perfect for activities in nature and for spending your leisure time actively. The diverse glacier landscape is the home to wild, diverse and adaptable, but at the same time fragile and sensitive nature. Quality products, filled with love, are made by the local people.</p>
+					<p v-if="language === 'sl'" :class="{active : isVisible || isOldExplorer}">Na razgibanem terenu gorskega krasa s slikovitimi gorskimi vrhovi in dolinami so številne naravne in kulturne znamenitosti ter mnoge možnosti za dejavnosti v naravi in aktivno preživljanje prostega časa. Razgibana ledeniška krajina je dom divje, pestre in prilagodljive, a hkrati krhke ter občutljive narave. Izpod rok lokalnega prebivalstva nastajajo kakovostni, z ljubeznijo prežeti izdelki.</p>
 					<div class="tnp-cta-container" :class="{active : isVisible || isOldExplorer}">
 						<a v-if="language === 'en'" href="https://www.tnp.si/en/learn/" target="_blank">discover triglav national park</a>
 						<a v-if="language === 'sl'" href="https://www.tnp.si/sl/spoznajte/" target="_blank">odkrijte triglavski narodni park</a>

@@ -2,7 +2,7 @@
 	<div class="social-links" :class="{inverted : inNavbar}">
 		<a @click="handleSocialLinkClick('facebook')" href="https://www.facebook.com/Julian-Alps-1934854016538360/" target="_blank"><i class="fab fa-facebook-f"></i></a>
 		<a @click="handleSocialLinkClick('instagram')" href="https://www.instagram.com/julian.alps/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
-		<a @click="handleSocialLinkClick('youtube')" href="https://www.youtube.com/watch?v=xdV6CHwo2c0&feature=youtu.be" target="_blank"><i class="fab fa-youtube"></i></a>
+		<a @click="handleSocialLinkClick('youtube')" href="https://youtu.be/H6o20CpZm10" target="_blank"><i class="fab fa-youtube"></i></a>
 	</div>
 </template>
 
