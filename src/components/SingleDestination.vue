@@ -9,7 +9,7 @@
 			</div>
 			<div class="destination-images-container" :class="{active : isActiveDestination || isOldExplorer}">
 				<destination-images :images="destination.images" :destination="destination.id" controls-align="right" />
-				<destination-clouds v-if="destination.images.length > 0" :destination="destination.id" :section-offset="sectionOffset" :animation="false" :parallax="true" />
+				<destination-clouds v-if="destination.images.length > 0" :page-offset="pageOffset" :destination="destination.id" :section-offset="sectionOffset" :animation="false" :parallax="true" />
 			</div>
 		</div><!-- END destination-container -->
 	</div>
@@ -22,6 +22,16 @@ import DestinationClouds from '@/components/DestinationClouds'
 export default {
   name: 'SingleDestination',
   components: {DestinationImages, DestinationClouds},
+  props: {
+    pageOffset: {
+      type: Number,
+      required: true
+    },
+    destination: {
+      type: Object,
+      required: true
+    }
+  },
   data(){
     return {
       isInViewport: false,
@@ -36,12 +46,6 @@ export default {
           url('/images/destinations/${this.destination.id}.jpg')
         `
       }
-    }
-  },
-  props: {
-    destination: {
-      type: Object,
-      required: true
     }
   },
   methods: {
@@ -81,21 +85,18 @@ export default {
     },
     isOldExplorer() {
       return this.$store.getters.getMicrosoft.version <= 11;
+    },
+    offset() {
+      return this.$props.pageOffset;
     }
   },
-  created() {
-    document.addEventListener('scroll', e => {
-      if(this.isIE) {
-        return
-      }
-      this.checkViewport(e.target.scrollingElement.scrollTop);
-    })
+  watch: {
+    offset(val) {
+      this.checkViewport(val);
+    }
   },
   mounted() {
-    this.sectionOffset = this.$el.offsetTop + this.$store.state.heroHeight
-  },
-  destroyed() {
-    document.removeEventListener('scroll', this.checkViewport)
+    this.sectionOffset = this.$el.offsetTop + this.$store.getters.getHeroHeight;
   }
 }
 </script>

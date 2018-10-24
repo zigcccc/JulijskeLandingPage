@@ -41,6 +41,10 @@ export default {
     heroHeight: {
       type: Number,
       required: true
+    },
+    pageOffset: {
+      type: Number,
+      required: true
     }
   },
   data(){
@@ -64,6 +68,9 @@ export default {
     },
     language() {
       return this.$store.getters.getLanguage;
+    },
+    offset() {
+      return this.$props.pageOffset;
     }
   },
   methods: {
@@ -99,16 +106,10 @@ export default {
       }
     }
   },
-  created(){
-    document.addEventListener('scroll', e => {
-      if (this.isIE) {
-        return
-      }
-      this.scrollTop(e.target.scrollingElement.scrollTop);
-    })
-  },
-  destroyed() {
-    document.removeEventListener('scroll', this.scrollTop)
+  watch: {
+    offset(val) {
+      this.scrollTop(val);
+    }
   }
 }
 </script>

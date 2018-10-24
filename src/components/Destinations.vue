@@ -2,6 +2,7 @@
 	<main id="destinations" :class="{'full-width' : microsoft}">
 		<destination-navigation />
 		<single-destination
+      :page-offset="pageOffset"
 			v-for="destination in destinations"
 			:key="destination.id"
 			:destination="destination"
@@ -16,6 +17,12 @@ import SingleDestination from '@/components/SingleDestination'
 export default {
   name: 'Destinations',
   components: { DestinationNavigation, SingleDestination },
+  props: {
+    pageOffset: {
+      type: Number,
+      required: true
+    }
+  },
   computed: {
     destinations() {
       return this.$store.getters.getDestinations

@@ -1,4 +1,4 @@
-<template>
+04 <template>
 	<footer v-show="visible || isOldExplorer" :class="{'is-ie' : isOldExplorer}">
 		<div class="container is-fluid">
 			<div class="footer-header">
@@ -18,15 +18,24 @@
 						<a :href="`tel:${destination.phone.full}`">{{ destination.phone.display }}</a><br>
 						<a :href="`mailto:${destination.email}`">{{ destination.email }}</a><br>
 					</div>
-					<div class="logos-container">
-						<a href="https://www.slovenia.info/en" target="_blank" id="feel-slovenia-footer">
-							<feel-slovenia />
-						</a>
-						<a href="https://www.lonelyplanet.com/slovenia/the-julian-alps" target="_blank" id="lonely-planet">
-							<img src="@/assets/lonelyPlanet.png" alt="Lonely Planet Julian Alps Slovenia" />
-						</a>
+					<div>
+						<h5>{{ language === 'sl' ? 'Triglavski narodni park' : 'Triglav National Park' }}</h5>
+						<a 
+							:href="language === 'sl' ? 'https://www.tnp.si/' : 'https://www.tnp.si/en'"
+							target="_blank">{{language === 'sl' ? 'www.tnp.si/' : 'www.tnp.si/en'}}
+						</a><br>
+						<a href="tel:045780205">04 5780 205</a><br>
+						<a href="mailto:info.trb@tnp.gov.si">info.trb@tnp.gov.si</a>
 					</div>
 				</div>
+        <div class="logos-container">
+          <a href="https://www.slovenia.info/en" target="_blank" id="feel-slovenia-footer">
+            <feel-slovenia />
+          </a>
+          <a href="https://www.lonelyplanet.com/slovenia/the-julian-alps" target="_blank" id="lonely-planet">
+            <img src="@/assets/lonelyPlanet.png" alt="Lonely Planet Julian Alps Slovenia" />
+          </a>
+        </div>
 			</div>
 			<div class="footer-legal-info">
 				&copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span><div id="site-authors">{{ language === 'sl' ? 'Izdelava spletne strani' : 'Website production' }}: <a href="https://forward.si" target="_blank">Forward - agencija za digitalni marketing</a></div>
@@ -45,37 +54,40 @@
 </template>
 
 <script>
-import SocialLinks from '@/components/SocialLinks'
-import FeelSlovenia from '@/components/FeelSlovenia'
-import Logo from '@/components/Logo'
-import LanguageSwitcher from '@/components/LanguageSwitcher'
+import SocialLinks from '@/components/SocialLinks';
+import FeelSlovenia from '@/components/FeelSlovenia';
+import Logo from '@/components/Logo';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default {
-  name: 'SiteFooter',
-  components: {SocialLinks, Logo, FeelSlovenia, LanguageSwitcher},
-  computed: {
-    visible() {
-      return this.$store.getters.isPastDestinations || this.$store.getters.getMicrosoft.version <= 11;
-    },
-    destinationsContactInfo() {
-      return this.$store.getters.getDestinationsContactInfo
-    },
-    language(){
-      return this.$store.getters.getLanguage;
-    },
-    isOldExplorer() {
-      return this.$store.getters.getMicrosoft.version <= 11;
-    }
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
-    }
-  }
-}
+	name: 'SiteFooter',
+	components: { SocialLinks, Logo, FeelSlovenia, LanguageSwitcher },
+	computed: {
+		visible() {
+			return (
+				this.$store.getters.isPastDestinations ||
+				this.$store.getters.getMicrosoft.version <= 11
+			);
+		},
+		destinationsContactInfo() {
+			return this.$store.getters.getDestinationsContactInfo;
+		},
+		language() {
+			return this.$store.getters.getLanguage;
+		},
+		isOldExplorer() {
+			return this.$store.getters.getMicrosoft.version <= 11;
+		}
+	},
+	methods: {
+		scrollToTop() {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		}
+	}
+};
 </script>
 
 <style lang="sass" scoped>
@@ -164,31 +176,33 @@ footer
       +simpleTransition
       &:hover
         color: $primary
-    .logos-container
-      display: flex
-      align-items: center
-      justify-content: flex-start
-      & > a
-        max-width: 35%
-        @media screen and (max-width: 768px)
-          max-width: unset
-      #lonely-planet
-        &:hover
-          & > img
-            transform: scale(1.2)
+  .logos-container
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    margin-bottom: 1em
+    & > a
+      max-width: 15%
+      @media screen and (max-width: 768px)
+        max-width: unset
+    #lonely-planet
+      &:hover
         & > img
-          +easeTransition(500ms)
-          transform: scale(1)
-      #feel-slovenia-footer
-        display: flex
-        justify-content: flex-start
-        align-items: center
-        & > svg
-          +easeTransition(500ms)
-          width: 75%
-          transform: translate3d(0, 0, 0)
-          &:hover
-            transform: translate3d(0, 0, 0) scale(1.2)
+          transform: scale(1.2)
+      & > img
+        +easeTransition(500ms)
+        transform: scale(1)
+    #feel-slovenia-footer
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      & > svg
+        +easeTransition(500ms)
+        width: 75%
+        transform: translate3d(0, 0, 0)
+        &:hover
+          transform: translate3d(0, 0, 0) scale(1.2)
 
 .footer-legal-info
   font-size: 14px

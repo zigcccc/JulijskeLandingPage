@@ -34,6 +34,10 @@ export default {
     siteLoaded: {
       type: Boolean,
       required: true
+    },
+    pageOffset: {
+      type: Number,
+      required: true
     }
   },
   data(){
@@ -88,18 +92,15 @@ export default {
     },
     isOldMicrosoft() {
       return this.$store.getters.getMicrosoft.version <= 11;
+    },
+    offset() {
+      return this.$props.pageOffset;
     }
   },
-  created(){
-    document.addEventListener('scroll', e => {
-      if (this.isIE) {
-        return
-      }
-      this.parallax(e.target.scrollingElement.scrollTop);
-    })
-  },
-  destroyed(){
-    document.removeEventListener('scroll', this.parallax)
+  watch: {
+    offset(val) {
+      this.parallax(val);
+    }
   }
 }
 </script>

@@ -366,7 +366,7 @@ export default {
           description: this.description
         }
         // Change this when going to full production - https://julian-alps.com/api/submit/submit-influencer-form/
-        let url = this.env === 'development' ? 'http://localhost:8000' : 'http://julian-alps.com/api/submit-influencer-form/';
+        let url = this.env === 'development' ? 'http://localhost:8000' : 'https://julian-alps.com/api/submit-influencer-form/';
 
         this.$store.dispatch('changeFormLoadingStatus', true);
 

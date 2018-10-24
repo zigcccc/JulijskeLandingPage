@@ -30,6 +30,10 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    pageOffset: {
+      type: Number,
+      required: false
     }
   },
   data() {
@@ -45,11 +49,14 @@ export default {
   computed: {
     isIE() {
       return this.$store.getters.getMicrosoft.isMicrosoft;
+    },
+    offset() {
+      return this.$props.pageOffset;
     }
   }, 
   methods: {
     cloudParallax(scrollTop) {
-      if(this.parallax) {
+      if(scrollTop) {
         if (this.destination === this.$store.state.activeDestination.id) {
           let factor1 = -((scrollTop - this.sectionOffset) / 6).toFixed(2) + 50;
           let factor2 = -((scrollTop - this.sectionOffset) / 12).toFixed(2) + 50;
@@ -60,17 +67,10 @@ export default {
       }
     }
   },
-  created() {
-    document.addEventListener('scroll', e => {
-      if (this.isIE) {
-        this.cloudParallax(document.documentElement.scrollTop);
-      } else {
-        this.cloudParallax(e.target.scrollingElement.scrollTop);
-      } 
-    })
-  },
-  destroyed() {
-    document.removeEventListener('scroll', this.cloudParallax)
+  watch: {
+    offset(val) {
+      this.cloudParallax(val);
+    }
   }
 }
 </script>

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-eslint": "^10.0.1",
     "babel-polyfill": "^6.26.0",
     "bulma": "^0.7.1",
     "chart.js": "^2.7.2",
@@ -35,7 +36,7 @@
     "@vue/cli-plugin-babel": "^3.0.0-rc.3",
     "@vue/cli-plugin-eslint": "^3.0.0-rc.3",
     "@vue/cli-service": "^3.0.0-rc.3",
-    "eslint": "^5.2.0",
+    "eslint": "^5.7.0",
     "eslint-loader": "^2.1.0",
     "eslint-plugin-compat": "^2.5.1",
     "eslint-plugin-vue": "^4.7.1",

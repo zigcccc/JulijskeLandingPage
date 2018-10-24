@@ -1,7 +1,7 @@
 <template>
 	<section id="hero" :style="{backgroundImage: `url(${bgimage})`}">
-		<navbar :hero-height="heroHeight" />
-		<hero-background :hero-height="heroHeight" :site-loaded="loaded" />
+		<navbar :page-offset="pageOffset" :hero-height="heroHeight" />
+		<hero-background :hero-height="heroHeight" :site-loaded="loaded" :page-offset="pageOffset" />
 		<div class="container">
 			<div class="hero-columns">
 				<div class="hero-title" :class="{'is-ie' : isOldMicrosoft}">
@@ -26,6 +26,12 @@ import Navbar from '@/components/Navbar'
 export default {
   name: 'Hero',
   components: {Navbar, HeroBackground},
+  props: {
+    pageOffset: {
+      type: Number,
+      required: true
+    }
+  },
   data(){
     return {
       bgimage: '/images/background_02.jpg',
@@ -49,6 +55,9 @@ export default {
     },
     isOldMicrosoft() {
       return this.$store.getters.getMicrosoft.version <= 11;
+    },
+    offset() {
+      return this.$props.pageOffset;
     }
   },
   methods: {
@@ -82,22 +91,13 @@ export default {
       
     }
   },
-  created(){
-    window.addEventListener('resize', () => {
-      this.$store.dispatch('setHeroHeight', this.getHeroHeight());
-    })
-    document.addEventListener('scroll', e => {
-      if (this.isIE) {
-        return
-      }
-      this.parallax(e.target.scrollingElement.scrollTop);
-    })
+  watch: {
+    offset(val) {
+      this.parallax(val);
+    }
   },
   mounted(){
     this.$store.dispatch('setHeroHeight', this.getHeroHeight());
-  },
-  destroyed(){
-    document.removeEventListener('scroll', this.parallax)
   }
 }
 </script>
@@ -111,8 +111,6 @@ export default {
     repeat: no-repeat
     size: cover
     position: 0% 0%
-  @media screen and (max-width: 1440px)
-    //height: calc(#{$hero-height} - 75px)
 
 .hero-columns
   margin-top: 45vh

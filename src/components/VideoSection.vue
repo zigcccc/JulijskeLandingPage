@@ -37,6 +37,12 @@ import DestinationClouds from '@/components/DestinationClouds'
 export default {
   name: 'VideoSection',
   components: {DestinationClouds},
+  props: {
+    pageOffset: {
+      type: Number,
+      required: true
+    }
+  },
   data() {
     return {
       iframeHeight: 0,
@@ -70,6 +76,9 @@ export default {
     },
     isOldExplorer() {
       return this.$store.getters.getMicrosoft.version <= 11;
+    },
+    offset() {
+      return this.$props.pageOffset;
     }
   },
   methods: {
@@ -96,14 +105,13 @@ export default {
       }
     }
   },
+  watch: {
+    offset(val) {
+      this.parallax(val);
+    }
+  },
   mounted() {
     this.iframeHeight = this.getIframeHeight(this.$el.querySelector('iframe'));
-    document.addEventListener('scroll', e => {
-      if (this.isIE) {
-        return
-      }
-      this.parallax(e.target.scrollingElement.scrollTop);
-    })
   }
 }
 </script>
@@ -111,6 +119,7 @@ export default {
 <style lang="sass" scoped>
 #video-section
   overflow: hidden
+  margin-bottom: $footer-height
   background:
     image: url('/images/patterns/topography.png')
     repeat: repeat
@@ -118,7 +127,7 @@ export default {
     attachment: fixed
   position: relative
   z-index: 10005
-  margin-bottom: $footer-height
+  //margin-bottom: $footer-height
   padding-bottom: 15vh
   &.is-ie
     margin-bottom: 0

@@ -3,16 +3,20 @@
 		<div class="container is-fluid">
 			<div class="columns">
 				<div class="column is-three-fifths">
-					<h2 :class="{active : isVisible || isOldExplorer}">{{ language === 'sl' ? 'Triglavski Narodni Park' : 'Triglav National Park' }}</h2>
-					<p v-if="language === 'en'" :class="{active : isVisible || isOldExplorer}">This dynamic mountain karst terrain features picturesque mountain peaks and valleys as well as numerous natural and cultural attractions and is perfect for activities in nature and for spending your leisure time actively. The diverse glacier landscape is the home to wild, diverse and adaptable, but at the same time fragile and sensitive nature. Quality products, filled with love, are made by the local people.</p>
-					<p v-if="language === 'sl'" :class="{active : isVisible || isOldExplorer}">Na razgibanem terenu gorskega krasa s slikovitimi gorskimi vrhovi in dolinami so številne naravne in kulturne znamenitosti ter mnoge možnosti za dejavnosti v naravi in aktivno preživljanje prostega časa. Razgibana ledeniška krajina je dom divje, pestre in prilagodljive, a hkrati krhke ter občutljive narave. Izpod rok lokalnega prebivalstva nastajajo kakovostni, z ljubeznijo prežeti izdelki.</p>
-					<div class="tnp-cta-container" :class="{active : isVisible || isOldExplorer}">
+					<h2 :class="{active : dataVisible || isOldExplorer}">{{ language === 'sl' ? 'Triglavski Narodni Park' : 'Triglav National Park' }}</h2>
+					<p v-if="language === 'en'" :class="{active : dataVisible || isOldExplorer}">
+						This dynamic mountain karst terrain features picturesque mountain peaks and valleys as well as numerous natural and cultural attractions and is perfect for activities in nature and for spending your leisure time actively. The diverse glacier landscape is the home to wild, diverse and adaptable, but at the same time fragile and sensitive nature. Quality products, filled with love, are made by the local people.
+					</p>
+					<p v-if="language === 'sl'" :class="{active : dataVisible || isOldExplorer}">
+						Na razgibanem terenu gorskega krasa s slikovitimi gorskimi vrhovi in dolinami so številne naravne in kulturne znamenitosti ter mnoge možnosti za dejavnosti v naravi in aktivno preživljanje prostega časa. Razgibana ledeniška krajina je dom divje, pestre in prilagodljive, a hkrati krhke ter občutljive narave. Izpod rok lokalnega prebivalstva nastajajo kakovostni, z ljubeznijo prežeti izdelki.
+					</p>
+					<div class="tnp-cta-container" :class="{active : dataVisible || isOldExplorer}">
 						<a v-if="language === 'en'" href="https://www.tnp.si/en/learn/" target="_blank">discover triglav national park</a>
 						<a v-if="language === 'sl'" href="https://www.tnp.si/sl/spoznajte/" target="_blank">odkrijte triglavski narodni park</a>
 					</div>
 				</div>
 				<div class="column is-special">
-					<span :class="{active : isVisible || isOldExplorer}" id="nadmorska-visina" v-if="isVisible">
+					<span :class="{active : dataVisible || isOldExplorer}" id="nadmorska-visina" v-if="dataVisible">
 						<small v-if="language === 'en'"><span><i class="fas fa-map-pin"></i></span>highest point in Slovenia - <strong>Mt. Triglav</strong></small>
 						<small v-if="language === 'sl'"><span><i class="fas fa-map-pin"></i></span>najvišja točka v Sloveniji - <strong>Triglav</strong></small>
 						<i-count-up 
@@ -49,9 +53,15 @@ import InfluencersForm from '@/components/InfluencersForm';
 export default {
   name: 'TriglavNationalPark',
   components: {ICountUp, DestinationImages, DestinationClouds, InfluencersForm},
+  props: {
+    pageOffset: {
+      type: Number,
+      required: true
+    }
+  },
   data() {
     return {
-      footerHeight: 455,
+      footerHeight: 650,
       startVal: 491,
       endVal: 2864,
       duration: 3.5,
@@ -59,6 +69,7 @@ export default {
       mountainsVisible: false,
       factor: 1.77,
       iframeWidth: 0,
+      dataVisible: false,
       options: {
         useEasing: true,
         separator: '',
@@ -69,7 +80,7 @@ export default {
     handleScroll(scroll) {
       const padding = this.sectionHeight - this.footerHeight;
       // Handle store dispatch
-      if (scroll >= this.$el.offsetTop - padding  && !this.$store.getters.isPastDestinations) {
+      if (scroll >= this.$el.offsetTop  && !this.$store.getters.isPastDestinations) {
         this.$store.dispatch('pastDestinations', true);
         this.$ga.event({
           eventCategory: 'TNP Section View',
@@ -77,8 +88,15 @@ export default {
           eventLabel: window.location.pathanme
         });
       }
-      if (scroll < this.$el.offsetTop - padding && this.$store.getters.isPastDestinations) {
+      if (scroll < this.$el.offsetTop && this.$store.getters.isPastDestinations) {
         this.$store.dispatch('pastDestinations', false)
+      }
+      // Handle visibility
+      if (scroll >= this.$el.offsetTop - padding) {
+        this.dataVisible = true;
+      }
+      if (scroll < this.$el.offsetTop - padding) {
+        this.dataVisible = false;
       }
       // Handle mountains
       const mountainsPadding = Math.floor((this.sectionHeight / 6));
@@ -98,9 +116,6 @@ export default {
       }
       return arr
     },
-    isVisible() {
-      return this.$store.getters.isPastDestinations;
-    },
     sectionHeight() {
       if(this.$el) {
         return this.$el.clientHeight
@@ -117,19 +132,15 @@ export default {
     },
     isOldExplorer() {
       return this.$store.getters.getMicrosoft.version <= 11;
+    },
+    offset() {
+      return this.$props.pageOffset;
     }
   },
-  mounted() {
-    //this.iframeWidth = document.querySelector('.iframe-container iframe').clientWidth;
-    document.addEventListener('scroll', e => {
-      if (this.isIE) {
-        return
-      }
-      this.handleScroll(e.target.scrollingElement.scrollTop);
-    })
-  },
-  destroyed() {
-    document.removeEventListener('scroll', this.handleScroll);
+  watch: {
+    offset(val) {
+      this.handleScroll(val);
+    }
   }
 }
 </script>

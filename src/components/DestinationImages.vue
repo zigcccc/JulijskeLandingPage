@@ -105,16 +105,11 @@ export default {
     }
   },
   watch: {
-    pastDestinations(cond) {
-      if (cond) {
-        this.changeImage(0);
-      }
-      else {
-        if (this.$store.getters.getWindowWidth > 768) {
-          this.changeImage(1);
-        } else {
-          this.changeImage(0)
-        }
+    pastDestinations() {
+      if (this.$store.getters.getWindowWidth > 768) {
+        this.changeImage(1);
+      } else {
+        this.changeImage(0)
       }
     },
     activeDestination() {

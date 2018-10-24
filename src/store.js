@@ -169,6 +169,9 @@ const store = new Vuex.Store({
 		isPastDestinations: state => {
 			return state.pastDestinations;
 		},
+		getHeroHeight: state => {
+			return state.heroHeight;
+		},
 		getDestinations: state => {
 			return state.destinations.map(destination => {
 				let destinationID = destination.name['en']
