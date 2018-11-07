@@ -119,7 +119,6 @@ export default {
 <style lang="sass" scoped>
 #video-section
   overflow: hidden
-  margin-bottom: $footer-height
   background:
     image: url('/images/patterns/topography.png')
     repeat: repeat

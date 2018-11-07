@@ -8,7 +8,7 @@
 		<destinations :page-offset="pageOffset" />
 		<triglav-national-park :page-offset="pageOffset" />
 		<video-section :page-offset="pageOffset" />
-		<!-- <ski-tickets /> -->
+		<ski-tickets :page-offset="pageOffset" />
 		<site-footer />
 	</div>
 </template>
