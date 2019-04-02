@@ -38,7 +38,7 @@
         </div>
 			</div>
 			<div class="footer-legal-info">
-				&copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span><div id="site-authors">{{ language === 'sl' ? 'Izdelava spletne strani' : 'Website production' }}: <a href="https://forward.si" target="_blank">Forward - agencija za digitalni marketing</a></div>
+				&copy;{{ new Date().getFullYear() }}, Julian Alps<span>|</span><div id="site-authors">{{ language === 'sl' ? 'Izdelava spletne strani' : 'Website production' }}: <a href="https://www.forward.si/?utm_source=client-website&utm_campaign=julijske_alpe" target="_blank">Agencija Forward, Google Partner</a></div>
 			</div>
 		</div>
 		<a @click.prevent="scrollToTop" href="#" id="go-to-top">
