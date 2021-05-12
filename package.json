@@ -12,7 +12,7 @@
     "babel-eslint": "^10.0.1",
     "babel-polyfill": "^6.26.0",
     "bulma": "^0.7.1",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "count-js": "^1.1.0",
     "countup.js": "^1.9.3",
     "es6-promise": "^4.2.4",
